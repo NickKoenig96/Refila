@@ -2,10 +2,11 @@
     box-sizing: border-box;
 }
 
-.error{
-    color:#E85489 ;
+.error {
+    color: #E85489;
     background-color: #F4F4F4;
-    padding: 0.5em;
+    padding: 0.2em;
+    padding-left: 1em;
     border-radius: 25px;
     border-style: none;
     visibility: hidden;
@@ -60,9 +61,41 @@
     display: block;
     margin-left: 25%;
     margin-right: 25%;
-    margin-top: 2.5em ;
+    margin-top: 2.5em;
     width: 50%;
     color: #171717;
     text-decoration: none;
     text-align: center;
+}
+
+.registerLogo img {
+    margin-top: 2.5%;
+}
+
+.loginCheckbox {
+    display: flex;
+    align-items: flex-start;
+}
+
+.checkbox {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: 1em;
+    border-radius: 80%;
+    background-color: #F4F4F4;
+    margin-left: 1em;
+
+}
+
+.checkbox:hover{
+    border: 5px solid #37B6D3;
+
+}
+
+
+
+.loginCheckbox p {
+    margin-left: 1em;
+    align-items: baseline;
 }

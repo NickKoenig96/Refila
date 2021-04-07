@@ -24,7 +24,7 @@
     <label id="loginLabel" for="password">WACHTWOORD</label>
     <input id="loginInput"  type="text" name="password" placeholder="Wachtwoord">
 
-    <input id="loginSubmit" type="submit" name="submit">
+    <input id="loginSubmit" type="submit" name="submit" value="Login">
     
     <a href="register.php">Registreren</a>
 
