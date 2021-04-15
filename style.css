@@ -111,14 +111,12 @@ body {
 
 /* mobile nav */
 
-.mobileNav{
-    display: block;
-}
+
 
 nav {
     display: flex;
     align-items: flex-start;
-    gap: 1em;
+    gap: 15%;
     padding: 1em;
 }
 
@@ -130,17 +128,19 @@ nav {
 .coins {
     border: 3px solid #37B6D3;
     border-radius: 5px;
-    padding: 0.5em;
+    padding: 0.2em;
+    display: flex;
+    flex-direction: row;
+    height: 3em;
 }
 
 .coins p {
-    display: inline;
     color: #37B6D3;
     font-weight: bold;
+    margin-top: 6px;
 }
 
 #navIcon {
-    padding-top: 0.5em;
     width: 2em;
     margin-left: 4em;
 }
@@ -307,6 +307,7 @@ footer div{
 .ordersContainer{
     background-color: #F5F5F5;
     padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .ordersCard{
@@ -437,7 +438,114 @@ font-weight: bold;
 }
 
 .footer{
-    margin-top: 17em;
+    margin-top: 15em;
 }
+
+/* stats */
+ .statsCoins{
+    color: #37B6D3;
+    display: flex;
+    flex-direction: row;
+    width: 4em;
+    margin-left: auto;
+    margin-right: auto;
+
+ }
+
+ .statsH3{
+     width: 16em ;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ .statsLine {
+    display: block;
+    background-color: black;
+    width: 50%;
+    padding: 0.05em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ratings div{
+    display: flex;
+    flex-direction: row;
+    background-color: #F5F5F5;
+    padding: 0.5em;
+    padding-left: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
+
+
+}
+
+.ratings p{
+    font-weight: bold;
+    padding-right: 1em;
+}
+
+.star{
+    color: #37B6D3;
+    font-size: x-large;
+
+}
+
+.ratings img{
+    width: 3em;
+}
+
+.leaderboardStats{
+    background-color: #F5F5F5;
+    text-align: center;
+    width: 25em;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+.winners{
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+.winners div{
+    background-color: #37B6D3;
+    margin: 1em;
+    border-radius: 10px;
+    padding: 0.5em;
+
+}
+.winners img{
+    width: 3em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.winnersListItem{
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+justify-content: center;
+}
+
+.winnersListItem img{
+    width: 1em;
+}
+
+.winnersCoins{
+    display: flex;
+    flex-direction: row;
+}
+
+.howTo{
+    width: 23em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
 
 

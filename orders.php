@@ -301,6 +301,8 @@
 </div>
 <div class="footer">
 <?php include("./footer.inc.php")?>
+</div>
+
 </body>
 
 </html>

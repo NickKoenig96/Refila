@@ -183,9 +183,11 @@
     </div>
 
 
-   <?php include("./footer.inc.php")?>
+</div>
 
-
+<div class="footer">
+<?php include("./footer.inc.php")?>
+</div>
 
 
 
