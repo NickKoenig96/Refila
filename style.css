@@ -1,6 +1,19 @@
+@font-face {
+    font-family: Poppins;
+    src: url(./font/Poppins-Regular.ttf);
+}
+
 * {
     box-sizing: border-box;
+    font-family: Poppins;
 }
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/*login + register*/
 
 .error {
     color: #E85489;
@@ -85,17 +98,199 @@
     border-radius: 80%;
     background-color: #F4F4F4;
     margin-left: 1em;
-
 }
 
-.checkbox:hover{
+.checkbox:hover {
     border: 5px solid #37B6D3;
-
 }
-
-
 
 .loginCheckbox p {
     margin-left: 1em;
     align-items: baseline;
 }
+
+/* nav */
+
+nav {
+    display: flex;
+    align-items: flex-start;
+    gap: 4em;
+    padding: 1em;
+}
+
+.logo {
+    width: 30%;
+    margin-top: 0.4em;
+}
+
+.coins {
+    border: 3px solid #37B6D3;
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
+.coins p {
+    display: inline;
+    color: #37B6D3;
+    font-weight: bold;
+}
+
+#navIcon {
+    padding-top: 0.5em;
+    width: 8%;
+}
+
+/* index */
+
+.line {
+    display: block;
+    background-color: #F4F4F4;
+    width: 100%;
+    padding: 0.2em;
+}
+
+.sectionContainer {
+    display: grid;
+    grid-template-columns: 47% 47%;
+    grid-template-rows: repeat(2, 87%);
+    gap: 1em;
+    justify-content: center;
+    padding: 1em;
+}
+
+.section {
+    font-weight: bolder;
+    font-size: 1.2em;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    padding: 0.2em;
+}
+
+.leaderboard {
+    background-color: #37B6D3;
+}
+
+.stats {
+    background-color: #FFA700;
+}
+
+.earn {
+    background-color: #35D4B0;
+}
+
+.dMonth {
+    background-color: #E85489;
+}
+
+
+
+.siteSection{
+    margin-top: 11em;
+    margin-bottom: 18em;
+}
+
+.siteSection h1{
+    font-size: 1.2em;
+    margin-left: 1em;
+}
+
+
+.productsIndex {
+    display: grid;
+    grid-template-columns: 47% 47%;
+    grid-template-rows: repeat(2, 87%);
+    gap: 1em;
+    justify-content: center;
+    padding: 1em;
+    height: 24em;
+
+}
+
+
+ .product{
+    background-color: #F4F4F4;
+    padding: 2.5em 0 2.5em 0;
+ }
+
+ .siteSection p{
+     font-weight: bold;
+     padding-left: 1em;
+ }
+
+ .priceProductIndex{
+     display: flex;
+     padding-left: 1em;
+     padding-top: 0;
+    
+ }
+
+
+
+ .priceProductIndex p{
+     color: #37B6D3;
+     font-size: 0.9em;
+
+ }
+
+ .productIndexTitle{
+    padding-bottom: 0;
+    margin-bottom: -0.2em;
+}
+
+#shopButton{
+    display: block;
+    background-color: #37B6D3;
+    border-style: none;
+    border-radius: 8px;
+    width: 70%;
+    padding: 0.8em;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+
+footer{
+    background-color: black;
+    margin-top: -15em;
+    padding-bottom: 2em;
+}
+
+
+footer h3{
+    font-size: small;
+    letter-spacing: 0.2em;
+}
+
+footer div{
+    color: white;
+    margin-top: 4em;
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+.logoFooter{
+    width: 40%;
+    margin-top: 3em;
+}
+
+.footerLinks{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.footerLinks a{
+    text-decoration: none;
+    color: white;
+}
+
