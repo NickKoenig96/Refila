@@ -109,12 +109,16 @@ body {
     align-items: baseline;
 }
 
-/* nav */
+/* mobile nav */
+
+.mobileNav{
+    display: block;
+}
 
 nav {
     display: flex;
     align-items: flex-start;
-    gap: 4em;
+    gap: 1em;
     padding: 1em;
 }
 
@@ -137,16 +141,17 @@ nav {
 
 #navIcon {
     padding-top: 0.5em;
-    width: 8%;
+    width: 2em;
+    margin-left: 4em;
 }
 
 /* index */
 
 .line {
     display: block;
-    background-color: #F4F4F4;
+    background-color: #ece9e9;
     width: 100%;
-    padding: 0.2em;
+    padding: 0.15em;
 }
 
 .sectionContainer {
@@ -189,12 +194,12 @@ nav {
 
 
 
-.siteSection{
+.indexSection{
     margin-top: 11em;
     margin-bottom: 18em;
 }
 
-.siteSection h1{
+.indexSection h1{
     font-size: 1.2em;
     margin-left: 1em;
 }
@@ -217,7 +222,7 @@ nav {
     padding: 2.5em 0 2.5em 0;
  }
 
- .siteSection p{
+ .indexSection p{
      font-weight: bold;
      padding-left: 1em;
  }
@@ -266,6 +271,8 @@ footer{
 }
 
 
+/*footer*/
+
 footer h3{
     font-size: small;
     letter-spacing: 0.2em;
@@ -293,4 +300,144 @@ footer div{
     text-decoration: none;
     color: white;
 }
+
+
+/*orders*/
+
+.ordersContainer{
+    background-color: #F5F5F5;
+    padding-top: 1em;
+}
+
+.ordersCard{
+    background-color: white ;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1em;
+    border-radius: 12px;
+    border: 2px solid #ece9e9;
+    margin-bottom: 0.5em;
+}
+
+.ordersCard p{
+    font-size: 0.8em;
+}
+
+.ordersCard h3{
+    font-size: 0.9em;
+}
+
+.orderCardContent div{
+    margin-top: 0.9em;
+}
+
+.orderCardContent{
+    width: 15em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.ordersContainer h2{
+    padding-left: 1.5em;
+    padding-top: 1em;
+    font-size: 1.1em;
+}
+
+
+
+.ordersContainer img{
+    width: 2.5em;
+    border-radius: 50%;
+}
+
+.ordersPerson{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1.5em;
+}
+
+.ordersPerson p{
+margin-left: 1em;
+font-weight: bold;
+}
+
+.ordersInfo{
+    display: flex;
+    flex-direction: row;
+}
+
+.ordersInfo div{
+    margin-right: 1em;
+}
+
+.orderStatus{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.ordersSubmit{
+    display: block;
+    background-color: #37B6D3;
+    border-style: none;
+    border-radius: 6px;
+    width: 11em;
+    padding: 0.8em;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.coinsOrders {
+    border: 3px solid #37B6D3;
+    border-radius: 5px;
+    display: flex;
+    width: 5em;
+    height: 2.5em;
+    padding-left: 0.2em;
+    padding-right: 0.5em;
+    padding-top: -0.5em;
+    padding-bottom: -0.5em;
+}
+
+
+.coinsOrders img{
+    width: 1.5em;
+}
+
+.coinsOrders p {
+    color: #37B6D3;
+    font-weight: bold;
+    font-size: small;
+    padding-left: 0.5em;
+
+}
+
+.mailOrders{
+    text-align: center;
+    padding-left: 20%;
+
+}
+
+.ordersCard a{
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+    border-bottom:solid 2px black ;
+    font-size: 0.8em;
+    width: 100%;
+    
+}
+
+.ordersComplete{
+    background-color: #808080;
+    width: 10em;
+}
+
+.footer{
+    margin-top: 17em;
+}
+
 

@@ -10,15 +10,11 @@
 </head>
 
 <body>
-    <nav>
-        <img class="logo" src="./images/logo.PNG" alt="logo">
-        <div class="coins">
-            <img src="./images/filamentIcon.svg" alt="your coins">
-            <p> 20.000</p>
-        </div>
-        <img id="navIcon" src="./images/navIcon.svg" alt="navIcon">
-    </nav>
 
+<div class="mobileNav">
+<?php include("./nav.inc.php")?>
+</div>
+  
     <div class="line"></div>
 
     <div class="sectionContainer">
@@ -46,7 +42,7 @@
 
 
 
-    <div class="siteSection">
+    <div class="indexSection">
 
         <h1>Populaire producten</h1>
 
@@ -117,7 +113,7 @@
 
 
 
-    <div class="siteSection">
+    <div class="indexSection">
 
         <h1>Aanbevolen voor jou</h1>
 
@@ -182,36 +178,12 @@
 
     </div>
 
-    <div class="siteSection">
+    <div class="indexSection">
         <a id="shopButton" href="">Shop</a>
     </div>
 
 
-    <footer>
-        <div>
-            <a  href="index.php"><img class="logoFooter" src="./images/logo.PNG" alt="logo"></a>
-            <p>© 2021. All right reserved.</p>
-        </div>
-
-        <div>
-            <h3>PAGINA'S</h3>
-            <div class="footerLinks">
-            <a href="">Orders</a>
-            <a href="">Stats</a>
-            <a href="">Contact</a>
-            </div>
-         
-        </div>
-
-        <div>
-            <h3>CONTACT</h3>
-            <p>contact@refila.be</p>
-            <p>+32 478 35 15 83</p>
-            <a href=""><img src="./images/instagram.png" alt="Instagram"></a>
-            <a href=""><img src="./images/facebook.png" alt="Facebook"></a>
-
-        </div>
-    </footer>
+   <?php include("./footer.inc.php")?>
 
 
 
