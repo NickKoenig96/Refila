@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="loginBody">
 
-<div class="error">
+<div class=loginContainer>
+
+<div class="loginLogo">
+    <img src="./images/logo.svg" alt="logo">
+    </div>
+    <div class="error">
     <p>hier komt een error</p>
 </div>
-
-    <div class="loginLogo">
-    <img src="./images/logo.PNG" alt="logo">
-    </div>
-
     <form id="loginForm" action="" method="POST">
     <label id="loginLabel" for="email">EMAILADRESS</label>
     <input id="loginInput" type="text" name="email" placeholder="Emailadress">
@@ -29,6 +29,11 @@
     <a href="register.php">Registreren</a>
 
     </form>
+
+</div>
+
+
+
 
 </body>
 </html>
