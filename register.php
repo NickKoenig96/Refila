@@ -9,16 +9,19 @@
     <title>Refila</title>
 </head>
 
-<body>
+<body class="BackgroundColor">
+<div class=registerContainer>
+
+
+    <div class="loginLogo registerLogo">
+        <img src="./images/logo.svg" alt="logo">
+    </div>
     <div class="error">
         <p>hier komt een error</p>
     </div>
 
-    <div class="loginLogo registerLogo">
-        <img src="./images/logo.PNG" alt="logo">
-    </div>
-
     <form id="loginForm" action="" method="POST">
+        
         <label id="loginLabel" for="surname">VOORNAAM</label>
         <input id="loginInput" type="text" name="surname" placeholder="Voornaam">
 
@@ -51,6 +54,8 @@
         <a href="login.php">Login</a>
 
     </form>
+
+</div>
 </body>
 
 </html>

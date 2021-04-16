@@ -13,6 +13,8 @@ body {
     margin: 0;
 }
 
+
+
 /*login + register*/
 
 .loginContainer{
@@ -647,15 +649,24 @@ textarea {
 }
 
 @media(min-width: 800px) {
-    .loginBody {
+
+    .BackgroundColor {
         background-color: #F4F4F4;
-
+    
     }
-
 
     .loginContainer {
         width: 50%;
         margin-top: 15%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        padding: 5%;
+    }
+
+    .registerContainer{
+        width: 50%;
+        margin-top: 5%;
         margin-left: auto;
         margin-right: auto;
         background-color: white;

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body class="loginBody">
+<body class="BackgroundColor">
 
 <div class=loginContainer>
 
