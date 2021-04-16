@@ -14,6 +14,9 @@
     <div class="mobileNav">
         <?php include("./nav.inc.php") ?>
     </div>
+    <div class="desktopNav">
+  <?php include("./nav2.inc.php")?>
+    </div>
 
     <div class="design">
         <h3>DESIGN VAN DE MAAND</h3>

@@ -1,5 +1,5 @@
 <nav>
-        <img class="logo" src="./images/logo.PNG" alt="logo">
+        <img class="logo" src="./images/logo.svg" alt="logo">
         <div class="coins">
             <img src="./images/filamentIcon.svg" alt="your coins">
             <p> 20.000</p>

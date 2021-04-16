@@ -11,34 +11,42 @@
 
 <body>
 
-<div class="mobileNav">
-<?php include("./nav.inc.php")?>
-</div>
-  
+    <div class="mobileNav">
+        <?php include("./nav.inc.php") ?>
+    </div>
+
+    <div class="desktopNav">
+        <?php include("./nav2.inc.php") ?>
+    </div>
+
+
     <div class="line"></div>
 
-    <div class="sectionContainer">
-        <a class="section leaderboard" href="">
-            <div>
-                <p>LEADERBOARD</p>
-            </div>
-        </a>
-        <a class="section stats" href="">
-            <div>
-                <p>STATISTIEKEN</p>
-            </div>
-        </a>
-        <a class="section earn" href="">
-            <div>
-                <p>HOE FILAMENT VERDIENEN</p>
-            </div>
-        </a>
-        <a class="section dMonth" href="">
-            <div>
-                <p>DESIGN VAN DE MAAND</p>
-            </div>
-        </a>
+    <div class="indexBackground">
+        <div class="sectionContainer">
+            <a class="section leaderboard" href="">
+                <div>
+                    <p>LEADERBOARD</p>
+                </div>
+            </a>
+            <a class="section stats" href="">
+                <div>
+                    <p>STATISTIEKEN</p>
+                </div>
+            </a>
+            <a class="section earn" href="">
+                <div>
+                    <p>HOE FILAMENT VERDIENEN</p>
+                </div>
+            </a>
+            <a class="section dMonth" href="">
+                <div>
+                    <p>DESIGN VAN DE MAAND</p>
+                </div>
+            </a>
+        </div>
     </div>
+
 
 
 
@@ -183,11 +191,11 @@
     </div>
 
 
-</div>
+    </div>
 
-<div class="footer">
-<?php include("./footer.inc.php")?>
-</div>
+    <div class="footer">
+        <?php include("./footer.inc.php") ?>
+    </div>
 
 
 

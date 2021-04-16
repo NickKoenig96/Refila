@@ -118,7 +118,7 @@ body {
 nav {
     display: flex;
     align-items: flex-start;
-    gap: 15%;
+    gap: 7%;
     padding: 1em;
 }
 
@@ -144,11 +144,55 @@ nav {
 
 #navIcon {
     width: 2em;
-    margin-left: 4em;
+    margin-left: 5em;
+    margin-top: 0.5em;
 }
 
-/* index */
 
+.desktopNav{
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    display: none;
+}
+
+.desktopNav a{
+    text-decoration: none;
+    color: black;
+    margin-left: 0.5em;
+    font-weight: 550;
+    margin-top: 1em;
+}
+
+.desktopNavLinks{
+display: flex;
+flex-direction: row;
+margin-right: 5em;
+
+}
+
+.desktopNavLogo {
+width: 8em;
+margin-right: 2%;
+}
+
+.desktopNavProfile{
+    width: 1.8em;
+    border-radius: 50%;
+}
+
+.desktopNavCoins{
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+}
+
+
+
+/* index */
+.indexBackground{
+    margin-bottom: 10em;
+}
 .line {
     display: block;
     background-color: #ece9e9;
@@ -194,10 +238,7 @@ nav {
     background-color: #E85489;
 }
 
-.indexSection {
-    margin-top: 11em;
-    margin-bottom: 18em;
-}
+
 
 .indexSection h1 {
     font-size: 1.2em;
@@ -212,6 +253,7 @@ nav {
     justify-content: center;
     padding: 1em;
     height: 24em;
+    margin-bottom: 15em;
 }
 
 .product {
@@ -247,9 +289,10 @@ nav {
     border-radius: 8px;
     width: 70%;
     padding: 0.8em;
-    margin-top: 2em;
+    margin-top: 18em;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 18em;
     color: white;
     text-decoration: none;
     text-align: center;
@@ -648,6 +691,19 @@ textarea {
     font-size: smaller;
 }
 
+@media(min-width: 700px) {
+.mobileNav{
+    display: none;
+}
+
+.desktopNav{
+    display: flex;
+}
+
+
+    
+}
+
 @media(min-width: 800px) {
 
     .BackgroundColor {
@@ -672,6 +728,73 @@ textarea {
         background-color: white;
         padding: 5%;
     }
+
+    .desktopNavLinks{
+        margin-right: 10em;
+        
+    }
+
+    .indexBackground{
+        background-color: #F4F4F4;
+        padding:  2em;
+        margin-bottom: 4em;
+
+    }
+
+    .sectionContainer {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-template-rows: repeat(2, 87%);
+        gap: 1em;
+        justify-content: center;
+        padding: 1em;
+        margin-bottom: 10em;
+
+    }
+    
+    .leaderboard{
+        grid-row: 1 / span 3; 
+        grid-column: 3 / 3;
+    }
+
+    .stats{
+        grid-row: 1 / span 1; 
+        grid-column: 2 / 3;
+    }
+
+    .dMonth{
+        grid-row: 2 / span 2; 
+        grid-column: 1 / 3;
+    }
+
+    .productsIndex {
+        display: grid;
+        grid-template-columns: 22% 22% 22% 15%;
+        grid-template-rows: repeat(1, 20%);
+        gap: 1em;
+        justify-content: center;
+        padding: 1em;
+        margin-bottom: 0;
+    }
+    
+
+    #shopButton {
+        margin-top: 1em;
+        margin-bottom: 18em;
+        width: 40%;
+
+     
+    }
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+ 
+
+    
 }
 
 @media(min-width: 1200px) {
@@ -685,5 +808,91 @@ textarea {
         margin-right: auto;
         background-color: white;
         padding: 5%;
+    }
+
+    .desktopNavLinks{
+        margin-right: 45%;
+        
+    }
+
+    .indexBackground{
+        background-color: #F4F4F4;
+        padding:  0.5em;
+        margin-bottom: 5em;
+
+    }
+
+    .sectionContainer {
+        display: grid;
+        grid-template-columns: 33% 33% 25%;
+        grid-template-rows: repeat(2, 50%);
+        gap: 1em;
+        justify-content: center;
+        padding: 1em;
+        margin-bottom: 5em;
+
+    }
+
+  
+
+    .section {
+        font-weight: bolder;
+        font-size: 1.2em;
+        text-align: center;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        border-radius: 20px;
+        color: white;
+        text-decoration: none;
+        padding: 4em;
+    }
+
+    .productsIndex {
+        padding: 1em;
+        margin-bottom: 0;
+    }
+    
+
+    #shopButton {
+        margin-top: 1em;
+        margin-bottom: 18em;
+        width: 40%;
+
+     
+    }
+
+
+
+    
+}
+
+
+@media(min-width: 1750px) {
+   
+
+
+
+    .desktopNavLinks{
+        margin-right: 60%;
+        
+    }
+
+    .indexBackground{
+        background-color: #F4F4F4;
+        padding:  0.5em;
+        margin-bottom: 5em;
+
+    }
+
+    .sectionContainer {
+        display: grid;
+        grid-template-columns: 25% 25% 20%;
+        grid-template-rows: repeat(2, 50%);
+        gap: 1em;
+        justify-content: center;
+        padding: 1em;
+        margin-bottom: 5em;
+
     }
 }

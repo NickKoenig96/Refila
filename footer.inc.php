@@ -1,6 +1,6 @@
 <footer>
         <div>
-            <a  href="index.php"><img class="logoFooter" src="./images/logo.PNG" alt="logo"></a>
+            <a  href="index.php"><img class="logoFooter" src="./images/logo.svg" alt="logo"></a>
             <p>© 2021. All right reserved.</p>
         </div>
 
