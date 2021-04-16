@@ -12,7 +12,8 @@
 <body>
 <div class="mobileNav">
 <?php include("./nav.inc.php")?>
-</div>    <div class="line"></div>
+</div>    
+<div class="line"></div>
 
     <div class="ordersContainer">
 
