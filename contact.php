@@ -32,7 +32,7 @@
                     <input class="contactInput" type="text" name="email" placeholder="Emailadress">
 
                     <label id="loginLabel" for="bericht">BERICHT</label>
-                    <textarea name="bericht" form="contactForm">Enter text here...</textarea>
+                    <textarea name="bericht" form="contactForm" placeholder="Bericht"></textarea>
 
                     <input id="contactButton" type="submit" name="submit" value="send">
 
@@ -80,7 +80,7 @@
         </div>
     </div>
 
-    
+
     <div class="footer">
         <?php include("./footer.inc.php") ?>
     </div>
