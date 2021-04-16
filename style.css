@@ -469,6 +469,22 @@ footer div {
 }
 
 /* stats */
+.statsCard {
+    background-color: white;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1em;
+    border-radius: 12px;
+    border: 2px solid #ece9e9;
+    margin-bottom: 0.5em;
+}
+
+.statsCardContent {
+    width: 15em;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 .statsCoins {
     color: #37B6D3;
@@ -480,7 +496,8 @@ footer div {
 }
 
 .statsH3 {
-    width: 16em;
+    font-size: 80%;
+    width: 14em;
     margin-left: auto;
     margin-right: auto;
 }
@@ -494,6 +511,8 @@ footer div {
     margin-left: auto;
     margin-right: auto;
 }
+
+
 
 .ratings div {
     display: flex;
@@ -520,7 +539,6 @@ footer div {
 }
 
 .leaderboardStats {
-    background-color: #F5F5F5;
     text-align: center;
     width: 25em;
     margin-left: auto;
@@ -551,6 +569,8 @@ footer div {
     flex-direction: row;
     gap: 10%;
     justify-content: center;
+    margin-bottom: 0.5em;
+    font-weight: bold;
 }
 
 .winnersListItem img {
@@ -566,6 +586,12 @@ footer div {
     width: 23em;
     margin-left: auto;
     margin-right: auto;
+}
+
+.howtoH3{
+width: 13em ;
+margin-left: auto;
+margin-right: auto;
 }
 
 /* contact */
@@ -801,6 +827,55 @@ textarea {
     .ordersCard{
         margin: 1em;
     }
+
+    .statsCard{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em;
+        padding: 1em;
+    }
+
+    .yourStats{
+        width: 30%;
+    }
+
+    .statsH3 {
+       
+        width: 17em;
+        
+    }
+
+    .ratings{
+        width: 100em;
+    }
+
+    .ratings div {
+        width: 100%;
+    }
+
+    .winnersListItem{
+        background-color: white;
+    }
+
+    .howTo{
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        
+
+    }
+
+    .howTo div {
+        margin: 1em;
+    }
+
+    .howtoH3{
+        padding-top: 2em;
+    }
+
+
+  
  
 
     

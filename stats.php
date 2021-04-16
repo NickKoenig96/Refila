@@ -14,7 +14,7 @@
         <?php include("./nav.inc.php") ?>
     </div>
     <div class="desktopNav">
-  <?php include("./nav2.inc.php")?>
+        <?php include("./nav2.inc.php") ?>
     </div>
 
     <div class="line"></div>
@@ -23,174 +23,173 @@
 
         <h2>Your Stats</h2>
 
-        <div class="ordersCard">
-            <div class="orderCardContent">
-                <div>
-                    <h3 class="statsH3">AANTAL FILAMENT VERDIEND:</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">60.000</p>
-                    </div>
-                    <div class="statsLine"></div>
+        <div class="statsCard">
+            <div class="yourStats">
+                <h3 class="statsH3">AANTAL FILAMENT VERDIEND:</h3>
+                <div class="statsCoins">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p class="statsCoins">60.000</p>
                 </div>
-                <div>
-                    <h3 class="statsH3">AANTAL ORDERS VOLTOOID:</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">3</p>
-                    </div>
-                    <div class="statsLine"></div>
+                <div class="statsLine"></div>
+            </div>
+            <div class="yourStats">
+                <h3 class="statsH3">AANTAL ORDERS VOLTOOID:</h3>
+                <div class="statsCoins">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p class="statsCoins">3</p>
                 </div>
-                <div>
-                    <h3 class="statsH3">GROOTSTE ORDER INKOMST</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">60.000</p>
-                    </div>
-                    <div class="statsLine"></div>
+                <div class="statsLine"></div>
+            </div>
+            <div class="yourStats">
+                <h3 class="statsH3">GROOTSTE ORDER INKOMST</h3>
+                <div class="statsCoins">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p class="statsCoins">60.000</p>
                 </div>
-                <div>
-                    <h3 class="statsH3">AANTAL FILAMENT VERDIEND FEB:</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">60.000</p>
-                    </div>
-                    <div class="statsLine"></div>
+                <div class="statsLine"></div>
+            </div>
+            <div class="yourStats">
+                <h3 class="statsH3">AANTAL FILAMENT VERDIEND FEB:</h3>
+                <div class="statsCoins">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p class="statsCoins">60.000</p>
                 </div>
-                <div>
-                    <h3 class="statsH3">AANTAL Orders FEB VOLTOOID:</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">60.000</p>
-                    </div>
-                    <div class="statsLine"></div>
+                <div class="statsLine"></div>
+            </div>
+            <div class="yourStats">
+                <h3 class="statsH3">AANTAL Orders FEB VOLTOOID:</h3>
+                <div class="statsCoins">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p class="statsCoins">60.000</p>
                 </div>
-                <div>
-                    <h3 class="statsH3">GROOTSTE ORDER INKOMST FEB:</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">5</p>
-                    </div>
-                    <div class="statsLine"></div>
+                <div class="statsLine"></div>
+            </div>
+            <div class="yourStats">
+                <h3 class="statsH3">GROOTSTE ORDER INKOMST FEB:</h3>
+                <div class="statsCoins">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p class="statsCoins">5</p>
                 </div>
+                <div class="statsLine"></div>
             </div>
         </div>
+    </div>
 
 
 
 
 
-        <h2>Your Stats</h2>
+    <h2>Your Rating</h2>
 
-        <div class="ordersCard">
-            <div class="orderCardContent">
-                <div class="ratings">
-                    <h3>AVERAGE RATING: 4</h3>
-                    <p>(3 Ratings)</p>
+    <div class="statsCard">
+        <div class="ratings">
+            <h3>AVERAGE RATING: 4</h3>
+            <p>(3 Ratings)</p>
 
-                    <div>
-                        <p class="star">★</p>
-                        <p class="star">★</p>
-                        <p class="star">★</p>
-                        <p class="star">★</p>
-                        <p class="star">★</p>
+            <div>
+                <img src="./images/star.svg" alt="star">
+                <img src="./images/star.svg" alt="star">
+                <img src="./images/star.svg" alt="star">
+                <img src="./images/star.svg" alt="star">
+                <img src="./images/star.svg" alt="star">
+                <img src="./images/star.svg" alt="star">
 
-                        <p> 1 </p>
-                    </div>
-
-                    <div>
-                        <p class="star">★</p>
-                        <p class="star">★</p>
-                        <p class="star">★</p>
-                        <p class="star">★</p>
-                        <p> 2 </p>
-                    </div>
-
-                    <div>
-                        <p class="star">★</p>
-                        <p class="star">★</p>
-                        <p class="star">★</p>
-                        <p> 0 </p>
-                    </div>
-
-                    <div>
-                        <p class="star">★</p>
-                        <p class="star">★</p>
-
-                        <p> 0 </p>
-                    </div>
-
-                    <div>
-
-                        <p class="star">★</p>
-
-                        <p> 0</p>
-                    </div>
-
-
-                </div>
-
+                <p> 1 </p>
             </div>
+
+            <div>
+                <img src="./images/star.svg" alt="star">
+                <img src="./images/star.svg" alt="star">
+                <img src="./images/star.svg" alt="star">
+                <img src="./images/star.svg" alt="star">
+                <p> 2 </p>
+            </div>
+
+            <div>
+                <img src="./images/star.svg" alt="star">
+                <img src="./images/star.svg" alt="star">
+                <img src="./images/star.svg" alt="star">
+                <p> 0 </p>
+            </div>
+
+            <div>
+                <img src="./images/star.svg" alt="star">
+                <img src="./images/star.svg" alt="star">
+
+                <p> 0 </p>
+            </div>
+
+            <div>
+
+                <img src="./images/star.svg" alt="star">
+
+                <p> 0</p>
+            </div>
+
+
         </div>
 
+    </div>
+    </div>
 
 
-        <h2>Global stats</h2>
 
-        <div class="ordersCard">
-            <div class="orderCardContent">
-                <div>
-                    <h3 class="statsH3">AANTAL FILAMENT VERDIEND:</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">60.000</p>
-                    </div>
-                    <div class="statsLine"></div>
-                </div>
-                <div>
-                    <h3 class="statsH3">AANTAL ORDERS VOLTOOID:</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">3</p>
-                    </div>
-                    <div class="statsLine"></div>
-                </div>
-                <div>
-                    <h3 class="statsH3">GROOTSTE ORDER INKOMST</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">60.000</p>
-                    </div>
-                    <div class="statsLine"></div>
-                </div>
-                <div>
-                    <h3 class="statsH3">AANTAL FILAMENT VERDIEND FEB:</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">60.000</p>
-                    </div>
-                    <div class="statsLine"></div>
-                </div>
-                <div>
-                    <h3 class="statsH3">AANTAL Orders FEB VOLTOOID:</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">60.000</p>
-                    </div>
-                    <div class="statsLine"></div>
-                </div>
-                <div>
-                    <h3 class="statsH3">GROOTSTE ORDER INKOMST FEB:</h3>
-                    <div class="statsCoins">
-                        <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p class="statsCoins">5</p>
-                    </div>
-                    <div class="statsLine"></div>
-                </div>
+    <h2>Global stats</h2>
+
+    <div class="statsCard">
+        <div class="yourStats">
+            <h3 class="statsH3">AANTAL FILAMENT VERDIEND:</h3>
+            <div class="statsCoins">
+                <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                <p class="statsCoins">60.000</p>
             </div>
+            <div class="statsLine"></div>
         </div>
+        <div class="yourStats">
+            <h3 class="statsH3">AANTAL ORDERS VOLTOOID:</h3>
+            <div class="statsCoins">
+                <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                <p class="statsCoins">3</p>
+            </div>
+            <div class="statsLine"></div>
+        </div>
+        <div class="yourStats">
+            <h3 class="statsH3">GROOTSTE ORDER INKOMST</h3>
+            <div class="statsCoins">
+                <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                <p class="statsCoins">60.000</p>
+            </div>
+            <div class="statsLine"></div>
+        </div>
+        <div class="yourStats">
+            <h3 class="statsH3">AANTAL FILAMENT VERDIEND FEB:</h3>
+            <div class="statsCoins">
+                <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                <p class="statsCoins">60.000</p>
+            </div>
+            <div class="statsLine"></div>
+        </div>
+        <div class="yourStats">
+            <h3 class="statsH3">AANTAL Orders FEB VOLTOOID:</h3>
+            <div class="statsCoins">
+                <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                <p class="statsCoins">60.000</p>
+            </div>
+            <div class="statsLine"></div>
+        </div>
+        <div class="yourStats">
+            <h3 class="statsH3">GROOTSTE ORDER INKOMST FEB:</h3>
+            <div class="statsCoins">
+                <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                <p class="statsCoins">5</p>
+            </div>
+            <div class="statsLine"></div>
+        </div>
+    </div>
+    </div>
 
 
+    <div class="ordersContainer">
         <div class="leaderboardStats">
             <h4>LEADERBOARD</h4>
             <p>De top 10 printers van Refila</p>
@@ -226,16 +225,34 @@
 
                 </div>
 
+
+                <div class="winnersListItem">
+                    <p>4</p>
+                    <p>username</p>
+                    <div class="winnersCoins"><img src="./images/filamentIcon.svg" alt="filament">
+                        <p>96.00</p>
+                    </div>
+
+                </div>
+
             </div>
 
 
 
         </div>
 
+    </div>
 
 
-        <div class="howTo">
-            <h3>Hoe filament verdienen?</h3>
+
+
+    <h3 class="howtoH3">Hoe filament verdienen?</h3>
+
+
+    <div class="howTo">
+
+        <div>
+
             <p>Je kan filament verdienen door orders van de horeca aan te
                 nemen. Op de pagina ‘orders’ zie je alle orders die je kan
                 aannemen als je een 3d printer in bezit hebt. Er staat exact
@@ -247,6 +264,9 @@
                 de horecazaak erop print. Dit logo kan je downloaden bij de
                 order.</p>
 
+        </div>
+
+        <div>
             <p>Als je de order af hebt moet je dit op de orderpagina laten
                 weten door op de knop ‘markeren als klaar’ te drukken. Of
                 wel moet je het afgewerkt product zelf brengen naar de zaak,
@@ -258,15 +278,18 @@
                 krijg je punten op dit platform. Als je genoeg punten hebt,
                 kun je met die punten filament kopen in de shop.
             </p>
-
         </div>
+
+
+
+    </div>
 
 
     </div>
 
     <div class="footer">
-<?php include("./footer.inc.php")?>
-</div>
+        <?php include("./footer.inc.php") ?>
+    </div>
 
 </body>
 
