@@ -344,7 +344,7 @@ footer div {
 
 .ordersCard {
     background-color: white;
-    width: 80%;
+    width: 25em;
     margin-left: auto;
     margin-right: auto;
     padding-top: 1em;
@@ -792,6 +792,15 @@ textarea {
         flex-wrap: wrap;
         gap: 1em;
     }
+
+    .activeOrders{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .ordersCard{
+        margin: 1em;
+    }
  
 
     
@@ -862,6 +871,10 @@ textarea {
      
     }
 
+    footer {
+        gap: 15em;
+    }
+
 
 
     
@@ -894,5 +907,9 @@ textarea {
         padding: 1em;
         margin-bottom: 5em;
 
+    }
+
+    footer {
+        gap: 30em;
     }
 }
