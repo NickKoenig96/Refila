@@ -48,6 +48,94 @@
                 </div>
             </div>
 
+            <div class="shopProduct">
+                <div class="shopProductImage">
+                    <img src="./images/filamentProduct.svg" alt="filament">
+                </div>
+                <p>Multicolor PLA 3D Printer Filament</p>
+                <div class="shopFilament">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p>60.00/kg</p>
+                </div>
+            </div>
+
+            <div class="shopProduct">
+                <div class="shopProductImage">
+                    <img src="./images/filamentProduct.svg" alt="filament">
+                </div>
+                <p>Multicolor PLA 3D Printer Filament</p>
+                <div class="shopFilament">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p>60.00/kg</p>
+                </div>
+            </div>
+
+            <div class="shopProduct">
+                <div class="shopProductImage">
+                    <img src="./images/filamentProduct.svg" alt="filament">
+                </div>
+                <p>Multicolor PLA 3D Printer Filament</p>
+                <div class="shopFilament">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p>60.00/kg</p>
+                </div>
+            </div>
+
+            <div class="shopProduct">
+                <div class="shopProductImage">
+                    <img src="./images/filamentProduct.svg" alt="filament">
+                </div>
+                <p>Multicolor PLA 3D Printer Filament</p>
+                <div class="shopFilament">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p>60.00/kg</p>
+                </div>
+            </div>
+
+            <div class="shopProduct">
+                <div class="shopProductImage">
+                    <img src="./images/filamentProduct.svg" alt="filament">
+                </div>
+                <p>Multicolor PLA 3D Printer Filament</p>
+                <div class="shopFilament">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p>60.00/kg</p>
+                </div>
+            </div>
+
+            <div class="shopProduct">
+                <div class="shopProductImage">
+                    <img src="./images/filamentProduct.svg" alt="filament">
+                </div>
+                <p>Multicolor PLA 3D Printer Filament</p>
+                <div class="shopFilament">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p>60.00/kg</p>
+                </div>
+            </div>
+
+            <div class="shopProduct">
+                <div class="shopProductImage">
+                    <img src="./images/filamentProduct.svg" alt="filament">
+                </div>
+                <p>Multicolor PLA 3D Printer Filament</p>
+                <div class="shopFilament">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p>60.00/kg</p>
+                </div>
+            </div>
+
+            <div class="shopProduct">
+                <div class="shopProductImage">
+                    <img src="./images/filamentProduct.svg" alt="filament">
+                </div>
+                <p>Multicolor PLA 3D Printer Filament</p>
+                <div class="shopFilament">
+                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <p>60.00/kg</p>
+                </div>
+            </div>
+
         </div>
 
 
@@ -111,6 +199,10 @@
 
 
 
+    </div>
+
+    <div class="footer">
+        <?php include("./footer.inc.php") ?>
     </div>
 
 </body>

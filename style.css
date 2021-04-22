@@ -729,6 +729,7 @@ textarea {
     padding: 1em;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .shopH3{
@@ -742,7 +743,7 @@ textarea {
 }
 
 .shopProduct{
-    width: 20em;
+    width: 10em;
     margin: 0.5em;
 
 }
@@ -777,7 +778,7 @@ font-weight: bolder;
 }
 
 .shopProductImage{
-    width: 12em;
+    width: 10em;
     border-radius: 8px;
 }
 
@@ -785,7 +786,10 @@ font-weight: bolder;
     width: 27em;
     margin-left: auto;
     margin-right: auto;
+
 }
+
+
 
 
 
@@ -909,6 +913,41 @@ font-weight: bolder;
     .howtoH3 {
         padding-top: 2em;
     }
+
+    .shop{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;   
+    }
+
+    .shopProduct{
+        width: 30%;
+        margin: 1%;
+    }
+
+    .shopContainer{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .shopProductImage{
+        width: 12em;
+        border-radius: 8px;
+    }
+
+
+}
+
+@media(min-width: 1050px) {
+    .shop{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;    }
+
+    .shopProduct{
+        width: 25%;
+        margin: 1%;
+    }
 }
 
 @media(min-width: 1200px) {
@@ -961,6 +1000,17 @@ font-weight: bolder;
     footer {
         gap: 15em;
     }
+
+    
+    .shop{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;    }
+
+    .shopProduct{
+        width: 20%;
+        margin: 1%;
+    }
 }
 
 @media(min-width: 1750px) {
@@ -984,4 +1034,17 @@ font-weight: bolder;
     footer {
         gap: 30em;
     }
+
+    .shop{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .shopProduct{
+        width: 15%;
+        margin: 0.1%;
+    }
+
+
 }
