@@ -747,10 +747,11 @@ textarea {
     margin: 0.5em;
 
 }
-.shopProduct p{
+.shopProductP{
 margin-left: 1em;
 margin-bottom: 0;
 font-weight: bolder;
+width: 10em;
 
 }
 
@@ -787,6 +788,10 @@ font-weight: bolder;
     margin-left: auto;
     margin-right: auto;
 
+}
+
+.shopLink{
+    text-decoration: none;
 }
 
 /*detailShop*/
