@@ -162,7 +162,7 @@
 
 
 
-        <h2>Open orders</h2>
+        <h2>New orders</h2>
         <div>
 
             <div class="ordersCard">
