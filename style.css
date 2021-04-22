@@ -13,8 +13,6 @@ body {
     margin: 0;
 }
 
-
-
 /*login + register*/
 
 .loginContainer {
@@ -675,9 +673,7 @@ textarea {
     background-color: #37B6D3;
     border-style: none;
     border-radius: 8px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
     padding: 0.6em;
     margin-top: 1em;
     color: white;
@@ -687,6 +683,18 @@ textarea {
 
 .transactiesContainer {
     background-color: white;
+}
+
+.ordersP2 h3{
+    margin-left: 1em;
+}
+
+.ulpoadForm {
+    display: flex;
+    flex-direction: row;
+    margin: 1em;
+    width: 80%;
+
 }
 
 /*design */
@@ -725,104 +733,98 @@ textarea {
 
 /* shop */
 
-.shopContainer{
+.shopContainer {
     padding: 1em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.shopH3{
+.shopH3 {
     margin: 1em;
     font-weight: bold;
     font-size: 1em;
 }
 
-.shopContainer img{
+.shopContainer img {
     padding: 2em;
 }
 
-.shopProduct{
+.shopProduct {
     width: 10em;
     margin: 0.5em;
-
-}
-.shopProductP{
-margin-left: 1em;
-margin-bottom: 0;
-font-weight: bolder;
-width: 10em;
-
 }
 
-.shopProductImage{
+.shopProductP {
+    margin-left: 1em;
+    margin-bottom: 0;
+    font-weight: bolder;
+    width: 10em;
+}
+
+.shopProductImage {
     background-color: #F4F4F4;
 }
 
-.shopFilament{
+.shopFilament {
     display: flex;
     flex-direction: row;
     margin-left: 1em;
     margin-top: 0.5em;
 }
 
-.shopFilament img{
+.shopFilament img {
     padding: 0;
 }
 
-.shopFilament p{
+.shopFilament p {
     padding: 0;
     margin-top: 0;
     color: #37B6D3;
-
-
 }
 
-.shopProductImage{
+.shopProductImage {
     width: 10em;
     border-radius: 8px;
 }
 
-.shop{
+.shop {
     width: 27em;
     margin-left: auto;
     margin-right: auto;
-
 }
 
-.shopLink{
+.shopLink {
     text-decoration: none;
 }
 
 /*detailShop*/
-.detailShopProductF{
+
+.detailShopProductF {
     width: 15em;
     height: 15em;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0;
     background-color: #F4F4F4;
-
-
 }
-.detailShopProductF img{
+
+.detailShopProductF img {
     width: 14em;
     background-color: #F4F4F4;
     margin-top: 3em;
-
-
 }
 
-.detailShopProductInfo h1{
+.detailShopProductInfo h1 {
     width: 9em;
     margin-left: auto;
     margin-right: auto;
 }
 
-.shopDetailFilament{
+.shopDetailFilament {
     display: flex;
     flex-direction: row;
-    color:#37B6D3 ;
+    color: #37B6D3;
     font-size: 2em;
     font-weight: 900;
     width: 5em;
@@ -831,46 +833,46 @@ width: 10em;
     margin-top: 0;
 }
 
-.detailShopProduct{
+.detailShopProduct {
     width: 22em;
     margin-right: auto;
     margin-left: auto;
-
 }
 
-.detailShopProductInfoExtra div{
+.detailShopProductInfoExtra div {
     display: flex;
     flex-direction: row;
 }
 
-.detailShopProductInfoExtra p{
+.detailShopProductInfoExtra p {
     margin: 1em;
 }
 
-.shopDetailBold{
+.shopDetailBold {
     font-weight: bold;
 }
 
-.shopDetailFormMargin{
+.shopDetailFormMargin {
     margin: 1em;
 }
 
-.shopDeatailForm form{
+.shopDeatailForm form {
     width: 9em;
-margin-left: auto;
-margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.detailShop{
+.detailShop {
     margin-bottom: 18em;
 }
 
-.shopDetailFormRadio{
+.shopDetailFormRadio {
     margin-top: 1em;
 }
 
 /*pay*/
-.bestelling{
+
+.bestelling {
     background-color: #F4F4F4;
     border-radius: 10px;
     width: 85%;
@@ -881,7 +883,7 @@ margin-right: auto;
     text-align: center;
 }
 
-.btnPay{
+.btnPay {
     display: block;
     background-color: #37B6D3;
     border-style: none;
@@ -895,10 +897,6 @@ margin-right: auto;
     text-decoration: none;
     text-align: center;
 }
-
-
-
-
 
 @media(min-width: 700px) {
     .mobileNav {
@@ -1018,35 +1016,29 @@ margin-right: auto;
     .howtoH3 {
         padding-top: 2em;
     }
-
-    .shop{
+    .shop {
         width: 80%;
         margin-left: auto;
-        margin-right: auto;   
+        margin-right: auto;
     }
-
-    .shopProduct{
+    .shopProduct {
         width: 30%;
         margin: 1%;
     }
-
-    .shopContainer{
+    .shopContainer {
         display: flex;
         flex-wrap: wrap;
     }
-
-    .shopProductImage{
+    .shopProductImage {
         width: 12em;
         border-radius: 8px;
     }
-    
-    .detailShopProduct{
+    .detailShopProduct {
         width: 50em;
         display: flex;
         flex-direction: row;
     }
-
-    .detailShopProductF{
+    .detailShopProductF {
         width: 20em;
         height: 20em;
         margin-left: auto;
@@ -1054,38 +1046,48 @@ margin-right: auto;
         margin-bottom: 0;
         margin-top: 5em;
         background-color: #F4F4F4;
-    
-    
     }
-    .detailShopProductF img{
+    .detailShopProductF img {
         width: 18em;
         background-color: #F4F4F4;
         margin-top: 3em;
-    
-    
     }
-
-    .detailShopProductInfo{
+    .detailShopProductInfo {
         width: 30em;
     }
-
-    .detailShopProductInfo h1{
+    .detailShopProductInfo h1 {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
-    
+    .abo {
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .ulpoadForm {
+        display: flex;
+        flex-direction: row;
+        margin: 1em;
+        width: 15em;
 
-
+    }
+    .orderscard2 {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media(min-width: 1050px) {
-    .shop{
+    .shop {
         width: 80%;
         margin-left: auto;
-        margin-right: auto;    }
-
-    .shopProduct{
+        margin-right: auto;
+    }
+    .shopProduct {
         width: 25%;
         margin: 1%;
     }
@@ -1141,14 +1143,12 @@ margin-right: auto;
     footer {
         gap: 15em;
     }
-
-    
-    .shop{
+    .shop {
         width: 80%;
         margin-left: auto;
-        margin-right: auto;    }
-
-    .shopProduct{
+        margin-right: auto;
+    }
+    .shopProduct {
         width: 20%;
         margin: 1%;
     }
@@ -1175,22 +1175,16 @@ margin-right: auto;
     footer {
         gap: 30em;
     }
-
-    .shop{
+    .shop {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
-
-    .shopProduct{
+    .shopProduct {
         width: 15%;
         margin: 0.1%;
     }
-
-   .detailShop{
-       margin-top: 5em;
-   }
-
-   
-
+    .detailShop {
+        margin-top: 5em;
+    }
 }
