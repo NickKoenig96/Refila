@@ -17,7 +17,7 @@ body {
 
 /*login + register*/
 
-.loginContainer{
+.loginContainer {
     margin-top: 20%;
 }
 
@@ -113,7 +113,7 @@ body {
     align-items: baseline;
 }
 
-/* mobile nav */
+/* nav */
 
 nav {
     display: flex;
@@ -148,15 +148,14 @@ nav {
     margin-top: 0.5em;
 }
 
-
-.desktopNav{
+.desktopNav {
     display: flex;
     flex-direction: row;
     padding: 1em;
     display: none;
 }
 
-.desktopNav a{
+.desktopNav a {
     text-decoration: none;
     color: black;
     margin-left: 0.5em;
@@ -164,35 +163,45 @@ nav {
     margin-top: 1em;
 }
 
-.desktopNavLinks{
-display: flex;
-flex-direction: row;
-margin-right: 5em;
-
+.desktopNavLinks {
+    display: flex;
+    flex-direction: row;
+    margin-right: 2.7em;
 }
 
 .desktopNavLogo {
-width: 8em;
-margin-right: 2%;
+    width: 8em;
+    margin-right: 2%;
 }
 
-.desktopNavProfile{
+.desktopNavProfile {
     width: 1.8em;
     border-radius: 50%;
 }
 
-.desktopNavCoins{
+.desktopNavCoins {
     display: flex;
     flex-direction: row;
-    gap: 20%;
+    gap: 10%;
 }
 
-
+.desktopNavCoins a {
+    background-color: #37B6D3;
+    width: 8em;
+    padding: 0.1em;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
 
 /* index */
-.indexBackground{
+
+.indexBackground {
     margin-bottom: 10em;
 }
+
 .line {
     display: block;
     background-color: #ece9e9;
@@ -237,8 +246,6 @@ margin-right: 2%;
 .dMonth {
     background-color: #E85489;
 }
-
-
 
 .indexSection h1 {
     font-size: 1.2em;
@@ -469,6 +476,7 @@ footer div {
 }
 
 /* stats */
+
 .statsCard {
     background-color: white;
     width: 80%;
@@ -511,8 +519,6 @@ footer div {
     margin-left: auto;
     margin-right: auto;
 }
-
-
 
 .ratings div {
     display: flex;
@@ -588,10 +594,10 @@ footer div {
     margin-right: auto;
 }
 
-.howtoH3{
-width: 13em ;
-margin-left: auto;
-margin-right: auto;
+.howtoH3 {
+    width: 13em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* contact */
@@ -717,26 +723,87 @@ textarea {
     font-size: smaller;
 }
 
-@media(min-width: 700px) {
-.mobileNav{
-    display: none;
-}
+/* shop */
 
-.desktopNav{
+.shopContainer{
+    padding: 1em;
     display: flex;
+    flex-direction: row;
+}
+
+.shopH3{
+    margin: 1em;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.shopContainer img{
+    padding: 2em;
+}
+
+.shopProduct{
+    width: 20em;
+    margin: 0.5em;
+
+}
+.shopProduct p{
+margin-left: 1em;
+margin-bottom: 0;
+font-weight: bolder;
+
+}
+
+.shopProductImage{
+    background-color: #F4F4F4;
+}
+
+.shopFilament{
+    display: flex;
+    flex-direction: row;
+    margin-left: 1em;
+    margin-top: 0.5em;
+}
+
+.shopFilament img{
+    padding: 0;
+}
+
+.shopFilament p{
+    padding: 0;
+    margin-top: 0;
+    color: #37B6D3;
+
+
+}
+
+.shopProductImage{
+    width: 12em;
+    border-radius: 8px;
+}
+
+.shop{
+    width: 27em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
-    
+
+
+
+@media(min-width: 700px) {
+    .mobileNav {
+        display: none;
+    }
+    .desktopNav {
+        display: flex;
+    }
 }
 
 @media(min-width: 800px) {
-
     .BackgroundColor {
         background-color: #F4F4F4;
-    
     }
-
     .loginContainer {
         width: 50%;
         margin-top: 15%;
@@ -745,8 +812,7 @@ textarea {
         background-color: white;
         padding: 5%;
     }
-
-    .registerContainer{
+    .registerContainer {
         width: 50%;
         margin-top: 5%;
         margin-left: auto;
@@ -754,19 +820,14 @@ textarea {
         background-color: white;
         padding: 5%;
     }
-
-    .desktopNavLinks{
+    .desktopNavLinks {
         margin-right: 10em;
-        
     }
-
-    .indexBackground{
+    .indexBackground {
         background-color: #F4F4F4;
-        padding:  2em;
+        padding: 2em;
         margin-bottom: 4em;
-
     }
-
     .sectionContainer {
         display: grid;
         grid-template-columns: 33% 33% 33%;
@@ -775,24 +836,19 @@ textarea {
         justify-content: center;
         padding: 1em;
         margin-bottom: 10em;
-
     }
-    
-    .leaderboard{
-        grid-row: 1 / span 3; 
+    .leaderboard {
+        grid-row: 1 / span 3;
         grid-column: 3 / 3;
     }
-
-    .stats{
-        grid-row: 1 / span 1; 
+    .stats {
+        grid-row: 1 / span 1;
         grid-column: 2 / 3;
     }
-
-    .dMonth{
-        grid-row: 2 / span 2; 
+    .dMonth {
+        grid-row: 2 / span 2;
         grid-column: 1 / 3;
     }
-
     .productsIndex {
         display: grid;
         grid-template-columns: 22% 22% 22% 15%;
@@ -802,89 +858,60 @@ textarea {
         padding: 1em;
         margin-bottom: 0;
     }
-    
-
     #shopButton {
         margin-top: 1em;
         margin-bottom: 18em;
         width: 40%;
-
-     
     }
-
     footer {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 1em;
     }
-
-    .activeOrders{
+    .activeOrders {
         display: flex;
         flex-direction: row;
     }
-
-    .ordersCard{
+    .ordersCard {
         margin: 1em;
     }
-
-    .statsCard{
+    .statsCard {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 1em;
         padding: 1em;
     }
-
-    .yourStats{
+    .yourStats {
         width: 30%;
     }
-
     .statsH3 {
-       
         width: 17em;
-        
     }
-
-    .ratings{
+    .ratings {
         width: 100em;
     }
-
     .ratings div {
         width: 100%;
     }
-
-    .winnersListItem{
+    .winnersListItem {
         background-color: white;
     }
-
-    .howTo{
+    .howTo {
         display: flex;
         flex-direction: row;
         width: 80%;
-        
-
     }
-
     .howTo div {
         margin: 1em;
     }
-
-    .howtoH3{
+    .howtoH3 {
         padding-top: 2em;
     }
-
-
-  
- 
-
-    
 }
 
 @media(min-width: 1200px) {
-   
-
-
     .loginContainer {
         width: 40%;
         margin-top: 5%;
@@ -893,19 +920,14 @@ textarea {
         background-color: white;
         padding: 5%;
     }
-
-    .desktopNavLinks{
+    .desktopNavLinks {
         margin-right: 45%;
-        
     }
-
-    .indexBackground{
+    .indexBackground {
         background-color: #F4F4F4;
-        padding:  0.5em;
+        padding: 0.5em;
         margin-bottom: 5em;
-
     }
-
     .sectionContainer {
         display: grid;
         grid-template-columns: 33% 33% 25%;
@@ -914,11 +936,7 @@ textarea {
         justify-content: center;
         padding: 1em;
         margin-bottom: 5em;
-
     }
-
-  
-
     .section {
         font-weight: bolder;
         font-size: 1.2em;
@@ -931,48 +949,29 @@ textarea {
         text-decoration: none;
         padding: 4em;
     }
-
     .productsIndex {
         padding: 1em;
         margin-bottom: 0;
     }
-    
-
     #shopButton {
         margin-top: 1em;
         margin-bottom: 18em;
         width: 40%;
-
-     
     }
-
     footer {
         gap: 15em;
     }
-
-
-
-    
 }
 
-
 @media(min-width: 1750px) {
-   
-
-
-
-    .desktopNavLinks{
+    .desktopNavLinks {
         margin-right: 60%;
-        
     }
-
-    .indexBackground{
+    .indexBackground {
         background-color: #F4F4F4;
-        padding:  0.5em;
+        padding: 0.5em;
         margin-bottom: 5em;
-
     }
-
     .sectionContainer {
         display: grid;
         grid-template-columns: 25% 25% 20%;
@@ -981,9 +980,7 @@ textarea {
         justify-content: center;
         padding: 1em;
         margin-bottom: 5em;
-
     }
-
     footer {
         gap: 30em;
     }
