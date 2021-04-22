@@ -600,6 +600,18 @@ footer div {
 
 /* contact */
 
+.contactInfoDesktop{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1em;
+    width: 22em;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+
+}
+
 .contact {
     padding: 0.5em 1.5em 0.5em 1.5em;
 }
@@ -653,6 +665,8 @@ textarea {
     display: flex;
     flex-direction: row;
 }
+
+
 
 .contactInfoDiv p {
     font-size: small;
@@ -1079,6 +1093,25 @@ textarea {
         margin-left: auto;
         margin-right: auto;
     }
+
+    .contactInfoDesktop{
+        display: block;
+    }
+
+  
+
+    .contactInfo{
+        display: none;
+    }
+
+    .contactCard{
+        display: flex;
+        flex-direction: row;
+    }
+    #contactForm{
+        width: 15em;
+    }
+    
 }
 
 @media(min-width: 1050px) {
@@ -1151,6 +1184,10 @@ textarea {
     .shopProduct {
         width: 20%;
         margin: 1%;
+    }
+
+    #contactForm{
+        width: 23em;
     }
 }
 

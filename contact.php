@@ -15,31 +15,66 @@
         <?php include("./nav.inc.php") ?>
     </div>
     <div class="desktopNav">
-  <?php include("./nav2.inc.php")?>
+        <?php include("./nav2.inc.php") ?>
     </div>
     <div class="line"></div>
 
     <div class="ordersContainer">
         <h2>Contact</h2>
-        <div class="ordersCard">
+        <div class="ordersCard orderscard2">
 
-            <div class="contact">
-                <form id="contactForm" action="" method="POST">
-                    <label id="loginLabel " for="surname">VOORNAAM</label>
-                    <input class="contactInput" type="text" name="surname" placeholder="Voornaam">
+            <div class="contactCard">
+                <div class="contact">
+                    <form id="contactForm" action="" method="POST">
+                        <label id="loginLabel " for="surname">VOORNAAM</label>
+                        <input class="contactInput" type="text" name="surname" placeholder="Voornaam">
 
-                    <label id="loginLabel" for="name">NAAM</label>
-                    <input class="contactInput" type="text" name="name" placeholder="Naam">
+                        <label id="loginLabel" for="name">NAAM</label>
+                        <input class="contactInput" type="text" name="name" placeholder="Naam">
 
-                    <label id="loginLabel" for="email">EMAILADRESS</label>
-                    <input class="contactInput" type="text" name="email" placeholder="Emailadress">
+                        <label id="loginLabel" for="email">EMAILADRESS</label>
+                        <input class="contactInput" type="text" name="email" placeholder="Emailadress">
 
-                    <label id="loginLabel" for="bericht">BERICHT</label>
-                    <textarea name="bericht" form="contactForm" placeholder="Bericht"></textarea>
+                        <label id="loginLabel" for="bericht">BERICHT</label>
+                        <textarea name="bericht" form="contactForm" placeholder="Bericht"></textarea>
 
-                    <input id="contactButton" type="submit" name="submit" value="send">
+                        <input id="contactButton" type="submit" name="submit" value="send">
 
-                </form>
+                    </form>
+
+                </div>
+
+                <div class="contactInfoDesktop">
+
+
+
+                    <div class="contactInfoDiv">
+                        <img src="./images/telephone.svg" alt="phoneicon">
+                        <p>+32 478 35 15 83</p>
+                    </div>
+
+                    <div class="contactInfoDiv">
+                        <img src="./images/location.svg" alt="locationicon">
+                        <p>2800, Mechelen</p>
+                    </div>
+
+                    <div class="contactInfoDiv">
+                        <img src="./images/email.svg" alt="emailicon">
+                        <p>contact@refila.be</p>
+                    </div>
+
+
+
+
+
+                    <div class="contactInfoDiv">
+                        <img src="./images/instagram.svg" alt="instagramicon">
+                        <img src="./images/facebook.svg" alt="facebookicon">
+                    </div>
+
+
+
+                </div>
 
             </div>
 
@@ -55,17 +90,17 @@
 
 
             <div class="contactInfoDiv">
-                <img src="./images/telephone.png" alt="phoneicon">
+                <img src="./images/telephone.svg" alt="phoneicon">
                 <p>+32 478 35 15 83</p>
             </div>
 
             <div class="contactInfoDiv">
-                <img src="./images/loctation.png" alt="locationicon">
+                <img src="./images/location.svg" alt="locationicon">
                 <p>2800, Mechelen</p>
             </div>
 
             <div class="contactInfoDiv">
-                <img src="./images/email.png" alt="emailicon">
+                <img src="./images/email.svg" alt="emailicon">
                 <p>contact@refila.be</p>
             </div>
 
@@ -74,8 +109,8 @@
 
 
             <div class="contactInfoDiv">
-                <img src="./images/instagramContact.png" alt="instagramicon">
-                <img src="./images/facebookContact.png" alt="facebookicon">
+                <img src="./images/instagram.svg" alt="instagramicon">
+                <img src="./images/facebook.svg" alt="facebookicon">
             </div>
 
 
