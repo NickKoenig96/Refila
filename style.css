@@ -789,7 +789,76 @@ font-weight: bolder;
 
 }
 
+/*detailShop*/
+.detailShopProductF{
+    width: 15em;
+    height: 15em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    background-color: #F4F4F4;
 
+
+}
+.detailShopProductF img{
+    width: 14em;
+    background-color: #F4F4F4;
+    margin-top: 3em;
+
+
+}
+
+.detailShopProductInfo h1{
+    width: 9em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shopDetailFilament{
+    display: flex;
+    flex-direction: row;
+    color:#37B6D3 ;
+    font-size: 2em;
+    font-weight: 900;
+    width: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+}
+
+.detailShopProduct{
+    width: 22em;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.detailShopProductInfoExtra div{
+    display: flex;
+    flex-direction: row;
+}
+
+.detailShopProductInfoExtra p{
+    margin: 1em;
+}
+
+.shopDetailBold{
+    font-weight: bold;
+}
+
+.shopDetailFormMargin{
+    margin: 1em;
+}
+
+.shopDeatailForm form{
+    width: 9em;
+margin-left: auto;
+margin-right: auto;
+}
+
+.detailShop{
+    margin-bottom: 18em;
+}
 
 
 
@@ -934,6 +1003,42 @@ font-weight: bolder;
         width: 12em;
         border-radius: 8px;
     }
+    
+    .detailShopProduct{
+        width: 50em;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .detailShopProductF{
+        width: 20em;
+        height: 20em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+        margin-top: 5em;
+        background-color: #F4F4F4;
+    
+    
+    }
+    .detailShopProductF img{
+        width: 18em;
+        background-color: #F4F4F4;
+        margin-top: 3em;
+    
+    
+    }
+
+    .detailShopProductInfo{
+        width: 30em;
+    }
+
+    .detailShopProductInfo h1{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
 
 
 }
@@ -1046,5 +1151,10 @@ font-weight: bolder;
         margin: 0.1%;
     }
 
+   .detailShop{
+       margin-top: 5em;
+   }
+
+   
 
 }
