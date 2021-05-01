@@ -1,3 +1,29 @@
+<?php
+session_start();
+
+//var_dump($_SESSION['user']);
+
+include_once(__DIR__ . "/classes/Users.php");
+include_once(__DIR__ . "/classes/Orders.php");
+
+
+$users = new Users();
+$users = $users->getUserByEmail($_SESSION['user']);
+
+
+
+$ordersA = new Orders();
+$orderA = $ordersA->getAllActivePrinter($_SESSION['user']);
+
+
+$ordersNA = new Orders();
+$orderNA = $ordersNA->getAllNotActivePrinter();
+
+$ordersC = new Orders();
+$orderC = $ordersC->getAllCompletedPrinter($_SESSION['user']);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +51,7 @@
         <div>
 
             <div class="activeOrders">
+                <?php foreach($orderA as $oA):?>
                 <div class="ordersCard">
 
                     <div class="orderCardContent">
@@ -32,30 +59,30 @@
 
                         <div class="ordersPerson">
                             <img src="./images/Profile.jpeg" alt="">
-                            <p>Carlton_Brasserie</p>
+                            <p><?php  echo htmlspecialchars($oA['horeca'])?></p>
                         </div>
 
                         <div>
                             <h3>BESCHRIJVING</h3>
-                            <p>plastick vork (wit)</p>
+                            <p><?php echo htmlspecialchars($oA['description'])?></p>
                         </div>
 
                         <div class="ordersInfo">
                             <div>
                                 <h3>AANTAL</h3>
-                                <p>75</p>
+                                <p><?php echo htmlspecialchars($oA['amount'])?> stuks</p>
                             </div>
 
                             <div>
                                 <h3>DEADLINE</h3>
-                                <p>5 apr 2021</p>
+                                <p><?php echo htmlspecialchars($oA['deadline'])?></p>
                             </div>
                         </div>
 
 
                         <div>
                             <h3>OPHALING/VERZENDING</h3>
-                            <p>Ophaling</p>
+                            <p><?php echo htmlspecialchars($oA['send'])?></p>
                         </div>
 
                         <div class="orderStatus">
@@ -68,12 +95,12 @@
 
                             <div class="coinsOrders">
                                 <img src="./images/filamentIcon.svg" alt="your coins">
-                                <p> 20.000</p>
+                                <p> <?php  echo htmlspecialchars($oA['price'])?></p>
                             </div>
 
                             <div class="mailOrders">
                                 <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
-                                <p>emailadress here</p>
+                                <p><?php  echo htmlspecialchars($oA['horecamail'])?></p>
                             </div>
 
 
@@ -85,67 +112,11 @@
 
 
                 </div>
+                <?php endforeach;?>
 
 
 
 
-                <div class="ordersCard">
-
-                    <div class="orderCardContent">
-                        <h3>OPDRACHTGEVER</h3>
-
-                        <div class="ordersPerson">
-                            <img src="./images/Profile.jpeg" alt="">
-                            <p>Carlton_Brasserie</p>
-                        </div>
-
-                        <div>
-                            <h3>BESCHRIJVING</h3>
-                            <p>plastick vork (wit)</p>
-                        </div>
-
-                        <div class="ordersInfo">
-                            <div>
-                                <h3>AANTAL</h3>
-                                <p>75</p>
-                            </div>
-
-                            <div>
-                                <h3>DEADLINE</h3>
-                                <p>5 apr 2021</p>
-                            </div>
-                        </div>
-
-
-                        <div>
-                            <h3>OPHALING/VERZENDING</h3>
-                            <p>Ophaling</p>
-                        </div>
-
-                        <div class="orderStatus">
-                            <div>
-                                <form action="" method="POST">
-                                    <input type="hidden" name="ordersSubmit" value="3487">
-                                    <input class="ordersSubmit" type="submit" value="Markeren als klaar">
-                                </form>
-                            </div>
-
-                            <div class="coinsOrders">
-                                <img src="./images/filamentIcon.svg" alt="your coins">
-                                <p> 20.000</p>
-                            </div>
-
-                            <div class="mailOrders">
-                                <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
-                                <p>emailadress here</p>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
             </div>
 
 
@@ -164,7 +135,7 @@
 
         <h2>New orders</h2>
         <div>
-
+            <?php foreach($orderNA as $oNA):?>
             <div class="ordersCard">
 
                 <div class="orderCardContent">
@@ -172,30 +143,30 @@
 
                     <div class="ordersPerson">
                         <img src="./images/Profile.jpeg" alt="">
-                        <p>Carlton_Brasserie</p>
+                        <p><?php  echo htmlspecialchars($oA['horeca'])?></p>
                     </div>
 
                     <div>
                         <h3>BESCHRIJVING</h3>
-                        <p>plastick vork (wit)</p>
+                        <p><?php echo htmlspecialchars($oA['description'])?></p>
                     </div>
 
                     <div class="ordersInfo">
                         <div>
                             <h3>AANTAL</h3>
-                            <p>75</p>
+                            <p><?php echo htmlspecialchars($oA['amount'])?></p>
                         </div>
 
                         <div>
                             <h3>DEADLINE</h3>
-                            <p>5 apr 2021</p>
+                            <p><?php echo htmlspecialchars($oA['deadline'])?></p>
                         </div>
                     </div>
 
 
                     <div>
                         <h3>OPHALING/VERZENDING</h3>
-                        <p>Ophaling</p>
+                        <p><?php echo htmlspecialchars($oA['send'])?></p>
                     </div>
 
                     <div class="orderStatus">
@@ -208,12 +179,12 @@
 
                         <div class="coinsOrders">
                             <img src="./images/filamentIcon.svg" alt="your coins">
-                            <p> 20.000</p>
+                            <p> <?php  echo htmlspecialchars($oA['price'])?></p>
                         </div>
 
                         <div class="mailOrders">
                             <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
-                            <p>emailadress here</p>
+                            <p><?php  echo htmlspecialchars($oA['horecamail'])?></p>
                         </div>
 
 
@@ -225,6 +196,8 @@
 
 
             </div>
+            <?php endforeach;?>
+
         </div>
 
 
@@ -237,6 +210,7 @@
 
         <h2>My completed orders</h2>
         <div>
+        <?php foreach($orderC as $oC):?>
 
             <div class="ordersCard">
 
@@ -245,30 +219,30 @@
 
                     <div class="ordersPerson">
                         <img src="./images/Profile.jpeg" alt="">
-                        <p>Carlton_Brasserie</p>
+                        <p><?php  echo htmlspecialchars($oA['horeca'])?></p>
                     </div>
 
                     <div>
                         <h3>BESCHRIJVING</h3>
-                        <p>plastick vork (wit)</p>
+                        <p><?php echo htmlspecialchars($oA['description'])?></p>
                     </div>
 
                     <div class="ordersInfo">
                         <div>
                             <h3>AANTAL</h3>
-                            <p>75</p>
+                            <p><?php echo htmlspecialchars($oA['amount'])?></p>
                         </div>
 
                         <div>
                             <h3>DEADLINE</h3>
-                            <p>5 apr 2021</p>
+                            <p><?php echo htmlspecialchars($oA['deadline'])?></p>
                         </div>
                     </div>
 
 
                     <div>
                         <h3>OPHALING/VERZENDING</h3>
-                        <p>Ophaling</p>
+                        <p><?php echo htmlspecialchars($oA['send'])?></p>
                     </div>
 
                     <div class="orderStatus">
@@ -281,12 +255,12 @@
 
                         <div class="coinsOrders">
                             <img src="./images/filamentIcon.svg" alt="your coins">
-                            <p> 20.000</p>
+                            <p><?php  echo htmlspecialchars($oA['price'])?></p>
                         </div>
 
                         <div class="mailOrders">
                             <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
-                            <p>emailadress here</p>
+                            <p><?php  echo htmlspecialchars($oA['horecamail'])?></p>
                         </div>
 
 
@@ -298,6 +272,7 @@
 
 
             </div>
+            <?php endforeach;?>
 
         </div>
 

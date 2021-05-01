@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION['user']);
+//var_dump($_SESSION['user']);
 
 include_once(__DIR__ . "/classes/Products.php");
 include_once(__DIR__ . "/classes/Users.php");
@@ -44,22 +44,22 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
     <div class="indexBackground">
         <div class="sectionContainer">
-            <a class="section leaderboard" href="">
+            <a class="section leaderboard" href="stats.php">
                 <div>
                     <p>LEADERBOARD</p>
                 </div>
             </a>
-            <a class="section stats" href="">
+            <a class="section stats" href="stats.php">
                 <div>
                     <p>STATISTIEKEN</p>
                 </div>
             </a>
-            <a class="section earn" href="">
+            <a class="section earn" href="stats.php">
                 <div>
                     <p>HOE FILAMENT VERDIENEN</p>
                 </div>
             </a>
-            <a class="section dMonth" href="">
+            <a class="section dMonth" href="design.php">
                 <div>
                     <p>DESIGN VAN DE MAAND</p>
                 </div>

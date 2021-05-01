@@ -1,3 +1,9 @@
+<?php
+session_start();
+include_once(__DIR__ . "/classes/Users.php");
+$users = new Users();
+$users = $users->getUserByEmail($_SESSION['user']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 

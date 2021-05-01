@@ -1,3 +1,8 @@
+<?php
+session_start();
+$users = new Users();
+$users = $users->getUserByEmail($_SESSION['user']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
