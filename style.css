@@ -1084,6 +1084,15 @@ textarea {
         display: flex;
         flex-direction: row;
     }
+    .completedOrders {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .newOrders {
+        display: flex;
+        flex-direction: row;
+    }
     .ordersCard {
         margin: 1em;
     }

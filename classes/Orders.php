@@ -34,4 +34,36 @@ class Orders{
         return  $ordersC;
     }
 
+    public  function getActiveOrdersAmount($name)
+    {
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select COUNT(*) from orders where printermail = :email  and type = 'active'");
+        $result->bindValue(':email', $name);
+        $result->execute();
+        $activeOrders = $result->fetch();
+        return   $activeOrders;
+    }
+
+    public  function completeOrder($name, $id)
+    {
+        $conn = Db::getConnection();
+        $result = $conn->prepare("update orders set type = 'completed' where printermail = :email and id = :id ");
+        $result->bindValue(':email', $name);
+        $result->bindValue(':id', $id);
+        $result->execute();
+        $UpdateActiveOrders = $result->fetch();
+        return $UpdateActiveOrders;
+    }
+
+    public  function AcceptOrder($name, $id)
+    {
+        $conn = Db::getConnection();
+        $result = $conn->prepare("update orders set type = 'active' where printermail = :email and id = :id ");
+        $result->bindValue(':email', $name);
+        $result->bindValue(':id', $id);
+        $result->execute();
+        $AcceptOrder = $result->fetch();
+        return $AcceptOrder;
+    }
+
 }
