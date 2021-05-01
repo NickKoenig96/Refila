@@ -64,7 +64,7 @@ class Users
         $result = $conn->query("select * from users");
         $result->execute();
         $users = $result->fetchAll();
-         return  $users;
+        return  $users;
     }
 
     

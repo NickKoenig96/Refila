@@ -10,10 +10,17 @@ include_once(__DIR__ . "/classes/Orders.php");
 $users = new Users();
 $users = $users->getUserByEmail($_SESSION['user']);
 
+$allUsers = new Users();
+$allUsers = $allUsers->getAllUsers();
+//var_dump($allUsers);
+
 
 
 $ordersA = new Orders();
 $orderA = $ordersA->getAllActivePrinter($_SESSION['user']);
+
+$ordersHA = new Orders();
+$orderHA = $ordersHA->getAllActiveHoreca($_SESSION['user']);
 
 
 $ordersNA = new Orders();
@@ -22,21 +29,37 @@ $orderNA = $ordersNA->getAllNotActivePrinter();
 $ordersC = new Orders();
 $orderC = $ordersC->getAllCompletedPrinter($_SESSION['user']);
 
+$ordersRS = new Orders();
+$orderRS = $ordersRS->getAllReadyShipement($_SESSION['user']);
+
+$ordersHC = new Orders();
+$orderHC = $ordersHC->getAllcompleteHorecaOrders($_SESSION['user']);
+var_dump($ordersHC);
+
 $ordersAmount = new Orders();
 $orderAmount = $ordersAmount->getActiveOrdersAmount($_SESSION['user']);
+
+
+$account;
+if ($users['account'] === 'printer') {
+    echo "printer";
+    $account = 'printer';
+} else {
+    echo 'horeca';
+    $account = 'horeca';
+}
 
 if (!empty($_POST['orderDoneSubmit'])) {
     $updateActiveOrders = new Orders();
     $updateActiveOrder = $updateActiveOrders->completeOrder($_SESSION['user'], $_POST['orderDone']);
     header('Location: orders.php');
-
-} 
+}
 
 if (!empty($_POST['ordersAcceptSubmit'])) {
     $AcceptOrders = new Orders();
     $AcceptOrder = $AcceptOrders->AcceptOrder($_SESSION['user'], $_POST['ordersAccept']);
     header('Location: orders.php');
-} 
+}
 
 
 ?>
@@ -67,7 +90,158 @@ if (!empty($_POST['ordersAcceptSubmit'])) {
         <div>
 
             <div class="activeOrders">
-                <?php foreach ($orderA as $oA) : ?>
+                <?php if ($account === 'printer') : ?>
+                    <?php foreach ($orderA as $oA) : ?>
+                        <div class="ordersCard">
+
+                            <div class="orderCardContent">
+                                <h3>OPDRACHTGEVER</h3>
+
+                                <div class="ordersPerson">
+                                    <img src="./images/Profile.jpeg" alt="">
+                                    <p><?php echo htmlspecialchars($oA['horeca']) ?></p>
+                                </div>
+
+                                <div>
+                                    <h3>BESCHRIJVING</h3>
+                                    <p><?php echo htmlspecialchars($oA['description']) ?></p>
+                                </div>
+
+                                <div class="ordersInfo">
+                                    <div>
+                                        <h3>AANTAL</h3>
+                                        <p><?php echo htmlspecialchars($oA['amount']) ?> stuks</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>DEADLINE</h3>
+                                        <p><?php echo htmlspecialchars($oA['deadline']) ?></p>
+                                    </div>
+                                </div>
+
+
+                                <div>
+                                    <h3>OPHALING/VERZENDING</h3>
+                                    <p><?php echo htmlspecialchars($oA['send']) ?></p>
+                                </div>
+
+                                <div class="orderStatus">
+                                    <div>
+                                        <form action="" method="POST">
+                                            <input type="hidden" name="orderDone" value="<?php echo htmlspecialchars($oA['id']) ?>">
+                                            <input class="ordersSubmit" type="Submit" name="orderDoneSubmit" value="Markeren als klaar">
+                                        </form>
+                                    </div>
+
+                                    <div class="coinsOrders">
+                                        <img src="./images/filamentIcon.svg" alt="your coins">
+                                        <p> <?php echo htmlspecialchars($oA['price']) ?></p>
+                                    </div>
+
+                                    <div class="mailOrders">
+                                        <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
+                                        <p><?php echo htmlspecialchars($oA['horecamail']) ?></p>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+                <?php if ($account === "horeca") : ?>
+                    <?php foreach ($orderHA as $oHA) : ?>
+                        <div class="ordersCard">
+
+                            <div class="orderCardContent">
+                                <h3>GEPRINT DOOR</h3>
+
+                                <div class="ordersPerson">
+                                    <?php foreach ($allUsers as $allUser) : ?>
+                                        <?php if ($oHA['printermail'] === $allUser['email']) : ?>
+                                            <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                    <p><?php echo htmlspecialchars($oHA['printer']) ?></p>
+                                </div>
+
+                                <div>
+                                    <h3>BESCHRIJVING</h3>
+                                    <p><?php echo htmlspecialchars($oHA['description']) ?></p>
+                                </div>
+
+                                <div class="ordersInfo">
+                                    <div>
+                                        <h3>AANTAL</h3>
+                                        <p><?php echo htmlspecialchars($oHA['amount']) ?> stuks</p>
+                                    </div>
+
+                                    <div>
+                                        <h3>DEADLINE</h3>
+                                        <p><?php echo htmlspecialchars($oHA['deadline']) ?></p>
+                                    </div>
+                                </div>
+
+
+                                <div>
+                                    <h3>OPHALING/VERZENDING</h3>
+                                    <p><?php echo htmlspecialchars($oHA['send']) ?></p>
+                                </div>
+
+                                <div class="orderStatus">
+                                    <div>
+                                        <form action="" method="POST">
+                                            <input type="hidden" name="orderDone" value="<?php echo htmlspecialchars($oHA['id']) ?>">
+                                            <input class="ordersSubmit" type="Submit" name="orderDoneSubmit" value="Markeren als klaar">
+                                        </form>
+                                    </div>
+
+                                    <div class="coinsOrders">
+                                        <img src="./images/filamentIcon.svg" alt="your coins">
+                                        <p> <?php echo htmlspecialchars($oHA['price']) ?></p>
+                                    </div>
+
+                                    <div class="mailOrders">
+                                        <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
+                                        <p><?php echo htmlspecialchars($oHA['horecamail']) ?></p>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+            </div>
+
+
+        </div>
+
+
+
+        <?php if ($account === 'printer') : ?>
+            <h2>New orders</h2>
+        <?php endif; ?>
+
+        <?php if ($account === 'horeca') : ?>
+            <h2>Orders ready for shipment/collection</h2>
+        <?php endif; ?>
+
+        <div class="newOrders">
+            <?php if ($account === "printer") : ?>
+                <?php foreach ($orderNA as $oNA) : ?>
                     <div class="ordersCard">
 
                         <div class="orderCardContent">
@@ -75,48 +249,48 @@ if (!empty($_POST['ordersAcceptSubmit'])) {
 
                             <div class="ordersPerson">
                                 <img src="./images/Profile.jpeg" alt="">
-                                <p><?php echo htmlspecialchars($oA['horeca']) ?></p>
+                                <p><?php echo htmlspecialchars($oNA['horeca']) ?></p>
                             </div>
 
                             <div>
                                 <h3>BESCHRIJVING</h3>
-                                <p><?php echo htmlspecialchars($oA['description']) ?></p>
+                                <p><?php echo htmlspecialchars($oNA['description']) ?></p>
                             </div>
 
                             <div class="ordersInfo">
                                 <div>
                                     <h3>AANTAL</h3>
-                                    <p><?php echo htmlspecialchars($oA['amount']) ?> stuks</p>
+                                    <p><?php echo htmlspecialchars($oNA['amount']) ?></p>
                                 </div>
 
                                 <div>
                                     <h3>DEADLINE</h3>
-                                    <p><?php echo htmlspecialchars($oA['deadline']) ?></p>
+                                    <p><?php echo htmlspecialchars($oNA['deadline']) ?></p>
                                 </div>
                             </div>
 
 
                             <div>
                                 <h3>OPHALING/VERZENDING</h3>
-                                <p><?php echo htmlspecialchars($oA['send']) ?></p>
+                                <p><?php echo htmlspecialchars($oNA['send']) ?></p>
                             </div>
 
                             <div class="orderStatus">
                                 <div>
                                     <form action="" method="POST">
-                                        <input type="hidden" name="orderDone" value="<?php echo htmlspecialchars($oA['id']) ?>">
-                                        <input class="ordersSubmit" type="Submit" name="orderDoneSubmit" value="Markeren als klaar">
+                                        <input type="hidden" name="ordersAccept" value="<?php echo htmlspecialchars($oNA['id']) ?>">
+                                        <input class="ordersSubmit" type="submit" name="ordersAcceptSubmit" value="Order aannemen">
                                     </form>
                                 </div>
 
                                 <div class="coinsOrders">
                                     <img src="./images/filamentIcon.svg" alt="your coins">
-                                    <p> <?php echo htmlspecialchars($oA['price']) ?></p>
+                                    <p> <?php echo htmlspecialchars($oNA['price']) ?></p>
                                 </div>
 
                                 <div class="mailOrders">
                                     <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
-                                    <p><?php echo htmlspecialchars($oA['horecamail']) ?></p>
+                                    <p><?php echo htmlspecialchars($oNA['horecamail']) ?></p>
                                 </div>
 
 
@@ -129,91 +303,75 @@ if (!empty($_POST['ordersAcceptSubmit'])) {
 
                     </div>
                 <?php endforeach; ?>
+            <?php endif; ?>
+            <?php if ($account === 'horeca') : ?>
+                <?php foreach ($orderRS as $oRS) : ?>
+                    <div class="ordersCard">
 
+                        <div class="orderCardContent">
+                            <h3>OPDRACHTGEVER</h3>
 
-
-
-            </div>
-
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        <h2>New orders</h2>
-        <div class="newOrders">
-            <?php foreach ($orderNA as $oNA) : ?>
-                <div class="ordersCard">
-
-                    <div class="orderCardContent">
-                        <h3>OPDRACHTGEVER</h3>
-
-                        <div class="ordersPerson">
-                            <img src="./images/Profile.jpeg" alt="">
-                            <p><?php echo htmlspecialchars($oNA['horeca']) ?></p>
-                        </div>
-
-                        <div>
-                            <h3>BESCHRIJVING</h3>
-                            <p><?php echo htmlspecialchars($oNA['description']) ?></p>
-                        </div>
-
-                        <div class="ordersInfo">
-                            <div>
-                                <h3>AANTAL</h3>
-                                <p><?php echo htmlspecialchars($oNA['amount']) ?></p>
+                            <div class="ordersPerson">
+                                <?php foreach ($allUsers as $allUser) : ?>
+                                    <?php if ($oHA['printermail'] === $allUser['email']) : ?>
+                                        <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                                <p><?php echo htmlspecialchars($oRS['printer']) ?></p>
                             </div>
 
                             <div>
-                                <h3>DEADLINE</h3>
-                                <p><?php echo htmlspecialchars($oNA['deadline']) ?></p>
+                                <h3>BESCHRIJVING</h3>
+                                <p><?php echo htmlspecialchars($oRS['description']) ?></p>
                             </div>
-                        </div>
+
+                            <div class="ordersInfo">
+                                <div>
+                                    <h3>AANTAL</h3>
+                                    <p><?php echo htmlspecialchars($oRS['amount']) ?></p>
+                                </div>
+
+                                <div>
+                                    <h3>DEADLINE</h3>
+                                    <p><?php echo htmlspecialchars($oRS['deadline']) ?></p>
+                                </div>
+                            </div>
 
 
-                        <div>
-                            <h3>OPHALING/VERZENDING</h3>
-                            <p><?php echo htmlspecialchars($oNA['send']) ?></p>
-                        </div>
-
-                        <div class="orderStatus">
                             <div>
-                                <form action="" method="POST">
-                                    <input type="hidden" name="ordersAccept" value="<?php echo htmlspecialchars($oNA['id']) ?>">
-                                    <input class="ordersSubmit" type="submit" name="ordersAcceptSubmit" value="Order aannemen">
-                                </form>
+                                <h3>OPHALING/VERZENDING</h3>
+                                <p><?php echo htmlspecialchars($oNRS['send']) ?></p>
                             </div>
 
-                            <div class="coinsOrders">
-                                <img src="./images/filamentIcon.svg" alt="your coins">
-                                <p> <?php echo htmlspecialchars($oNA['price']) ?></p>
-                            </div>
+                            <div class="orderStatus">
+                                <div>
+                                    <form action="" method="POST">
+                                        <input type="hidden" name="ordersAccept" value="<?php echo htmlspecialchars($oRS['id']) ?>">
+                                        <input class="ordersSubmit" type="submit" name="ordersAcceptSubmit" value="Markeren als klaar">
+                                    </form>
+                                </div>
 
-                            <div class="mailOrders">
-                                <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
-                                <p><?php echo htmlspecialchars($oNA['horecamail']) ?></p>
-                            </div>
+                                <div class="coinsOrders">
+                                    <img src="./images/filamentIcon.svg" alt="your coins">
+                                    <p> <?php echo htmlspecialchars($oRS['price']) ?></p>
+                                </div>
 
+                                <div class="mailOrders">
+                                    <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
+                                    <p><?php echo htmlspecialchars($oRS['horecamail']) ?></p>
+                                </div>
+
+
+                            </div>
 
                         </div>
+
+
+
 
                     </div>
-
-
-
-
-                </div>
-            <?php endforeach; ?>
-
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
 
 
@@ -226,70 +384,140 @@ if (!empty($_POST['ordersAcceptSubmit'])) {
 
         <h2>My completed orders</h2>
         <div class="completedOrders">
-            <?php foreach ($orderC as $oC) : ?>
+            <?php if ($account === 'printer') : ?>
+                <?php foreach ($orderC as $oC) : ?>
 
-                <div class="ordersCard">
+                    <div class="ordersCard">
 
-                    <div class="orderCardContent">
-                        <h3>OPDRACHTGEVER</h3>
+                        <div class="orderCardContent">
+                            <h3>OPDRACHTGEVER</h3>
 
-                        <div class="ordersPerson">
-                            <img src="./images/Profile.jpeg" alt="">
-                            <p><?php echo htmlspecialchars($oC['horeca']) ?></p>
-                        </div>
-
-                        <div>
-                            <h3>BESCHRIJVING</h3>
-                            <p><?php echo htmlspecialchars($oC['description']) ?></p>
-                        </div>
-
-                        <div class="ordersInfo">
-                            <div>
-                                <h3>AANTAL</h3>
-                                <p><?php echo htmlspecialchars($oC['amount']) ?></p>
+                            <div class="ordersPerson">
+                                <img src="./images/Profile.jpeg" alt="">
+                                <p><?php echo htmlspecialchars($oC['horeca']) ?></p>
                             </div>
 
                             <div>
-                                <h3>DEADLINE</h3>
-                                <p><?php echo htmlspecialchars($oC['deadline']) ?></p>
+                                <h3>BESCHRIJVING</h3>
+                                <p><?php echo htmlspecialchars($oC['description']) ?></p>
                             </div>
-                        </div>
+
+                            <div class="ordersInfo">
+                                <div>
+                                    <h3>AANTAL</h3>
+                                    <p><?php echo htmlspecialchars($oC['amount']) ?></p>
+                                </div>
+
+                                <div>
+                                    <h3>DEADLINE</h3>
+                                    <p><?php echo htmlspecialchars($oC['deadline']) ?></p>
+                                </div>
+                            </div>
 
 
-                        <div>
-                            <h3>OPHALING/VERZENDING</h3>
-                            <p><?php echo htmlspecialchars($oC['send']) ?></p>
-                        </div>
-
-                        <div class="orderStatus">
                             <div>
-                                <form action="" method="POST">
-                                    <input type="hidden" name="ordersSubmit" value="3487">
-                                    <input class="ordersSubmit ordersComplete" value="klaar">
-                                </form>
+                                <h3>OPHALING/VERZENDING</h3>
+                                <p><?php echo htmlspecialchars($oC['send']) ?></p>
                             </div>
 
-                            <div class="coinsOrders">
-                                <img src="./images/filamentIcon.svg" alt="your coins">
-                                <p><?php echo htmlspecialchars($oC['price']) ?></p>
-                            </div>
+                            <div class="orderStatus">
+                                <div>
+                                    <form action="" method="POST">
+                                        <input type="hidden" name="ordersSubmit" value="3487">
+                                        <input class="ordersSubmit ordersComplete" value="klaar">
+                                    </form>
+                                </div>
 
-                            <div class="mailOrders">
-                                <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
-                                <p><?php echo htmlspecialchars($oC['horecamail']) ?></p>
-                            </div>
+                                <div class="coinsOrders">
+                                    <img src="./images/filamentIcon.svg" alt="your coins">
+                                    <p><?php echo htmlspecialchars($oC['price']) ?></p>
+                                </div>
 
+                                <div class="mailOrders">
+                                    <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
+                                    <p><?php echo htmlspecialchars($oC['horecamail']) ?></p>
+                                </div>
+
+
+                            </div>
 
                         </div>
+
+
+
 
                     </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <?php if ($account === "horeca") : ?>
+                <?php foreach ($orderHC as $oHC) : ?>
+
+                    <div class="ordersCard">
+
+                        <div class="orderCardContent">
+                            <h3>OPDRACHTGEVER</h3>
+
+                            <div class="ordersPerson">
+                                <?php foreach ($allUsers as $allUser) : ?>
+                                    <?php if ($oHA['printermail'] === $allUser['email']) : ?>
+                                        <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                                <p><?php echo htmlspecialchars($oHC['printer']) ?></p>
+                            </div>
+
+                            <div>
+                                <h3>BESCHRIJVING</h3>
+                                <p><?php echo htmlspecialchars($oHC['description']) ?></p>
+                            </div>
+
+                            <div class="ordersInfo">
+                                <div>
+                                    <h3>AANTAL</h3>
+                                    <p><?php echo htmlspecialchars($oHC['amount']) ?></p>
+                                </div>
+
+                                <div>
+                                    <h3>DEADLINE</h3>
+                                    <p><?php echo htmlspecialchars($oHC['deadline']) ?></p>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <h3>OPHALING/VERZENDING</h3>
+                                <p><?php echo htmlspecialchars($oHC['send']) ?></p>
+                            </div>
+
+                            <div class="orderStatus">
+                                <div>
+                                    <form action="" method="POST">
+                                        <input type="hidden" name="ordersSubmit" value="3487">
+                                        <input class="ordersSubmit ordersComplete" value="klaar">
+                                    </form>
+                                </div>
+
+                                <div class="coinsOrders">
+                                    <img src="./images/filamentIcon.svg" alt="your coins">
+                                    <p><?php echo htmlspecialchars($oHC['price']) ?></p>
+                                </div>
+
+                                <div class="mailOrders">
+                                    <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
+                                    <p><?php echo htmlspecialchars($oHC['horecamail']) ?></p>
+                                </div>
+
+
+                            </div>
+
+                        </div>
 
 
 
 
-                </div>
-            <?php endforeach; ?>
-
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
 
 
