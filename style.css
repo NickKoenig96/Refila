@@ -194,6 +194,21 @@ nav {
     margin-bottom: 0.5em;
 }
 
+.navOpen{
+    background-color:#37B6D3 ;
+    display: flex;
+    flex-direction: column;
+}
+
+.navOpen a{
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    padding: 1em;
+    padding-left: 2em;
+    font-size: 1.1em;
+}
+
 /* index */
 
 .indexBackground {
@@ -349,7 +364,7 @@ footer div {
 
 .ordersCard {
     background-color: white;
-    width: 25em;
+    width: 22em;
     margin-left: auto;
     margin-right: auto;
     padding-top: 1em;
@@ -480,7 +495,7 @@ footer div {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 1em;
+    padding: 1em;
     border-radius: 12px;
     border: 2px solid #ece9e9;
     margin-bottom: 0.5em;
@@ -600,7 +615,7 @@ footer div {
 
 /* contact */
 
-.contactInfoDesktop{
+.contactInfoDesktop {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -609,7 +624,6 @@ footer div {
     margin-left: auto;
     margin-right: auto;
     display: none;
-
 }
 
 .contact {
@@ -666,8 +680,6 @@ textarea {
     flex-direction: row;
 }
 
-
-
 .contactInfoDiv p {
     font-size: small;
     padding-left: 0.2em;
@@ -699,7 +711,7 @@ textarea {
     background-color: white;
 }
 
-.ordersP2 h3{
+.ordersP2 h3 {
     margin-left: 1em;
 }
 
@@ -708,7 +720,6 @@ textarea {
     flex-direction: row;
     margin: 1em;
     width: 80%;
-
 }
 
 /*design */
@@ -919,6 +930,10 @@ textarea {
     .desktopNav {
         display: flex;
     }
+
+    .navOpen {
+        display: none;
+    }
 }
 
 @media(min-width: 800px) {
@@ -1086,32 +1101,25 @@ textarea {
         flex-direction: row;
         margin: 1em;
         width: 15em;
-
     }
     .orderscard2 {
         width: 60%;
         margin-left: auto;
         margin-right: auto;
     }
-
-    .contactInfoDesktop{
+    .contactInfoDesktop {
         display: block;
     }
-
-  
-
-    .contactInfo{
+    .contactInfo {
         display: none;
     }
-
-    .contactCard{
+    .contactCard {
         display: flex;
         flex-direction: row;
     }
-    #contactForm{
+    #contactForm {
         width: 15em;
     }
-    
 }
 
 @media(min-width: 1050px) {
@@ -1185,8 +1193,7 @@ textarea {
         width: 20%;
         margin: 1%;
     }
-
-    #contactForm{
+    #contactForm {
         width: 23em;
     }
 }

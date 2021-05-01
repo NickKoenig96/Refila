@@ -1,3 +1,19 @@
+<?php
+
+include_once(__DIR__ . "/classes/Products.php");
+
+$PProducts = new Products();
+$PProducts = $PProducts->getPopularProducts();
+//var_dump($Products);
+
+$RProducts = new Products();
+$RProducts = $RProducts->getPopularProducts();
+var_dump($RProducts);
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,64 +72,20 @@
 
         <div class="productsIndex">
 
-            <div>
-                <a class="section product" href="">
-                    <div> <img src="./images/filamentProduct.svg" alt="">
+            <?php foreach ($PProducts as $PProduct) : ?>
+                <div>
+                    <a class="section product" href="">
+                        <div> <img src="./images/<?php echo htmlspecialchars($PProduct['image']) ?>" alt="">
+                        </div>
+                    </a>
+                    <p class="productIndexTitle"><?php echo htmlspecialchars($PProduct['title']) ?></p>
+                    <div class="priceProductIndex">
+
+                        <img src="./images/filamentIcon.svg" alt="">
+                        <p><?php echo htmlspecialchars($PProduct['price']) ?>/kg</p>
                     </div>
-                </a>
-                <p class="productIndexTitle">Multicolor PLA 3D
-                    Printer Filament</p>
-                <div class="priceProductIndex">
-
-                    <img src="./images/filamentIcon.svg" alt="">
-                    <p>60.000/kg</p>
                 </div>
-            </div>
-
-            <div>
-                <a class="section product" href="">
-                    <div> <img src="./images/filamentProduct.svg" alt="">
-                    </div>
-                </a>
-                <p class="productIndexTitle">Multicolor PLA 3D
-                    Printer Filament</p>
-                <div class="priceProductIndex">
-
-                    <img src="./images/filamentIcon.svg" alt="">
-                    <p>60.000/kg</p>
-                </div>
-            </div>
-
-            <div>
-                <a class="section product" href="">
-                    <div> <img src="./images/filamentProduct.svg" alt="">
-                    </div>
-                </a>
-                <p class="productIndexTitle">Multicolor PLA 3D
-                    Printer Filament</p>
-                <div class="priceProductIndex">
-
-                    <img src="./images/filamentIcon.svg" alt="">
-                    <p>60.000/kg</p>
-                </div>
-            </div>
-
-            <div>
-                <a class="section product" href="">
-                    <div> <img src="./images/filamentProduct.svg" alt="">
-                    </div>
-                </a>
-                <p class="productIndexTitle">Multicolor PLA 3D
-                    Printer Filament</p>
-                <div class="priceProductIndex">
-
-                    <img src="./images/filamentIcon.svg" alt="">
-                    <p>60.000/kg</p>
-                </div>
-            </div>
-
-
-
+            <?php endforeach; ?>
 
         </div>
 
@@ -127,64 +99,25 @@
 
         <div class="productsIndex">
 
-            <div>
-                <a class="section product" href="">
-                    <div> <img src="./images/filamentProduct.svg" alt="">
+        <?php foreach ($PProducts as $PProduct) : ?>
+                <div>
+                    <a class="section product" href="">
+                        <div> <img src="./images/<?php echo htmlspecialchars($PProduct['image']) ?>" alt="">
+                        </div>
+                    </a>
+                    <p class="productIndexTitle"><?php echo htmlspecialchars($PProduct['title']) ?></p>
+                    <div class="priceProductIndex">
+
+                        <img src="./images/filamentIcon.svg" alt="">
+                        <p><?php echo htmlspecialchars($PProduct['price']) ?>/kg</p>
                     </div>
-                </a>
-                <p class="productIndexTitle">Multicolor PLA 3D
-                    Printer Filament</p>
-                <div class="priceProductIndex">
-
-                    <img src="./images/filamentIcon.svg" alt="">
-                    <p>60.000/kg</p>
                 </div>
-            </div>
-
-            <div>
-                <a class="section product" href="">
-                    <div> <img src="./images/filamentProduct.svg" alt="">
-                    </div>
-                </a>
-                <p class="productIndexTitle">Multicolor PLA 3D
-                    Printer Filament</p>
-                <div class="priceProductIndex">
-
-                    <img src="./images/filamentIcon.svg" alt="">
-                    <p>60.000/kg</p>
-                </div>
-            </div>
-
-            <div>
-                <a class="section product" href="">
-                    <div> <img src="./images/filamentProduct.svg" alt="">
-                    </div>
-                </a>
-                <p class="productIndexTitle">Multicolor PLA 3D
-                    Printer Filament</p>
-                <div class="priceProductIndex">
-
-                    <img src="./images/filamentIcon.svg" alt="">
-                    <p>60.000/kg</p>
-                </div>
-            </div>
-
-            <div>
-                <a class="section product" href="">
-                    <div> <img src="./images/filamentProduct.svg" alt="">
-                    </div>
-                </a>
-                <p class="productIndexTitle">Multicolor PLA 3D
-                    Printer Filament</p>
-                <div class="priceProductIndex">
-
-                    <img src="./images/filamentIcon.svg" alt="">
-                    <p>60.000/kg</p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
 
     </div>
+
+
 
     <div class="indexSection">
         <a id="shopButton" href="">Shop</a>
