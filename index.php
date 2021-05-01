@@ -1,16 +1,20 @@
 <?php
+session_start();
+var_dump($_SESSION['user']);
 
 include_once(__DIR__ . "/classes/Products.php");
+include_once(__DIR__ . "/classes/Users.php");
+
 
 $PProducts = new Products();
 $PProducts = $PProducts->getPopularProducts();
-//var_dump($Products);
 
 $RProducts = new Products();
 $RProducts = $RProducts->getPopularProducts();
-var_dump($RProducts);
 
 
+$users = new Users();
+$users = $users->getUserByEmail($_SESSION['user']);
 
 ?>
 

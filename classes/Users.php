@@ -58,5 +58,26 @@ class Users
         }
     }
 
+    public function getAllUsers(){
+
+        $conn = Db::getConnection();
+        $result = $conn->query("select * from users");
+        $result->execute();
+        $users = $result->fetchAll();
+         return  $users;
+    }
+
+    
+    public function getUserByEmail($email){
+
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from users where email = :email");
+        $statement->bindValue(':email', $email);
+        $statement->execute();
+        $user = $statement->fetch();
+        return  $user;
+
+    }
+
   
 }
