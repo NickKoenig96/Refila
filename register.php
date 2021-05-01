@@ -1,3 +1,29 @@
+<?php
+
+include_once(__DIR__ . "/classes/Users.php");
+
+//if form is submitted
+if (!empty($_POST)) {
+
+    var_dump($_POST);
+try{
+    $surname = $_POST['surname'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $accountType = $_POST['accType'];
+
+    $users = new Users;
+    $users->register($surname, $name, $email, $username, $password, $accountType);
+}catch(Throwable $error) {
+        // if any errors are thrown in the class, they can be caught here
+        $error = $error->getMessage();
+    }
+}
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,52 +36,56 @@
 </head>
 
 <body class="BackgroundColor">
-<div class=registerContainer>
+    <div class=registerContainer>
 
 
-    <div class="loginLogo registerLogo">
-        <img src="./images/logo.svg" alt="logo">
-    </div>
-    <div class="error">
-        <p>hier komt een error</p>
-    </div>
-
-    <form id="loginForm" action="" method="POST">
-        
-        <label id="loginLabel" for="surname">VOORNAAM</label>
-        <input id="loginInput" type="text" name="surname" placeholder="Voornaam">
-
-        <label id="loginLabel" for="name">NAAM</label>
-        <input id="loginInput" type="text" name="name" placeholder="Naam">
-
-        <label id="loginLabel" for="email">EMAILADRESS</label>
-        <input id="loginInput" type="text" name="email" placeholder="Emailadress">
-
-        <label id="loginLabel" for="name">GEBRUIKERSNAAM</label>
-        <input id="loginInput" type="text" name="gebruikersnaam" placeholder="Gebruikersnaam">
-
-        <label id="loginLabel" for="password">WACHTWOORD</label>
-        <input id="loginInput" type="text" name="password" placeholder="Wachtwoord">
-
-
-        
-        <label id="loginLabel" >SOORT ACCOUNT</label>
-        <div class="loginCheckbox">
-            <div class="checkbox"></div>
-            <p>Horeca</p>
-            <div class="checkbox"></div>
-            <p>3D printer</p>
+        <div class="loginLogo registerLogo">
+            <img src="./images/logo.svg" alt="logo">
+        </div>
+        <div class="error">
+            <p><?php if(isset($error)):?>
+                <?php echo htmlspecialchars($error)?>
+                <?php endif;?>
+            </p>
         </div>
 
+        <form id="loginForm" action="" method="POST">
+
+            <label id="loginLabel" for="surname">VOORNAAM</label>
+            <input id="loginInput" type="text" name="surname" placeholder="Voornaam">
+
+            <label id="loginLabel" for="name">NAAM</label>
+            <input id="loginInput" type="text" name="name" placeholder="Naam">
+
+            <label id="loginLabel" for="email">EMAILADRESS</label>
+            <input id="loginInput" type="email" name="email" placeholder="Emailadress">
+
+            <label id="loginLabel" for="name">GEBRUIKERSNAAM</label>
+            <input id="loginInput" type="text" name="username" placeholder="Gebruikersnaam">
+
+            <label id="loginLabel" for="password">WACHTWOORD</label>
+            <input id="loginInput" type="password" name="password" placeholder="Wachtwoord">
 
 
-        <input  id="loginSubmit" type="submit" name="submit" value="Registreren" >
 
-        <a href="login.php">Login</a>
+            <label id="loginLabel">SOORT ACCOUNT</label>
+<label class="container">Horeca
+                <input type="radio" name="accType"  value="horeca">
+                <span class="checkmark"></span>
+            </label>
+           
+            <label class="container">3D printer
+                <input type="radio"  name="accType" value="printer">
+                <span class="checkmark"></span>
+            </label>
 
-    </form>
+            <input id="loginSubmit" type="submit" name="submit" value="Registreren">
 
-</div>
+            <a href="login.php">Login</a>
+
+        </form>
+
+    </div>
 </body>
 
 </html>
