@@ -103,7 +103,7 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
         <div class="productsIndex">
 
-        <?php foreach ($RProducts as $RProduct) : ?>
+            <?php foreach ($RProducts as $RProduct) : ?>
                 <div>
                     <a class="section product" href="">
                         <div> <img src="./images/<?php echo htmlspecialchars($RProduct['image']) ?>" alt="">

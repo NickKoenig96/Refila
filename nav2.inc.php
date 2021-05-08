@@ -4,7 +4,9 @@
     <a href="index.php">Home</a>
     <a href="orders.php">Orders</a>
     <a href="stats.php">Stats</a>
+    <a href="profile.php">Profile</a>
     <a href="contact.php">Contact</a>
+
 </div>
 
 <div class="desktopNavCoins">

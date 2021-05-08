@@ -63,7 +63,7 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
                 <div class="ordersP2">
                     <h3>Profielfoto uploaden</h3>
-                    <form class="ulpoadForm" action="upload.php" method="post" enctype="multipart/form-data">
+                    <form class="ulpoadForm" action="" method="post" enctype="multipart/form-data">
                         <img src="./images/Profile.jpeg" alt="">
                         <div>
                             <input type="file" name="fileToUpload" id="fileToUpload">
