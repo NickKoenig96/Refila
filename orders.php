@@ -37,7 +37,6 @@ $orderRS = $ordersRS->getAllReadyShipement($_SESSION['user']);
 
 $ordersHC = new Orders();
 $orderHC = $ordersHC->getAllcompleteHorecaOrders($_SESSION['user']);
-var_dump($ordersHC);
 
 $ordersAmount = new Orders();
 $orderAmount = $ordersAmount->getActiveOrdersAmount($_SESSION['user']);
@@ -48,22 +47,32 @@ $orderAmountHoreca = $ordersAmountHoreca->getActiveOrdersAmountHoreca($_SESSION[
 
 $account;
 if ($users['account'] === 'printer') {
-    echo "printer";
+    //echo "printer";
     $account = 'printer';
 } else {
-    echo 'horeca';
+    // echo 'horeca';
     $account = 'horeca';
 }
+
+
+
+
 
 if (!empty($_POST['orderDoneSubmit'])) {
     $updateActiveOrders = new Orders();
     $updateActiveOrder = $updateActiveOrders->completeOrder($_SESSION['user'], $_POST['orderDone']);
+
+
     header('Location: orders.php');
+
+
+
 }
 
 if (!empty($_POST['ordersAcceptSubmit'])) {
     $AcceptOrders = new Orders();
     $AcceptOrder = $AcceptOrders->AcceptOrder($_SESSION['user'], $_POST['ordersAccept']);
+
     header('Location: orders.php');
 }
 
@@ -71,6 +80,15 @@ if (!empty($_POST['ordersAcceptSubmit'])) {
 if (!empty($_POST['ordersReceivedSubmit'])) {
     $orderReceived = new Orders();
     $orderReceived = $orderReceived->ReceiveOrder($_SESSION['user'], $_POST['ordersReceived']);
+
+    $updateCoinsPrinter = new Users();
+    $updateCoinPrinter  = $updateCoinsPrinter->updateCoins($_POST['printermail'], $_POST['price']);
+
+    $updateCoinsHoreca = new Users();
+    $updateCoinHoreca  = $updateCoinsHoreca->updateCoinsH($_SESSION['user'], $_POST['price']);
+
+
+    
     header('Location: orders.php');
 }
 
@@ -98,13 +116,13 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
 
     <div class="ordersContainer">
 
-<?php if($account === "printer"):?>
-        <h2>MY Active orders(<?php echo htmlspecialchars($orderAmount['COUNT(*)']) ?>)</h2>
-<?php endif;?>
+        <?php if ($account === "printer") : ?>
+            <h2>MY Active orders(<?php echo htmlspecialchars($orderAmount['COUNT(*)']) ?>)</h2>
+        <?php endif; ?>
 
-<?php if($account === "horeca"):?>
-        <h2>MY Active orders(<?php echo htmlspecialchars($orderAmountHoreca['COUNT(*)']) ?>)</h2>
-<?php endif;?>
+        <?php if ($account === "horeca") : ?>
+            <h2>MY Active orders(<?php echo htmlspecialchars($orderAmountHoreca['COUNT(*)']) ?>)</h2>
+        <?php endif; ?>
 
         <div>
 
@@ -117,11 +135,11 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                                 <h3>OPDRACHTGEVER</h3>
 
                                 <div class="ordersPerson">
-                                <?php foreach ($allUsers as $allUser) : ?>
+                                    <?php foreach ($allUsers as $allUser) : ?>
                                         <?php if ($oA['printermail'] === $allUser['email']) : ?>
                                             <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
                                         <?php endif; ?>
-                                    <?php endforeach; ?>                                    <p><?php echo htmlspecialchars($oA['horeca']) ?></p>
+                                    <?php endforeach; ?> <p><?php echo htmlspecialchars($oA['horeca']) ?></p>
                                 </div>
 
                                 <div>
@@ -150,6 +168,7 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                                 <div class="orderStatus">
                                     <div>
                                         <form action="" method="POST">
+                                            <input type="hidden" name="price" value="<?php echo htmlspecialchars($oA['price']) ?>">
                                             <input type="hidden" name="orderDone" value="<?php echo htmlspecialchars($oA['id']) ?>">
                                             <input class="ordersSubmit" type="Submit" name="orderDoneSubmit" value="Markeren als klaar">
                                         </form>
@@ -220,7 +239,7 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                                     <div>
                                         <form action="" method="POST">
                                             <input type="hidden" name="orderDone" value="<?php echo htmlspecialchars($oHA['id']) ?>">
-                                            <input class="ordersSubmit"   name="orderDoneSubmit" value="in progress">
+                                            <input class="ordersSubmit" name="orderDoneSubmit" value="in progress">
                                         </form>
                                     </div>
 
@@ -231,7 +250,7 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
 
                                     <div class="mailOrders">
                                         <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
-                                        <p><?php echo htmlspecialchars($oHA['horecamail']) ?></p>
+                                        <p><?php echo htmlspecialchars($oHA['printermail']) ?></p>
                                     </div>
 
 
@@ -270,11 +289,11 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                             <h3>OPDRACHTGEVER</h3>
 
                             <div class="ordersPerson">
-                            <?php foreach ($allUsers as $allUser) : ?>
-                                        <?php if ($oNA['printermail'] === $allUser['email']) : ?>
-                                            <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>                                <p><?php echo htmlspecialchars($oNA['horeca']) ?></p>
+                                <?php foreach ($allUsers as $allUser) : ?>
+                                    <?php if ($oNA['printermail'] === $allUser['email']) : ?>
+                                        <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
+                                    <?php endif; ?>
+                                <?php endforeach; ?> <p><?php echo htmlspecialchars($oNA['horeca']) ?></p>
                             </div>
 
                             <div>
@@ -371,6 +390,8 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                             <div class="orderStatus">
                                 <div>
                                     <form action="" method="POST">
+                                    <input type="hidden" name="printermail" value="<?php echo htmlspecialchars($oRS['printermail']) ?>">
+                                    <input type="hidden" name="price" value="<?php echo htmlspecialchars($oRS['price']) ?>">
                                         <input type="hidden" name="ordersReceived" value="<?php echo htmlspecialchars($oRS['id']) ?>">
                                         <input class="ordersSubmit" type="submit" name="ordersReceivedSubmit" value="ontvangen">
                                     </form>
@@ -383,7 +404,7 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
 
                                 <div class="mailOrders">
                                     <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
-                                    <p><?php echo htmlspecialchars($oRS['horecamail']) ?></p>
+                                    <p><?php echo htmlspecialchars($oRS['printermail']) ?></p>
                                 </div>
 
 
@@ -398,7 +419,7 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-        
+
 
 
 
@@ -414,11 +435,11 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                             <h3>OPDRACHTGEVER</h3>
 
                             <div class="ordersPerson">
-                            <?php foreach ($allUsers as $allUser) : ?>
-                                        <?php if ($oAW['printermail'] === $allUser['email']) : ?>
-                                            <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>                                <p><?php echo htmlspecialchars($oC['horeca']) ?></p>
+                                <?php foreach ($allUsers as $allUser) : ?>
+                                    <?php if ($oAW['printermail'] === $allUser['email']) : ?>
+                                        <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
+                                    <?php endif; ?>
+                                <?php endforeach; ?> <p><?php echo htmlspecialchars($oC['horeca']) ?></p>
                             </div>
 
                             <div>
@@ -473,7 +494,7 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
-            </div>
+        </div>
 
 
 
@@ -494,11 +515,11 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                             <h3>OPDRACHTGEVER</h3>
 
                             <div class="ordersPerson">
-                            <?php foreach ($allUsers as $allUser) : ?>
-                                        <?php if ($oC['printermail'] === $allUser['email']) : ?>
-                                            <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>                                <p><?php echo htmlspecialchars($oC['horeca']) ?></p>
+                                <?php foreach ($allUsers as $allUser) : ?>
+                                    <?php if ($oC['printermail'] === $allUser['email']) : ?>
+                                        <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
+                                    <?php endif; ?>
+                                <?php endforeach; ?> <p><?php echo htmlspecialchars($oC['horeca']) ?></p>
                             </div>
 
                             <div>
@@ -608,7 +629,7 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
 
                                 <div class="mailOrders">
                                     <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
-                                    <p><?php echo htmlspecialchars($oHC['horecamail']) ?></p>
+                                    <p><?php echo htmlspecialchars($oHC['printermail']) ?></p>
                                 </div>
 
 

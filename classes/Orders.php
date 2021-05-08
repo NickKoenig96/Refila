@@ -1,6 +1,10 @@
 <?php
 
 include_once(__DIR__ . "/Database.php");
+include_once(__DIR__ . "/Users.php");
+
+
+
 
 
 class Orders{
@@ -72,6 +76,7 @@ class Orders{
         $result->execute();
         $UpdateActiveOrders = $result->fetch();
         return $UpdateActiveOrders;
+
     }
 
     public  function AcceptOrder($name, $id)
@@ -118,7 +123,7 @@ class Orders{
         $result->bindValue(':email', $name);
         $result->execute();
         $ordersHC = $result->fetchAll();
-        var_dump($ordersHC);
+        //var_dump($ordersHC);
         return  $ordersHC;
     }
 

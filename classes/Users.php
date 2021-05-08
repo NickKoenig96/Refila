@@ -40,7 +40,7 @@ class Users
         $statement->bindValue(':email', $email);
         $statement->execute();
         $user = $statement->fetch();
-        var_dump($user);
+       // var_dump($user);
 
 
 
@@ -77,6 +77,45 @@ class Users
         $user = $statement->fetch();
         return  $user;
 
+    }
+
+    public function updateCoins($email, $income){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select coins from users where email = :email");
+        $statement->bindValue(':email', $email);
+        $statement->execute();
+        $oldcoins = $statement->fetch();
+
+        $newCoins = $income + $oldcoins['coins'];
+
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update users set coins = :newCoins where email = :email");
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':newCoins', $newCoins);
+        $statement->execute();
+        $oldcoins = $statement->fetch();
+
+
+       
+
+
+    }
+
+    public function updateCoinsH($email, $income){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select coins from users where email = :email");
+        $statement->bindValue(':email', $email);
+        $statement->execute();
+        $oldcoins = $statement->fetch();
+
+        $newCoins =  $oldcoins['coins'] - $income;
+
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update users set coins = :newCoins where email = :email");
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':newCoins', $newCoins);
+        $statement->execute();
+        $oldcoins = $statement->fetch();
     }
 
   

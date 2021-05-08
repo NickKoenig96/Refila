@@ -7,7 +7,7 @@ class Products{
 
     public function getPopularProducts(){
 
-        $popular = 'popular';
+      
         $conn = Db::getConnection();
         $result = $conn->query("select * from products where cat = 'popular' order by id desc limit 4 ");
 
@@ -20,7 +20,7 @@ class Products{
 
     public function getRecommendedProducts(){
 
-        $popular = 'popular';
+      
         $conn = Db::getConnection();
         $result = $conn->query("select * from products where cat = 'recommended' order by id desc limit 4 ");
 

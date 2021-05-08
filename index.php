@@ -10,7 +10,7 @@ $PProducts = new Products();
 $PProducts = $PProducts->getPopularProducts();
 
 $RProducts = new Products();
-$RProducts = $RProducts->getPopularProducts();
+$RProducts = $RProducts->getRecommendedProducts();
 
 
 $users = new Users();
@@ -103,17 +103,17 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
         <div class="productsIndex">
 
-        <?php foreach ($PProducts as $PProduct) : ?>
+        <?php foreach ($RProducts as $RProduct) : ?>
                 <div>
                     <a class="section product" href="">
-                        <div> <img src="./images/<?php echo htmlspecialchars($PProduct['image']) ?>" alt="">
+                        <div> <img src="./images/<?php echo htmlspecialchars($RProduct['image']) ?>" alt="">
                         </div>
                     </a>
-                    <p class="productIndexTitle"><?php echo htmlspecialchars($PProduct['title']) ?></p>
+                    <p class="productIndexTitle"><?php echo htmlspecialchars($RProduct['title']) ?></p>
                     <div class="priceProductIndex">
 
                         <img src="./images/filamentIcon.svg" alt="">
-                        <p><?php echo htmlspecialchars($PProduct['price']) ?>/kg</p>
+                        <p><?php echo htmlspecialchars($RProduct['price']) ?>/kg</p>
                     </div>
                 </div>
             <?php endforeach; ?>
