@@ -620,6 +620,16 @@ footer div {
 .nameRatings{
     width: 7em;
 }
+.ratingbtn{
+    background-color: #37B6D3;
+    border-style: none;
+    border-radius: 6px;
+    width: 7em;
+    padding: 0.4em;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
 
 /* contact */
 

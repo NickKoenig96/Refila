@@ -93,6 +93,18 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
 }
 
 
+if (!empty($_POST['submitRating'])) {
+    var_dump($_POST['rating']);
+    var_dump($_POST['horecamail']);
+    var_dump($_POST['orderCompletId']);
+
+
+    $ratingsHoreca = new Orders();
+    $ratingHoreca  = $ratingsHoreca->addHorecaRating($_POST['rating'],$_POST['horecamail'],$_POST['orderCompletId']);
+
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -562,15 +574,19 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
 
                                 <div>
                                         <form action="" method="POST">
-                                            <label for="cars">Choose a car:</label>
-                                            <select name="cars" id="cars">
-                                                <option value="volvo">Volvo</option>
-                                                <option value="saab">Saab</option>
-                                                <option value="opel">Opel</option>
-                                                <option value="audi">Audi</option>
+                                            <label for="rating">Rate this order:</label>
+                                            <select name="rating" id="rating">
+                                                <option value="1">⭐1</option>
+                                                <option value="2">⭐⭐2</option>
+                                                <option value="3">⭐⭐⭐3</option>
+                                                <option value="4">⭐⭐⭐⭐4</option>
+                                                <option value="5">⭐⭐⭐⭐⭐5</option>
                                             </select>
-                                    
-                                            <input type="submit" value="Submit">
+
+                                            <input type="hidden" name="orderCompletId" value="<?php echo htmlspecialchars($oC['id'])?>">
+                                            <input type="hidden" name="horecamail" value="<?php echo htmlspecialchars($oC['horecamail'])?>">
+
+                                            <input class="ratingbtn " type="submit" name="submitRating" value="Submit">
                                         </form>
                                     </div>
 
