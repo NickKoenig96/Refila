@@ -253,7 +253,7 @@ class Orders{
 
     public function averageRatingPrinter($name){
         $conn = Db::getConnection();
-        $result = $conn->prepare("select AVG(rating) from orders where type = 'completed' and printermail = :email ");
+        $result = $conn->prepare("select AVG(ratingP) from orders where type = 'completed' and printermail = :email ");
         $result->bindValue(':email', $name);
         $result->execute();
         $priceMonth = $result->fetchall();
@@ -272,7 +272,7 @@ class Orders{
 
     public function averageRatingPrinterC5($name){
         $conn = Db::getConnection();
-        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email and rating = 5 ");
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email and ratingP = 5 ");
         $result->bindValue(':email', $name);
         $result->execute();
         $coinsMonth = $result->fetchall();
@@ -282,7 +282,7 @@ class Orders{
 
     public function averageRatingPrinterC4($name){
         $conn = Db::getConnection();
-        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email and rating = 4 ");
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email and ratingP = 4 ");
         $result->bindValue(':email', $name);
         $result->execute();
         $coinsMonth = $result->fetchall();
@@ -292,7 +292,7 @@ class Orders{
 
     public function averageRatingPrinterC3($name){
         $conn = Db::getConnection();
-        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email and rating = 3 ");
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email and ratingP = 3 ");
         $result->bindValue(':email', $name);
         $result->execute();
         $coinsMonth = $result->fetchall();
@@ -302,7 +302,7 @@ class Orders{
 
     public function averageRatingPrinterC2($name){
         $conn = Db::getConnection();
-        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email and rating = 2 ");
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email and ratingP = 2 ");
         $result->bindValue(':email', $name);
         $result->execute();
         $coinsMonth = $result->fetchall();
@@ -312,7 +312,7 @@ class Orders{
 
     public function averageRatingPrinterC1($name){
         $conn = Db::getConnection();
-        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email and rating = 1 ");
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email and ratingP = 1 ");
         $result->bindValue(':email', $name);
         $result->execute();
         $coinsMonth = $result->fetchall();
@@ -322,6 +322,77 @@ class Orders{
 
     
 
+
+
+
+    public function averageRatingHoreca($name){
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select AVG(ratingH) from orders where type = 'completed' and horecamail = :email ");
+        $result->bindValue(':email', $name);
+        $result->execute();
+        $priceMonth = $result->fetchall();
+        return   $priceMonth;
+    }
+
+    public function averageRatingHorecaC($name){
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and horecamail = :email ");
+        $result->bindValue(':email', $name);
+        $result->execute();
+        $coinsMonth = $result->fetchall();
+     
+        return   $coinsMonth;
+    }
+
+    public function averageRatingHorecaC5($name){
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and horecamail = :email and ratingH = 5 ");
+        $result->bindValue(':email', $name);
+        $result->execute();
+        $coinsMonth = $result->fetchall();
+     
+        return   $coinsMonth;
+    }
+
+    public function averageRatingHorecaC4($name){
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and horecamail = :email and ratingH = 4 ");
+        $result->bindValue(':email', $name);
+        $result->execute();
+        $coinsMonth = $result->fetchall();
+     
+        return   $coinsMonth;
+    }
+
+    public function averageRatingHorecaC3($name){
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and horecamail = :email and ratingH = 3 ");
+        $result->bindValue(':email', $name);
+        $result->execute();
+        $coinsMonth = $result->fetchall();
+     
+        return   $coinsMonth;
+    }
+
+    public function averageRatingHorecaC2($name){
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and horecamail = :email and ratingH = 2 ");
+        $result->bindValue(':email', $name);
+        $result->execute();
+        $coinsMonth = $result->fetchall();
+     
+        return   $coinsMonth;
+    }
+
+    public function averageRatingHorecaC1($name){
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and horecamail = :email and ratingH = 1 ");
+        $result->bindValue(':email', $name);
+        $result->execute();
+        $coinsMonth = $result->fetchall();
+     
+        return   $coinsMonth;
+    }
 
 
 

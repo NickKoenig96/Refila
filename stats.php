@@ -71,7 +71,7 @@ $MaxMonths = new Orders();
 $MaxMonthH = $MaxMonths->getMaxIncomeHorecaMonth(date(" F "),$_SESSION['user']);
 
 
-//rating
+//rating Printer
 
 $ratingsPrinter = new Orders();
 $ratingPrinter = $ratingsPrinter->averageRatingPrinter($_SESSION['user']);
@@ -93,6 +93,30 @@ $ratingPrinterC2 = $ratingsPrinterC2->averageRatingPrinterC2($_SESSION['user']);
 
 $ratingsPrinterC1 = new Orders();
 $ratingPrinterC1 = $ratingsPrinterC1->averageRatingPrinterC1($_SESSION['user']);
+
+//rating Printer
+
+$ratingsHoreca = new Orders();
+$ratingHoreca = $ratingsHoreca->averageRatingHoreca($_SESSION['user']);
+
+$ratingsHorecaC = new Orders();
+$ratingHorecaC = $ratingsHorecaC->averageRatingHorecaC($_SESSION['user']);
+
+$ratingsHorecaC5 = new Orders();
+$ratingHorecaC5 = $ratingsHorecaC5->averageRatingHorecaC5($_SESSION['user']);
+
+$ratingsHorecaC4 = new Orders();
+$ratingHorecaC4 = $ratingsHorecaC4->averageRatingHorecaC4($_SESSION['user']);
+
+$ratingsHorecaC3 = new Orders();
+$ratingHorecaC3 = $ratingsHorecaC3->averageRatingHorecaC3($_SESSION['user']);
+
+$ratingsHorecaC2 = new Orders();
+$ratingHorecaC2 = $ratingsHorecaC2->averageRatingHorecaC2($_SESSION['user']);
+var_dump($ratingHorecaC2);
+
+$ratingsHorecaC1 = new Orders();
+$ratingHorecaC1 = $ratingsHorecaC1->averageRatingHorecaC1($_SESSION['user']);
 
 
 
@@ -224,9 +248,15 @@ $ratingPrinterC1 = $ratingsPrinterC1->averageRatingPrinterC1($_SESSION['user']);
 
     <div class="statsCard">
         <div class="ratings">
+        <?php if($account ==="printer"):?>
             <h3>AVERAGE RATING: <?php echo htmlspecialchars($ratingPrinter[0]["AVG(rating)"])?></h3>
             <p>(<?php echo htmlspecialchars($ratingPrinterC[0]["COUNT(*)"])?> Ratings)</p>
+<?php endif;?>
 
+<?php if($account ==="horeca"):?>
+            <h3>AVERAGE RATING: <?php echo htmlspecialchars($ratingHoreca[0]["AVG(rating)"])?></h3>
+            <p>(<?php echo htmlspecialchars($ratingHorecaC[0]["COUNT(*)"])?> Ratings)</p>
+<?php endif;?>
             <div>
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
@@ -234,8 +264,13 @@ $ratingPrinterC1 = $ratingsPrinterC1->averageRatingPrinterC1($_SESSION['user']);
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
-
+                <?php if($account ==="printer"):?>
                 <p> <?php echo htmlspecialchars($ratingPrinterC5[0]["COUNT(*)"])?> </p>
+                <?php endif;?>
+                <?php if($account ==="horeca"):?>
+                <p> <?php echo htmlspecialchars($ratingHorecaC5[0]["COUNT(*)"])?> </p>
+                <?php endif;?>
+
             </div>
 
             <div>
@@ -243,28 +278,45 @@ $ratingPrinterC1 = $ratingsPrinterC1->averageRatingPrinterC1($_SESSION['user']);
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
+                <?php if($account ==="printer"):?>
                 <p> <?php echo htmlspecialchars($ratingPrinterC4[0]["COUNT(*)"])?> </p>
-            </div>
+                <?php endif;?>
+                <?php if($account ==="horeca"):?>
+                <p> <?php echo htmlspecialchars($ratingHorecaC4[0]["COUNT(*)"])?> </p>
+                <?php endif;?>            </div>
 
             <div>
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
+                <?php if($account ==="printer"):?>
                 <p> <?php echo htmlspecialchars($ratingPrinterC3[0]["COUNT(*)"])?> </p>
-            </div>
+                <?php endif;?>
+                <?php if($account ==="horeca"):?>
+                <p> <?php echo htmlspecialchars($ratingHorecaC3[0]["COUNT(*)"])?> </p>
+                <?php endif;?>            </div>
 
             <div>
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
 
+                <?php if($account ==="printer"):?>
                 <p> <?php echo htmlspecialchars($ratingPrinterC2[0]["COUNT(*)"])?> </p>
-            </div>
+                <?php endif;?>
+                <?php if($account ==="horeca"):?>
+                <p> <?php echo htmlspecialchars($ratingHorecaC2[0]["COUNT(*)"])?> </p>
+                <?php endif;?>            
+                </div>
 
             <div>
 
                 <img src="./images/star.svg" alt="star">
+                <?php if($account ==="printer"):?>
                 <p> <?php echo htmlspecialchars($ratingPrinterC1[0]["COUNT(*)"])?> </p>
-
+                <?php endif;?>
+                <?php if($account ==="horeca"):?>
+                <p> <?php echo htmlspecialchars($ratingHorecaC1[0]["COUNT(*)"])?> </p>
+                <?php endif;?>
             </div>
 
 
