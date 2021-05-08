@@ -10,6 +10,29 @@ include_once(__DIR__ . "/classes/Orders.php");
 $users = new Users();
 $users = $users->getUserByEmail($_SESSION['user']);
 
+$top3users = new Users();
+$top3users = $top3users->getTop3Users();
+
+$top7users = new Users();
+$top7users = $top7users->getTop7Users();
+//var_dump($top7users);
+
+
+$allUsers = new Users();
+$allUsers = $allUsers->getAllUsers();
+//var_dump($allUsers);
+
+$account;
+if ($users['account'] === 'printer') {
+    //echo "printer";
+    $account = 'printer';
+} else {
+    //echo 'horeca';
+    $account = 'horeca';
+}
+
+//3D printers
+
 $totalCoins = new Users();
 $totalCoin = $totalCoins->getTotalCoins($_SESSION['user']);
 
@@ -28,6 +51,50 @@ $amountOrderMonth = $amountOrdersMonth->getAllCompleteOrdersPrintersMonth(date("
 $MaxMonths = new Orders();
 $MaxMonth = $MaxMonths->getMaxIncomePrintersMonth(date(" F "),$_SESSION['user']);
 //var_dump($MaxMonth[0]["Max(price)"]);
+
+// Horeca 
+
+
+$MaxIncomesH = new Orders();
+$MaxIncomeH = $MaxIncomes->getMaxIncomeH($_SESSION['user']);
+
+$totalOrdersH = new Orders();
+$totalOrderH = $totalOrdersH->getAllCompleteHorecaOrdersCount($_SESSION['user']);
+
+$totalOrdersMonthH = new Orders();
+$totalOrderMonthH = $totalOrdersMonthH->getAllmonthCoinsHoreca(date(" F "),$_SESSION['user']);
+
+$amountOrdersMonthH = new Orders();
+$amountOrderMonthH = $amountOrdersMonthH->getAllCompleteOrdersHorecaMonth(date(" F "),$_SESSION['user']);
+
+$MaxMonths = new Orders();
+$MaxMonthH = $MaxMonths->getMaxIncomeHorecaMonth(date(" F "),$_SESSION['user']);
+
+
+//rating
+
+$ratingsPrinter = new Orders();
+$ratingPrinter = $ratingsPrinter->averageRatingPrinter($_SESSION['user']);
+
+$ratingsPrinterC = new Orders();
+$ratingPrinterC = $ratingsPrinterC->averageRatingPrinterC($_SESSION['user']);
+
+$ratingsPrinterC5 = new Orders();
+$ratingPrinterC5 = $ratingsPrinterC5->averageRatingPrinterC5($_SESSION['user']);
+
+$ratingsPrinterC4 = new Orders();
+$ratingPrinterC4 = $ratingsPrinterC4->averageRatingPrinterC4($_SESSION['user']);
+
+$ratingsPrinterC3 = new Orders();
+$ratingPrinterC3 = $ratingsPrinterC3->averageRatingPrinterC3($_SESSION['user']);
+
+$ratingsPrinterC2 = new Orders();
+$ratingPrinterC2 = $ratingsPrinterC2->averageRatingPrinterC2($_SESSION['user']);
+
+$ratingsPrinterC1 = new Orders();
+$ratingPrinterC1 = $ratingsPrinterC1->averageRatingPrinterC1($_SESSION['user']);
+
+
 
 ?>
 <!DOCTYPE html>
@@ -68,23 +135,50 @@ $MaxMonth = $MaxMonths->getMaxIncomePrintersMonth(date(" F "),$_SESSION['user'])
                 <h3 class="statsH3">AANTAL ORDERS VOLTOOID:</h3>
                 <div class="statsCoins">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <?php if($account === 'printer'):?>
                     <p class="statsCoins"><?php echo htmlspecialchars($totalOrder['COUNT(*)'])?></p>
+                    <?php endif;?>
+                    <?php if($account === "horeca"):?>
+                        <p class="statsCoins"><?php echo htmlspecialchars($totalOrderH['COUNT(*)'])?></p>
+                        <?php endif;?>
                 </div>
                 <div class="statsLine"></div>
             </div>
             <div class="yourStats">
+            <?php if($account === 'printer'):?>
                 <h3 class="statsH3">GROOTSTE ORDER INKOMST</h3>
+                <?php endif;?>
+                <?php if($account === 'horeca'):?>
+                <h3 class="statsH3">GROOTSTE ORDER UITGAVE</h3>
+                <?php endif;?>
+
                 <div class="statsCoins">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <?php if($account === 'printer'):?>
                     <p class="statsCoins"><?php echo htmlspecialchars($MaxIncome[0]["Max(price)"])?></p>
+                    <?php endif;?>
+                    <?php if($account === "horeca"):?>
+                        <p class="statsCoins"><?php echo htmlspecialchars($MaxIncomeH[0]["Max(price)"])?></p>
+                        <?php endif;?>
                 </div>
                 <div class="statsLine"></div>
             </div>
             <div class="yourStats">
+            <?php if($account === 'printer'):?>
                 <h3 class="statsH3">AANTAL FILAMENT VERDIEND <?php  echo date(" F ")?>:</h3>
+                <?php endif;?>
+                <?php if($account === 'horeca'):?>
+                <h3 class="statsH3">AANTAL FILAMENT BETAALD <?php  echo date(" F ")?>:</h3>
+                <?php endif;?>
+
                 <div class="statsCoins">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <?php if($account === 'printer'):?>
                     <p class="statsCoins"><?php echo htmlspecialchars($totalOrderMonth)?></p>
+                    <?php endif;?>
+                    <?php if($account === "horeca"):?>
+                        <p class="statsCoins"><?php echo htmlspecialchars($totalOrderMonthH)?></p>
+                        <?php endif;?>
                 </div>
                 <div class="statsLine"></div>
             </div>
@@ -92,15 +186,30 @@ $MaxMonth = $MaxMonths->getMaxIncomePrintersMonth(date(" F "),$_SESSION['user'])
                 <h3 class="statsH3">AANTAL Orders FEB VOLTOOID:</h3>
                 <div class="statsCoins">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <?php if($account === 'printer'):?>
                     <p class="statsCoins"><?php echo htmlspecialchars($amountOrderMonth[0]['COUNT(*)'])?></p>
+                    <?php endif;?>
+                    <?php if($account === "horeca"):?>
+                        <p class="statsCoins"><?php echo htmlspecialchars($amountOrderMonthH[0]['COUNT(*)'])?></p>
+                        <?php endif;?>
                 </div>
                 <div class="statsLine"></div>
             </div>
             <div class="yourStats">
+            <?php if($account === 'printer'):?>
                 <h3 class="statsH3">GROOTSTE ORDER INKOMST FEB:</h3>
+                <?php endif;?>
+                <?php if($account === "horeca"):?>
+                    <h3 class="statsH3">GROOTSTE ORDER UITGAVE FEB:</h3>
+                    <?php endif;?>
                 <div class="statsCoins">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
+                    <?php if($account === 'printer'):?>
                     <p class="statsCoins"><?php echo htmlspecialchars($MaxMonth[0]["Max(price)"])?></p>
+                    <?php endif;?>
+                    <?php if($account === "horeca"):?>
+                        <p class="statsCoins"><?php echo htmlspecialchars($MaxMonthH[0]["Max(price)"])?></p>
+                        <?php endif;?>
                 </div>
                 <div class="statsLine"></div>
             </div>
@@ -115,8 +224,8 @@ $MaxMonth = $MaxMonths->getMaxIncomePrintersMonth(date(" F "),$_SESSION['user'])
 
     <div class="statsCard">
         <div class="ratings">
-            <h3>AVERAGE RATING: 4</h3>
-            <p>(3 Ratings)</p>
+            <h3>AVERAGE RATING: <?php echo htmlspecialchars($ratingPrinter[0]["AVG(rating)"])?></h3>
+            <p>(<?php echo htmlspecialchars($ratingPrinterC[0]["COUNT(*)"])?> Ratings)</p>
 
             <div>
                 <img src="./images/star.svg" alt="star">
@@ -126,7 +235,7 @@ $MaxMonth = $MaxMonths->getMaxIncomePrintersMonth(date(" F "),$_SESSION['user'])
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
 
-                <p> 1 </p>
+                <p> <?php echo htmlspecialchars($ratingPrinterC5[0]["COUNT(*)"])?> </p>
             </div>
 
             <div>
@@ -134,28 +243,28 @@ $MaxMonth = $MaxMonths->getMaxIncomePrintersMonth(date(" F "),$_SESSION['user'])
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
-                <p> 2 </p>
+                <p> <?php echo htmlspecialchars($ratingPrinterC4[0]["COUNT(*)"])?> </p>
             </div>
 
             <div>
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
-                <p> 0 </p>
+                <p> <?php echo htmlspecialchars($ratingPrinterC3[0]["COUNT(*)"])?> </p>
             </div>
 
             <div>
                 <img src="./images/star.svg" alt="star">
                 <img src="./images/star.svg" alt="star">
 
-                <p> 0 </p>
+                <p> <?php echo htmlspecialchars($ratingPrinterC2[0]["COUNT(*)"])?> </p>
             </div>
 
             <div>
 
                 <img src="./images/star.svg" alt="star">
+                <p> <?php echo htmlspecialchars($ratingPrinterC1[0]["COUNT(*)"])?> </p>
 
-                <p> 0</p>
             </div>
 
 
@@ -166,7 +275,7 @@ $MaxMonth = $MaxMonths->getMaxIncomePrintersMonth(date(" F "),$_SESSION['user'])
 
 
 
-    <h2>Global stats</h2>
+  <!--  <h2>Global stats</h2>
 
     <div class="statsCard">
         <div class="yourStats">
@@ -219,7 +328,7 @@ $MaxMonth = $MaxMonths->getMaxIncomePrintersMonth(date(" F "),$_SESSION['user'])
         </div>
     </div>
     </div>
-
+-->
 
     <div class="ordersContainer">
         <div class="leaderboardStats">
@@ -227,45 +336,30 @@ $MaxMonth = $MaxMonths->getMaxIncomePrintersMonth(date(" F "),$_SESSION['user'])
             <p>De top 10 printers van Refila</p>
 
             <div class="winners">
-                <div>
-                    <p>username</p>
-                    <img src="./images/Profile.jpeg" alt="">
-                    <p>110.000</p>
+            <?php foreach($top3users as $top3user):?>
+                <div class="top3">
+                    <p><?php echo htmlspecialchars($top3user['username'])?></p>
+                    <img src="./images/<?php echo htmlspecialchars($top3user['image'])?>" alt="">
+                    <p><?php echo htmlspecialchars($top3user['coins'])?></p>
                 </div>
+                <?php endforeach;?>
 
-                <div>
-                    <p>username</p>
-                    <img src="./images/Profile.jpeg" alt="">
-                    <p>110.000</p>
-                </div>
-
-                <div>
-                    <p>username</p>
-                    <img src="./images/Profile.jpeg" alt="">
-                    <p>110.000</p>
-                </div>
-
+                
             </div>
 
             <div class="winnersList">
+            <?php for($i = 3; $i < count($top7users); ++$i):?>
                 <div class="winnersListItem">
-                    <p>4</p>
-                    <p>username</p>
+                    <p><?php echo htmlspecialchars($i)?></p>
+                    <p class="nameRatings"><?php echo htmlspecialchars($top7users[$i]['username'])?></p>
                     <div class="winnersCoins"><img src="./images/filamentIcon.svg" alt="filament">
-                        <p>96.00</p>
+                        <p><?php echo htmlspecialchars($top7users[$i]['coins'])?></p>
                     </div>
 
                 </div>
+<?php endfor;?>
 
-
-                <div class="winnersListItem">
-                    <p>4</p>
-                    <p>username</p>
-                    <div class="winnersCoins"><img src="./images/filamentIcon.svg" alt="filament">
-                        <p>96.00</p>
-                    </div>
-
-                </div>
+        
 
             </div>
 

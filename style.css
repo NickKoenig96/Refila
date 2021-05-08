@@ -613,6 +613,14 @@ footer div {
     margin-right: auto;
 }
 
+.top3{
+    width: 10em;
+}
+
+.nameRatings{
+    width: 7em;
+}
+
 /* contact */
 
 .contactInfoDesktop {

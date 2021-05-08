@@ -151,5 +151,24 @@ class Users
         return $totalCoins;
     }
 
+    public function getTop3Users(){
+
+        $conn = Db::getConnection();
+        $result = $conn->query("select * from users order by coins desc limit 3 ");
+        $result->execute();
+        $users = $result->fetchAll();
+        return  $users;
+    }
+
+    
+    public function getTop7Users(){
+
+        $conn = Db::getConnection();
+        $result = $conn->query("select * from users order by coins desc limit 11 ");
+        $result->execute();
+        $users = $result->fetchAll();
+        return  $users;
+    }
+
   
 }

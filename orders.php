@@ -67,9 +67,6 @@ if (!empty($_POST['orderDoneSubmit'])) {
 
 
     header('Location: orders.php');
-
-
-
 }
 
 if (!empty($_POST['ordersAcceptSubmit'])) {
@@ -91,7 +88,7 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
     $updateCoinHoreca  = $updateCoinsHoreca->updateCoinsH($_SESSION['user'], $_POST['price']);
 
 
-    
+
     header('Location: orders.php');
 }
 
@@ -153,7 +150,7 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                                 <div class="ordersInfo">
                                     <div>
                                         <h3>AANTAL</h3>
-                                        <p><?php echo htmlspecialchars($oA['amount']) ?> stuks</p>
+                                        <p> <?php echo htmlspecialchars($oA['amount']) ?> stuks</p>
                                     </div>
 
                                     <div>
@@ -181,6 +178,8 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                                         <img src="./images/filamentIcon.svg" alt="your coins">
                                         <p> <?php echo htmlspecialchars($oA['price']) ?></p>
                                     </div>
+
+                                    
 
                                     <div class="mailOrders">
                                         <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
@@ -393,8 +392,8 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                             <div class="orderStatus">
                                 <div>
                                     <form action="" method="POST">
-                                    <input type="hidden" name="printermail" value="<?php echo htmlspecialchars($oRS['printermail']) ?>">
-                                    <input type="hidden" name="price" value="<?php echo htmlspecialchars($oRS['price']) ?>">
+                                        <input type="hidden" name="printermail" value="<?php echo htmlspecialchars($oRS['printermail']) ?>">
+                                        <input type="hidden" name="price" value="<?php echo htmlspecialchars($oRS['price']) ?>">
                                         <input type="hidden" name="ordersReceived" value="<?php echo htmlspecialchars($oRS['id']) ?>">
                                         <input class="ordersSubmit" type="submit" name="ordersReceivedSubmit" value="ontvangen">
                                     </form>
@@ -561,6 +560,20 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                                     <p><?php echo htmlspecialchars($oC['price']) ?></p>
                                 </div>
 
+                                <div>
+                                        <form action="" method="POST">
+                                            <label for="cars">Choose a car:</label>
+                                            <select name="cars" id="cars">
+                                                <option value="volvo">Volvo</option>
+                                                <option value="saab">Saab</option>
+                                                <option value="opel">Opel</option>
+                                                <option value="audi">Audi</option>
+                                            </select>
+                                    
+                                            <input type="submit" value="Submit">
+                                        </form>
+                                    </div>
+
                                 <div class="mailOrders">
                                     <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
                                     <p><?php echo htmlspecialchars($oC['horecamail']) ?></p>
@@ -629,6 +642,20 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
                                     <img src="./images/filamentIcon.svg" alt="your coins">
                                     <p><?php echo htmlspecialchars($oHC['price']) ?></p>
                                 </div>
+
+                                <div>
+                                        <form action="" method="POST">
+                                            <label for="cars">Choose a car:</label>
+                                            <select name="cars" id="cars">
+                                                <option value="volvo">Volvo</option>
+                                                <option value="saab">Saab</option>
+                                                <option value="opel">Opel</option>
+                                                <option value="audi">Audi</option>
+                                            </select>
+                                    
+                                            <input type="submit" value="Submit">
+                                        </form>
+                                    </div>
 
                                 <div class="mailOrders">
                                     <p><a href="mailto:someone@example.com">Contact opnemen</a></p>
