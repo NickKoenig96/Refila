@@ -115,7 +115,7 @@ class Orders{
     public function getAllcompleteHorecaOrders($name){
 
         $conn = Db::getConnection();
-        $result = $conn->prepare("select * from orders where horecamail = :email and  type = 'complete' ");
+        $result = $conn->prepare("select * from orders where horecamail = :email and  type = 'completed' ");
         $result->bindValue(':email', $name);
         $result->execute();
         $ordersHC = $result->fetchAll();
@@ -397,6 +397,18 @@ class Orders{
     public function addHorecaRating($rating, $mail,$id){
         $conn = Db::getConnection();
         $result = $conn->prepare("update orders set ratingH = :rating where horecamail = :mail and id =:id ");
+        $result->bindValue(':mail', $mail);
+        $result->bindValue(':rating', $rating);
+        $result->bindValue(':id', $id);
+        $result->execute();
+        $coinsMonth = $result->fetchall();
+     
+        return   $coinsMonth;
+    }
+
+    public function addPrinterRating($rating, $mail,$id){
+        $conn = Db::getConnection();
+        $result = $conn->prepare("update orders set ratingP = :rating where printermail = :mail and id =:id ");
         $result->bindValue(':mail', $mail);
         $result->bindValue(':rating', $rating);
         $result->bindValue(':id', $id);

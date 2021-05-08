@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-//var_dump($_SESSION['user']);
+var_dump($_SESSION['user']);
 
 include_once(__DIR__ . "/classes/Users.php");
 include_once(__DIR__ . "/classes/Orders.php");
@@ -94,13 +94,22 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
 
 
 if (!empty($_POST['submitRating'])) {
-    var_dump($_POST['rating']);
-    var_dump($_POST['horecamail']);
-    var_dump($_POST['orderCompletId']);
+
 
 
     $ratingsHoreca = new Orders();
     $ratingHoreca  = $ratingsHoreca->addHorecaRating($_POST['rating'],$_POST['horecamail'],$_POST['orderCompletId']);
+
+}
+
+if (!empty($_POST['submitRatingH'])) {
+    var_dump($_POST['rating']);
+    var_dump($_POST['printermail']);
+    var_dump($_POST['orderCompletId']);
+
+
+    $ratingsHoreca = new Orders();
+    $ratingHoreca  = $ratingsHoreca->addPrinterRating($_POST['rating'],$_POST['printermail'],$_POST['orderCompletId']);
 
 }
 
@@ -576,6 +585,7 @@ if (!empty($_POST['submitRating'])) {
                                         <form action="" method="POST">
                                             <label for="rating">Rate this order:</label>
                                             <select name="rating" id="rating">
+                                            <option value="1">Rate this order</option>
                                                 <option value="1">⭐1</option>
                                                 <option value="2">⭐⭐2</option>
                                                 <option value="3">⭐⭐⭐3</option>
@@ -661,15 +671,20 @@ if (!empty($_POST['submitRating'])) {
 
                                 <div>
                                         <form action="" method="POST">
-                                            <label for="cars">Choose a car:</label>
-                                            <select name="cars" id="cars">
-                                                <option value="volvo">Volvo</option>
-                                                <option value="saab">Saab</option>
-                                                <option value="opel">Opel</option>
-                                                <option value="audi">Audi</option>
+                                            <label for="rating">Rate this order:</label>
+                                            <select name="rating" id="rating">
+                                            <option value="1">Rate this order</option>
+                                                <option value="1">⭐1</option>
+                                                <option value="2">⭐⭐2</option>
+                                                <option value="3">⭐⭐⭐3</option>
+                                                <option value="4">⭐⭐⭐⭐4</option>
+                                                <option value="5">⭐⭐⭐⭐⭐5</option>
                                             </select>
-                                    
-                                            <input type="submit" value="Submit">
+
+                                            <input type="hidden" name="orderCompletId" value="<?php echo htmlspecialchars($oHC['id'])?>">
+                                            <input type="hidden" name="printermail" value="<?php echo htmlspecialchars($oHC['printermail'])?>">
+
+                                            <input class="ratingbtn " type="submit" name="submitRatingH" value="Submit">
                                         </form>
                                     </div>
 
