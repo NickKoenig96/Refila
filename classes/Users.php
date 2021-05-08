@@ -142,5 +142,14 @@ class Users
         $statement->fetch();
     }
 
+    public function getTotalCoins($email){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select totalCoins from users where email = :email");
+        $statement->bindValue(':email', $email);
+        $statement->execute();
+        $totalCoins = $statement->fetch();
+        return $totalCoins;
+    }
+
   
 }

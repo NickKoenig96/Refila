@@ -102,10 +102,6 @@ class Orders{
     }
 
 
-
-
-
-
     public function getAllActiveHoreca($name){
 
         $conn = Db::getConnection();
@@ -137,36 +133,64 @@ class Orders{
         return  $ordersRS;
     }
 
- /*   public  function getActiveOrdersAmount($name)
-    {
+    public function getAllCompletePrinterOrdersCount($name){
         $conn = Db::getConnection();
-        $result = $conn->prepare("select COUNT(*) from orders where printermail = :email  and type = 'active'");
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email ");
         $result->bindValue(':email', $name);
         $result->execute();
-        $activeOrders = $result->fetch();
-        return   $activeOrders;
+        $ordersRS = $result->fetch();
+        return  $ordersRS;
     }
 
-    public  function completeOrder($name, $id)
-    {
+    public function getAllmonthCoinsPrinter($month,$name){
+        $string = str_replace(' ', '', $month);
         $conn = Db::getConnection();
-        $result = $conn->prepare("update orders set type = 'completed' where printermail = :email and id = :id ");
+        $result = $conn->prepare("select price from orders where type = 'completed' and printermail = :email and month = :month");
         $result->bindValue(':email', $name);
-        $result->bindValue(':id', $id);
+        $result->bindValue(':month', $string);
         $result->execute();
-        $UpdateActiveOrders = $result->fetch();
-        return $UpdateActiveOrders;
+        $coinsMonth = $result->fetchall();
+        //var_dump($coinsMonth[1]);
+
+        $arraySum = array_sum($coinsMonth[1]);
+        return  $arraySum;
     }
 
-    public  function AcceptOrder($name, $id)
-    {
+    public function getAllCompleteOrdersPrintersMonth($month,$name){
+        $string = str_replace(' ', '', $month);
         $conn = Db::getConnection();
-        $result = $conn->prepare("update orders set type = 'active' where printermail = :email and id = :id ");
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'completed' and printermail = :email and month = :month");
         $result->bindValue(':email', $name);
-        $result->bindValue(':id', $id);
+        $result->bindValue(':month', $string);
         $result->execute();
-        $AcceptOrder = $result->fetch();
-        return $AcceptOrder;
-    }*/
+        $coinsMonth = $result->fetchall();
+     
+        return   $coinsMonth;
+    }
+
+    public function getMaxIncomePrintersMonth($month,$name){
+        $string = str_replace(' ', '', $month);
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select Max(price) from orders where type = 'completed' and printermail = :email and month = :month");
+        $result->bindValue(':email', $name);
+        $result->bindValue(':month', $string);
+        $result->execute();
+        $priceMonth = $result->fetchall();
+     //var_dump($priceMonth);
+        return   $priceMonth;
+    }
+
+    public function getMaxIncome($name){
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select Max(price) from orders where type = 'completed' and printermail = :email ");
+        $result->bindValue(':email', $name);
+        $result->execute();
+        $priceMonth = $result->fetchall();
+     //var_dump($priceMonth);
+        return   $priceMonth;
+    }
+
+
+ 
 
 }

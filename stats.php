@@ -1,8 +1,34 @@
 <?php
+
 session_start();
+
 include_once(__DIR__ . "/classes/Users.php");
+include_once(__DIR__ . "/classes/Orders.php");
+
+
+
 $users = new Users();
 $users = $users->getUserByEmail($_SESSION['user']);
+
+$totalCoins = new Users();
+$totalCoin = $totalCoins->getTotalCoins($_SESSION['user']);
+
+$MaxIncomes = new Orders();
+$MaxIncome = $MaxIncomes->getMaxIncome($_SESSION['user']);
+
+$totalOrders = new Orders();
+$totalOrder = $totalOrders->getAllCompletePrinterOrdersCount($_SESSION['user']);
+
+$totalOrdersMonth = new Orders();
+$totalOrderMonth = $totalOrdersMonth->getAllmonthCoinsPrinter(date(" F "),$_SESSION['user']);
+
+$amountOrdersMonth = new Orders();
+$amountOrderMonth = $amountOrdersMonth->getAllCompleteOrdersPrintersMonth(date(" F "),$_SESSION['user']);
+
+$MaxMonths = new Orders();
+$MaxMonth = $MaxMonths->getMaxIncomePrintersMonth(date(" F "),$_SESSION['user']);
+//var_dump($MaxMonth[0]["Max(price)"]);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +60,7 @@ $users = $users->getUserByEmail($_SESSION['user']);
                 <h3 class="statsH3">AANTAL FILAMENT VERDIEND:</h3>
                 <div class="statsCoins">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p class="statsCoins">60.000</p>
+                    <p class="statsCoins"><?php echo htmlspecialchars($totalCoin['totalCoins'])?></p>
                 </div>
                 <div class="statsLine"></div>
             </div>
@@ -42,7 +68,7 @@ $users = $users->getUserByEmail($_SESSION['user']);
                 <h3 class="statsH3">AANTAL ORDERS VOLTOOID:</h3>
                 <div class="statsCoins">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p class="statsCoins">3</p>
+                    <p class="statsCoins"><?php echo htmlspecialchars($totalOrder['COUNT(*)'])?></p>
                 </div>
                 <div class="statsLine"></div>
             </div>
@@ -50,15 +76,15 @@ $users = $users->getUserByEmail($_SESSION['user']);
                 <h3 class="statsH3">GROOTSTE ORDER INKOMST</h3>
                 <div class="statsCoins">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p class="statsCoins">60.000</p>
+                    <p class="statsCoins"><?php echo htmlspecialchars($MaxIncome[0]["Max(price)"])?></p>
                 </div>
                 <div class="statsLine"></div>
             </div>
             <div class="yourStats">
-                <h3 class="statsH3">AANTAL FILAMENT VERDIEND FEB:</h3>
+                <h3 class="statsH3">AANTAL FILAMENT VERDIEND <?php  echo date(" F ")?>:</h3>
                 <div class="statsCoins">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p class="statsCoins">60.000</p>
+                    <p class="statsCoins"><?php echo htmlspecialchars($totalOrderMonth)?></p>
                 </div>
                 <div class="statsLine"></div>
             </div>
@@ -66,7 +92,7 @@ $users = $users->getUserByEmail($_SESSION['user']);
                 <h3 class="statsH3">AANTAL Orders FEB VOLTOOID:</h3>
                 <div class="statsCoins">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p class="statsCoins">60.000</p>
+                    <p class="statsCoins"><?php echo htmlspecialchars($amountOrderMonth[0]['COUNT(*)'])?></p>
                 </div>
                 <div class="statsLine"></div>
             </div>
@@ -74,7 +100,7 @@ $users = $users->getUserByEmail($_SESSION['user']);
                 <h3 class="statsH3">GROOTSTE ORDER INKOMST FEB:</h3>
                 <div class="statsCoins">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p class="statsCoins">5</p>
+                    <p class="statsCoins"><?php echo htmlspecialchars($MaxMonth[0]["Max(price)"])?></p>
                 </div>
                 <div class="statsLine"></div>
             </div>
