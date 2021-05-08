@@ -14,6 +14,9 @@ $allUsers = new Users();
 $allUsers = $allUsers->getAllUsers();
 //var_dump($allUsers);
 
+$UserHorecaTotalCoins = new Users();
+$UserHorecaTotalCoin = $UserHorecaTotalCoins->totalCoinsH($_SESSION['user']);
+
 
 
 $ordersA = new Orders();

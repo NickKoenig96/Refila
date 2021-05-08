@@ -95,6 +95,13 @@ class Users
         $statement->execute();
         $oldcoins = $statement->fetch();
 
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update users set totalCoins = :newCoins where email = :email");
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':newCoins', $newCoins);
+        $statement->execute();
+        $oldcoins = $statement->fetch();
+
 
        
 
@@ -116,6 +123,23 @@ class Users
         $statement->bindValue(':newCoins', $newCoins);
         $statement->execute();
         $oldcoins = $statement->fetch();
+    }
+
+    public function totalCoinsH($email){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select coins from users where email = :email");
+        $statement->bindValue(':email', $email);
+        $statement->execute();
+        $newCoins = $statement->fetch();
+
+        $newCoins =  $newCoins['coins'];
+
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update users set totalCoins = :newCoins where email = :email");
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':newCoins', $newCoins);
+        $statement->execute();
+        $statement->fetch();
     }
 
   
