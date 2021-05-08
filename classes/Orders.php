@@ -24,6 +24,15 @@ class Orders{
         return  $ordersNA;
     }
 
+    public function getAllAwaitingPrinter(){
+
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select * from orders where type = 'readyForShipment'");
+        $result->execute();
+        $ordersAW = $result->fetchAll();
+        return  $ordersAW;
+    }
+
     public function getAllCompletedPrinter($name){
 
         $conn = Db::getConnection();
@@ -44,6 +53,16 @@ class Orders{
         return   $activeOrders;
     }
 
+    public  function getActiveOrdersAmountHoreca($name)
+    {
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select COUNT(*) from orders where horecamail = :email  and type = 'active'");
+        $result->bindValue(':email', $name);
+        $result->execute();
+        $activeOrdersHoreca = $result->fetch();
+        return   $activeOrdersHoreca;
+    }
+
     public  function completeOrder($name, $id)
     {
         $conn = Db::getConnection();
@@ -59,6 +78,17 @@ class Orders{
     {
         $conn = Db::getConnection();
         $result = $conn->prepare("update orders set type = 'active' where printermail = :email and id = :id ");
+        $result->bindValue(':email', $name);
+        $result->bindValue(':id', $id);
+        $result->execute();
+        $AcceptOrder = $result->fetch();
+        return $AcceptOrder;
+    }
+
+    public  function ReceiveOrder($name, $id)
+    {
+        $conn = Db::getConnection();
+        $result = $conn->prepare("update orders set type = 'completed' where  horecamail = :email and id = :id ");
         $result->bindValue(':email', $name);
         $result->bindValue(':id', $id);
         $result->execute();
