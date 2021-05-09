@@ -1,9 +1,44 @@
 <?php
 session_start();
 include_once(__DIR__ . "/classes/Users.php");
+include_once(__DIR__ . "/classes/Products.php");
+
 
 $users = new Users();
 $users = $users->getUserByEmail($_SESSION['user']);
+
+$account;
+if ($users['account'] === 'printer') {
+    echo "printer";
+    $account = 'printer';
+} else {
+     echo 'horeca';
+    $account = 'horeca';
+}
+
+
+$productsP = new Products();
+$productsP = $productsP->getAllProductsP();
+
+$PProductsP = new Products();
+$PProductsP = $PProductsP->getPopularProductsP();
+
+$RProductsP = new Products();
+$RProductsP = $RProductsP->getRecommendedProductsP();
+
+
+
+
+
+$productsH = new Products();
+$productsH = $productsH->getAllProductsH();
+
+$PProductsH = new Products();
+$PProductsH = $PProductsH->getPopularProductsH();
+
+$RProductsH = new Products();
+$RProductsH = $RProductsH->getRecommendedProductsH();
+
 ?>
 
 <!DOCTYPE html>
@@ -33,128 +68,39 @@ $users = $users->getUserByEmail($_SESSION['user']);
         <h3 class="shopH3">Popoluaire producten</h3>
 
         <div class="shopContainer">
-
-        <a class="shopLink" href="">
+<?php if($account === "printer"):?>
+        <?php foreach($PProductsP as $PProductP):?>
+        <a class="shopLink" href="shopDetail.php?id=<?php echo htmlspecialchars($PProductP['id'])?>">
         <div class="shopProduct">
                 <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
+                    <img src="./images/<?php echo htmlspecialchars($PProductP['image'])?>" alt="filament">
                 </div>
-                <p class="shopProductP">Multicolor PLA 3D Printer Filament</p>
+                <p class="shopProductP"><?php echo htmlspecialchars($PProductP['title'])?></p>
                 <div class="shopFilament">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
+                    <p><?php echo htmlspecialchars($PProductP['price'])?></p>
                 </div>
             </div>
         </a>
-            <div class="shopProduct">
-                <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
-                </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
-                <div class="shopFilament">
-                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
-                </div>
-            </div>
+       <?php endforeach;?>
+<?php endif;?>
 
-            <div class="shopProduct">
+<?php if($account === "horeca"):?>
+        <?php foreach($PProductsH as $PProductH):?>
+        <a class="shopLink" href="shopDetail.php?id=<?php echo htmlspecialchars($PProductH['id'])?>">
+        <div class="shopProduct">
                 <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
+                    <img src="./images/<?php echo htmlspecialchars($PProductH['image'])?>" alt="filament">
                 </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
+                <p class="shopProductP"><?php echo htmlspecialchars($PProductH['title'])?></p>
                 <div class="shopFilament">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
+                    <p><?php echo htmlspecialchars($PProductH['price'])?></p>
                 </div>
             </div>
-
-            <div class="shopProduct">
-                <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
-                </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
-                <div class="shopFilament">
-                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
-                </div>
-            </div>
-
-            <div class="shopProduct">
-                <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
-                </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
-                <div class="shopFilament">
-                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
-                </div>
-            </div>
-
-            <div class="shopProduct">
-                <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
-                </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
-                <div class="shopFilament">
-                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
-                </div>
-            </div>
-
-            <div class="shopProduct">
-                <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
-                </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
-                <div class="shopFilament">
-                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
-                </div>
-            </div>
-
-            <div class="shopProduct">
-                <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
-                </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
-                <div class="shopFilament">
-                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
-                </div>
-            </div>
-
-            <div class="shopProduct">
-                <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
-                </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
-                <div class="shopFilament">
-                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
-                </div>
-            </div>
-
-            <div class="shopProduct">
-                <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
-                </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
-                <div class="shopFilament">
-                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
-                </div>
-            </div>
-
-            <div class="shopProduct">
-                <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
-                </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
-                <div class="shopFilament">
-                    <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
-                </div>
-            </div>
+        </a>
+       <?php endforeach;?>
+<?php endif;?>
 
         </div>
 
@@ -162,28 +108,40 @@ $users = $users->getUserByEmail($_SESSION['user']);
         <h3 class="shopH3">Aanbevolen voor jou</h3>
 
         <div class="shopContainer">
-
-            <div class="shopProduct">
+        <?php if($account === "printer"):?>
+        <?php foreach($RProductsP as $RProductP):?>
+        <a class="shopLink" href="shopDetail.php?id=<?php echo htmlspecialchars($RProductP['id'])?>">
+        <div class="shopProduct">
                 <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
+                    <img src="./images/<?php echo htmlspecialchars($RProductP['image'])?>" alt="filament">
                 </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
+                <p class="shopProductP"><?php echo htmlspecialchars($RProductP['title'])?></p>
                 <div class="shopFilament">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
+                    <p><?php echo htmlspecialchars($RProductP['price'])?></p>
                 </div>
             </div>
+        </a>
+       <?php endforeach;?>
+       <?php endif;?>
 
-            <div class="shopProduct">
+
+       <?php if($account === "horeca"):?>
+        <?php foreach($RProductsH as $RProductH):?>
+        <a class="shopLink" href="shopDetail.php?id=<?php echo htmlspecialchars($RProductH['id'])?>">
+        <div class="shopProduct">
                 <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
+                    <img src="./images/<?php echo htmlspecialchars($RProductH['image'])?>" alt="filament">
                 </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
+                <p class="shopProductP"><?php echo htmlspecialchars($RProductH['title'])?></p>
                 <div class="shopFilament">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
+                    <p><?php echo htmlspecialchars($RProductH['price'])?></p>
                 </div>
             </div>
+        </a>
+       <?php endforeach;?>
+       <?php endif;?>
 
         </div>
 
@@ -191,28 +149,39 @@ $users = $users->getUserByEmail($_SESSION['user']);
         <h3 class="shopH3">Alle producten</h3>
 
         <div class="shopContainer">
-
-            <div class="shopProduct">
+        <?php if($account === "printer"):?>
+        <?php foreach($productsP as $productP):?>
+        <a class="shopLink" href="shopDetail.php?id=<?php echo htmlspecialchars($productP['id'])?>">
+        <div class="shopProduct">
                 <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
+                    <img src="./images/<?php echo htmlspecialchars($productP['image'])?>" alt="filament">
                 </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
+                <p class="shopProductP"><?php echo htmlspecialchars($productP['title'])?></p>
                 <div class="shopFilament">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
+                    <p><?php echo htmlspecialchars($productP['price'])?></p>
                 </div>
             </div>
+        </a>
+       <?php endforeach;?>
+       <?php endif;?>
 
-            <div class="shopProduct">
+       <?php if($account === "horeca"):?>
+        <?php foreach($productsH as $productH):?>
+        <a class="shopLink" href="shopDetail.php?id=<?php echo htmlspecialchars($productH['id'])?>">
+        <div class="shopProduct">
                 <div class="shopProductImage">
-                    <img src="./images/filamentProduct.svg" alt="filament">
+                    <img src="./images/<?php echo htmlspecialchars($productH['image'])?>" alt="filament">
                 </div>
-                <p>Multicolor PLA 3D Printer Filament</p>
+                <p class="shopProductP"><?php echo htmlspecialchars($productH['title'])?></p>
                 <div class="shopFilament">
                     <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                    <p>60.00/kg</p>
+                    <p><?php echo htmlspecialchars($productH['price'])?></p>
                 </div>
             </div>
+        </a>
+       <?php endforeach;?>
+       <?php endif;?>
 
         </div>
 

@@ -6,11 +6,11 @@ include_once(__DIR__ . "/classes/Products.php");
 include_once(__DIR__ . "/classes/Users.php");
 
 
-$PProducts = new Products();
-$PProducts = $PProducts->getPopularProducts();
+$PProductsP = new Products();
+$PProductsP = $PProductsP->getPopularProductsP();
 
-$RProducts = new Products();
-$RProducts = $RProducts->getRecommendedProducts();
+$RProductsP = new Products();
+$RProductsP = $RProductsP->getRecommendedProductsP();
 
 
 $users = new Users();
