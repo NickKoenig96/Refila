@@ -2,9 +2,14 @@
 session_start();
 
 include_once(__DIR__ . "/classes/Users.php");
+include_once(__DIR__ . "/classes/Products.php");
+
 
 $users = new Users();
 $users = $users->getUserByEmail($_SESSION['user']);
+
+$productP = new Products();
+$productP = $productP->getProductPById($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,62 +39,28 @@ $users = $users->getUserByEmail($_SESSION['user']);
         <div class="detailShopProduct">
             <div class="detailShopProductP1">
                 <div class="detailShopProductF">
-                    <img src="images/filamentProduct.svg" alt="filament">
+                    <img src="images/<?php echo htmlspecialchars($productP[0]['image']) ?>" alt="filament">
                 </div>
             </div>
 
             <div class="detailShopProductP1">
                 <div class="detailShopProductInfo">
-                    <h1>Multicolor PLA 3D Printer Filament</h1>
+                    <h1><?php echo htmlspecialchars($productP[0]['title']) ?></h1>
                     <div class="shopDetailFilament">
                         <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p>60.00/kg</p>
+                        <p><?php echo htmlspecialchars($productP[0]['price']) ?>/kg</p>
                     </div>
                 </div>
 
                 <div class="detailShopProductInfoExtra">
 
                     <div>
-                        <div>
-                            <p class="shopDetailBold">LAND VAN HERKOMST:</p>
-                            <p>India</p>
-                        </div>
+                        <p class="shopDetailBold">BESCHRIJVING:</p>
+                        <p><?php echo htmlspecialchars($productP[0]['description']) ?></p>
+
                     </div>
 
-                    <div>
-                        <div>
-                            <p class="shopDetailBold">LAND VAN HERKOMST:</p>
-                            <p>Sparrow Softtech</p>
-                        </div>
-                    </div>
 
-                    <div>
-                        <div>
-                            <p class="shopDetailBold">LAND VAN HERKOMST:</p>
-                            <p>India</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <p class="shopDetailBold">LAND VAN HERKOMST:</p>
-                            <p>India</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <p class="shopDetailBold">LAND VAN HERKOMST:</p>
-                            <p>India</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <p class="shopDetailBold">LAND VAN HERKOMST:</p>
-                            <p>India</p>
-                        </div>
-                    </div>
 
                 </div>
 
@@ -99,16 +70,16 @@ $users = $users->getUserByEmail($_SESSION['user']);
                         <div class="shopDetailFormMargin">
                             <label id="loginLabel" for="amount">Hoeveelheid</label>
                             <select name="amount" id="">
-                                <option value="1kg">1kg filament</option>
-                                <option value="5kg">5kg</option>
-                                <option value="10kg">10kg</option>
+                                <option value="1">1kg filament</option>
+                                <option value="5">5kg filament</option>
+                                <option value="10">10kg filament</option>
                             </select>
                         </div>
 
 
                         <hr>
 
-                        <input class="ordersSubmit" type="submit" value="Betalen">
+                        <a class="linkDetail" href="pay.php"> <input class="ordersSubmit" value="Betalen"></a>
 
                     </form>
                 </div>

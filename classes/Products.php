@@ -80,5 +80,17 @@ class Products{
         return  $products;
     }
 
+
+    public function getProductPById($id){
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select * from products where id = :id ");
+        $result->bindValue(':id', $id);
+        $result->execute();
+
+        $products = $result->fetchAll();
+
+        return  $products;
+    }
+
 }
 

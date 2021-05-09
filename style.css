@@ -13,6 +13,7 @@ body {
     margin: 0;
 }
 
+
 /*login + register*/
 
 .loginContainer {
@@ -778,6 +779,10 @@ textarea {
 
 /* shop */
 
+.linkDetail{
+    text-decoration: none;
+}
+
 .shopContainer {
     padding: 1em;
     display: flex;
@@ -886,8 +891,7 @@ textarea {
 }
 
 .detailShopProductInfoExtra div {
-    display: flex;
-    flex-direction: row;
+width: 100%;
 }
 
 .detailShopProductInfoExtra p {
@@ -896,7 +900,9 @@ textarea {
 
 .shopDetailBold {
     font-weight: bold;
+
 }
+
 
 .shopDetailFormMargin {
     margin: 1em;
@@ -1184,7 +1190,6 @@ textarea {
     .detailShopProductF img {
         width: 18em;
         background-color: #F4F4F4;
-        margin-top: 3em;
     }
     .detailShopProductInfo {
         width: 30em;
@@ -1193,6 +1198,11 @@ textarea {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 0;
+    }
+
+    .shopDetailFilament p{
+        margin: 0;
     }
     .abo {
         display: flex;
