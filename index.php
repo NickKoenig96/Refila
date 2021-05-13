@@ -1,6 +1,9 @@
 <?php
 session_start();
 //var_dump($_SESSION['user']);
+if (!isset($_SESSION['user'])) {
+    header("location: login.php");
+};
 
 include_once(__DIR__ . "/classes/Products.php");
 include_once(__DIR__ . "/classes/Users.php");

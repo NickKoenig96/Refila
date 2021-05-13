@@ -49,10 +49,10 @@ if (!empty($_POST)) {
         </div>
         <form id="loginForm" action="" method="POST">
             <label id="loginLabel" for="email">EMAILADRESS</label>
-            <input id="loginInput" type="text" name="email" placeholder="Emailadress">
+            <input id="loginInput" type="email" name="email" placeholder="Emailadress">
 
             <label id="loginLabel" for="password">WACHTWOORD</label>
-            <input id="loginInput" type="text" name="password" placeholder="Wachtwoord">
+            <input id="loginInput" type="password" name="password" placeholder="Wachtwoord">
 
             <button id="loginSubmit" type="submit" name="submit">Login</button>
 

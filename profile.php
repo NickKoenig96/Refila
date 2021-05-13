@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['user'])) {
+    header("location: login.php");
+};
+
+
 include_once(__DIR__ . "/classes/Users.php");
 $users = new Users();
 $users = $users->getUserByEmail($_SESSION['user']);

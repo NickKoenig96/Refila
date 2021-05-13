@@ -2,6 +2,10 @@
 
 session_start();
 
+if (!isset($_SESSION['user'])) {
+    header("location: login.php");
+};
+
 include_once(__DIR__ . "/classes/Users.php");
 include_once(__DIR__ . "/classes/Orders.php");
 
