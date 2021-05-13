@@ -76,17 +76,17 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
         <div class="productsIndex">
 
-            <?php foreach ($PProducts as $PProduct) : ?>
+            <?php foreach ($PProductsP as $PProductP) : ?>
                 <div>
                     <a class="section product" href="">
-                        <div> <img src="./images/<?php echo htmlspecialchars($PProduct['image']) ?>" alt="">
+                        <div> <img src="./images/<?php echo htmlspecialchars($PProductP['image']) ?>" alt="">
                         </div>
                     </a>
-                    <p class="productIndexTitle"><?php echo htmlspecialchars($PProduct['title']) ?></p>
+                    <p class="productIndexTitle"><?php echo htmlspecialchars($PProductP['title']) ?></p>
                     <div class="priceProductIndex">
 
                         <img src="./images/filamentIcon.svg" alt="">
-                        <p><?php echo htmlspecialchars($PProduct['price']) ?>/kg</p>
+                        <p><?php echo htmlspecialchars($PProductP['price']) ?>/kg</p>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -103,17 +103,17 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
         <div class="productsIndex">
 
-            <?php foreach ($RProducts as $RProduct) : ?>
+            <?php foreach ($RProductsP as $RProductP) : ?>
                 <div>
                     <a class="section product" href="">
-                        <div> <img src="./images/<?php echo htmlspecialchars($RProduct['image']) ?>" alt="">
+                        <div> <img src="./images/<?php echo htmlspecialchars($RProductP['image']) ?>" alt="">
                         </div>
                     </a>
-                    <p class="productIndexTitle"><?php echo htmlspecialchars($RProduct['title']) ?></p>
+                    <p class="productIndexTitle"><?php echo htmlspecialchars($RProductP['title']) ?></p>
                     <div class="priceProductIndex">
 
                         <img src="./images/filamentIcon.svg" alt="">
-                        <p><?php echo htmlspecialchars($RProduct['price']) ?>/kg</p>
+                        <p><?php echo htmlspecialchars($RProductP['price']) ?>/kg</p>
                     </div>
                 </div>
             <?php endforeach; ?>

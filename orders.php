@@ -70,6 +70,7 @@ if (!empty($_POST['orderDoneSubmit'])) {
 }
 
 if (!empty($_POST['ordersAcceptSubmit'])) {
+    var_dump($_POST['ordersAccept']);
     $AcceptOrders = new Orders();
     $AcceptOrder = $AcceptOrders->AcceptOrder($_SESSION['user'], $_POST['ordersAccept']);
 
@@ -157,7 +158,7 @@ if (!empty($_POST['submitRatingH'])) {
 
                                 <div class="ordersPerson">
                                     <?php foreach ($allUsers as $allUser) : ?>
-                                        <?php if ($oA['printermail'] === $allUser['email']) : ?>
+                                        <?php if ($oA['horecamail'] === $allUser['email']) : ?>
                                             <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
                                         <?php endif; ?>
                                     <?php endforeach; ?> <p><?php echo htmlspecialchars($oA['horeca']) ?></p>
@@ -313,7 +314,7 @@ if (!empty($_POST['submitRatingH'])) {
 
                             <div class="ordersPerson">
                                 <?php foreach ($allUsers as $allUser) : ?>
-                                    <?php if ($oNA['printermail'] === $allUser['email']) : ?>
+                                    <?php if ($oNA['horecamail'] === $allUser['email']) : ?>
                                         <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
                                     <?php endif; ?>
                                 <?php endforeach; ?> <p><?php echo htmlspecialchars($oNA['horeca']) ?></p>
@@ -459,7 +460,7 @@ if (!empty($_POST['submitRatingH'])) {
 
                             <div class="ordersPerson">
                                 <?php foreach ($allUsers as $allUser) : ?>
-                                    <?php if ($oAW['printermail'] === $allUser['email']) : ?>
+                                    <?php if ($oAW['horecamail'] === $allUser['email']) : ?>
                                         <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
                                     <?php endif; ?>
                                 <?php endforeach; ?> <p><?php echo htmlspecialchars($oC['horeca']) ?></p>
@@ -539,7 +540,7 @@ if (!empty($_POST['submitRatingH'])) {
 
                             <div class="ordersPerson">
                                 <?php foreach ($allUsers as $allUser) : ?>
-                                    <?php if ($oC['printermail'] === $allUser['email']) : ?>
+                                    <?php if ($oC['horecamail'] === $allUser['email']) : ?>
                                         <img src="./images/<?php echo htmlspecialchars($allUser['image']) ?>" alt="">
                                     <?php endif; ?>
                                 <?php endforeach; ?> <p><?php echo htmlspecialchars($oC['horeca']) ?></p>

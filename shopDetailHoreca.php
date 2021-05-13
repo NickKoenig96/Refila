@@ -1,8 +1,42 @@
 <?php
 session_start();
+
 include_once(__DIR__ . "/classes/Users.php");
+include_once(__DIR__ . "/classes/Products.php");
+include_once(__DIR__ . "/classes/Orders.php");
+
+
+
 $users = new Users();
 $users = $users->getUserByEmail($_SESSION['user']);
+
+
+$productP = new Products();
+$productP = $productP->getProductPById($_GET['id']);
+
+
+if(!empty($_POST['orderSubmit'])){
+    var_dump($_POST['type']);
+    var_dump($_POST['amount']);
+    var_dump($_POST['Verzenden']);
+    var_dump($_POST['horeca']);
+    var_dump($_POST['deadline']);
+    var_dump($_POST['price']);
+    var_dump($_POST['horecamail']);
+    var_dump($_POST['month']);
+
+   $order = new Orders();
+    $order->insertProduct($_POST['type'], $_POST['horeca'],$_POST['description'], $_POST['amount'], $_POST['deadline'],$_POST['Verzenden'], $_POST['price'], $_POST['horecamail'], date(" F "));
+}
+
+
+$date = date("d-m-y");
+$date1 = str_replace( '/', $date);
+$tomorrow = date('d-m-Y',strtotime($date1 . "+14 days"));
+
+$month = date(" F ");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,40 +66,25 @@ $users = $users->getUserByEmail($_SESSION['user']);
         <div class="detailShopProduct">
             <div class="detailShopProductP1">
                 <div class="detailShopProductF">
-                    <img src="images/filamentProduct.svg" alt="filament">
+                    <img src="images/<?php echo htmlspecialchars($productP[0]['image']) ?>" alt="filament">
                 </div>
             </div>
 
             <div class="detailShopProductP1">
                 <div class="detailShopProductInfo">
-                    <h1>Multicolor PLA 3D Printer Filament</h1>
+                    <h1><?php echo htmlspecialchars($productP[0]['title']) ?></h1>
                     <div class="shopDetailFilament">
                         <img src="./images/filamentIcon.svg" alt="filamentIcon">
-                        <p>20.00/stuk</p>
+                        <p><?php echo htmlspecialchars($productP[0]['price']) ?>/kg</p>
                     </div>
                 </div>
 
                 <div class="detailShopProductInfoExtra">
 
                     <div>
-                        <div>
-                            <p class="shopDetailBold">LAND VAN HERKOMST:</p>
-                            <p>India</p>
-                        </div>
-                    </div>
+                        <p class="shopDetailBold">BESCHRIJVING:</p>
+                        <p><?php echo htmlspecialchars($productP[0]['description']) ?></p>
 
-                    <div>
-                        <div>
-                            <p class="shopDetailBold">LAND VAN HERKOMST:</p>
-                            <p>Sparrow Softtech</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <p class="shopDetailBold">LAND VAN HERKOMST:</p>
-                            <p>India</p>
-                        </div>
                     </div>
 
 
@@ -79,24 +98,29 @@ $users = $users->getUserByEmail($_SESSION['user']);
                             <label id="loginLabel" for="amount">Hoeveelheid</label>
                             <select name="amount" id="">
                                 <option value="10">10 stuks</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
+                                <option value="50">50 stuks</option>
+                                <option value="100">100 stuks</option>
                             </select>
+                        </div>
 
-                            <div class="shopDetailFormRadio">
+                        
+                        <div class="shopDetailFormRadio">
                             <input type="radio" id="" name="Verzenden" value="ophalen">
                             <label for="ophalen">Ophalen</label><br>
                             <input type="radio" id="" name="Verzenden" value="Verzenden">
                             <label for="Verzenden">Verzenden</label><br>
                             </div>
-                           
-
-                        </div>
-
+                            <input type="hidden" name="type" value="notA">
+                            <input type="hidden" name="horeca" value="<?php echo htmlspecialchars($users['name'])?>">
+                            <input type="hidden" name="description" value="<?php echo htmlspecialchars($productP[0]['description'])?>">
+                            <input type="hidden" name="deadline" value="<?php echo htmlspecialchars($tomorrow)?>">
+                            <input type="hidden" name="price" value="<?php echo htmlspecialchars($productP[0]['price'])?>">
+                            <input type="hidden" name="horecamail" value="<?php echo htmlspecialchars($_SESSION['user'])?>">
+                            <input type="hidden" name="month" value="<?php echo htmlspecialchars($month)?>">
 
                         <hr>
 
-                        <input class="ordersSubmit" type="submit" value="Bestellen">
+                     <input type="submit" class="ordersSubmit" value="Betalen" name="orderSubmit">
 
                     </form>
                 </div>

@@ -22,7 +22,7 @@ class Orders{
     public function getAllNotActivePrinter(){
 
         $conn = Db::getConnection();
-        $result = $conn->prepare("select * from orders where type = 'notActive'");
+        $result = $conn->prepare("select * from orders where type = 'notA'");
         $result->execute();
         $ordersNA = $result->fetchAll();
         return  $ordersNA;
@@ -82,7 +82,7 @@ class Orders{
     public  function AcceptOrder($name, $id)
     {
         $conn = Db::getConnection();
-        $result = $conn->prepare("update orders set type = 'active' where printermail = :email and id = :id ");
+        $result = $conn->prepare("update orders set type = 'active',printermail = :email where id = :id ");
         $result->bindValue(':email', $name);
         $result->bindValue(':id', $id);
         $result->execute();
@@ -416,6 +416,22 @@ class Orders{
         $coinsMonth = $result->fetchall();
      
         return   $coinsMonth;
+    }
+
+    public function insertProduct($type, $horeca, $description, $amount, $deadline, $send, $price, $horecamail, $month){
+        $conn = Db::getConnection();
+        $stm = $conn->prepare("INSERT INTO orders (type, horeca, description, amount, deadline, send, price, horecamail, month) VALUES (:type, :horeca, :description, :amount, :deadline, :send, :price, :horecamail, :month)");
+                $stm->bindValue(':type', $type);
+                $stm->bindValue(':horeca',$horeca );
+                $stm->bindValue(':description',$description );
+                $stm->bindValue(':amount',$amount );
+                $stm->bindValue(':deadline', $deadline);
+                $stm->bindValue(':send',$send );
+                $stm->bindValue(':price',$price );
+                $stm->bindValue(':horecamail',$horecamail );
+                $stm->bindValue(':month',$month );
+                $stm->execute();
+                var_dump($stm);
     }
 
 

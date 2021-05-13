@@ -87,7 +87,7 @@ $RProductsH = $RProductsH->getRecommendedProductsH();
 
 <?php if($account === "horeca"):?>
         <?php foreach($PProductsH as $PProductH):?>
-        <a class="shopLink" href="shopDetail.php?id=<?php echo htmlspecialchars($PProductH['id'])?>">
+        <a class="shopLink" href="shopDetailHoreca.php?id=<?php echo htmlspecialchars($PProductH['id'])?>">
         <div class="shopProduct">
                 <div class="shopProductImage">
                     <img src="./images/<?php echo htmlspecialchars($PProductH['image'])?>" alt="filament">
@@ -128,7 +128,7 @@ $RProductsH = $RProductsH->getRecommendedProductsH();
 
        <?php if($account === "horeca"):?>
         <?php foreach($RProductsH as $RProductH):?>
-        <a class="shopLink" href="shopDetail.php?id=<?php echo htmlspecialchars($RProductH['id'])?>">
+        <a class="shopLink" href="shopDetailHoreca.php?id=<?php echo htmlspecialchars($RProductH['id'])?>">
         <div class="shopProduct">
                 <div class="shopProductImage">
                     <img src="./images/<?php echo htmlspecialchars($RProductH['image'])?>" alt="filament">
@@ -168,7 +168,7 @@ $RProductsH = $RProductsH->getRecommendedProductsH();
 
        <?php if($account === "horeca"):?>
         <?php foreach($productsH as $productH):?>
-        <a class="shopLink" href="shopDetail.php?id=<?php echo htmlspecialchars($productH['id'])?>">
+        <a class="shopLink" href="shopDetailHoreca.php?id=<?php echo htmlspecialchars($productH['id'])?>">
         <div class="shopProduct">
                 <div class="shopProductImage">
                     <img src="./images/<?php echo htmlspecialchars($productH['image'])?>" alt="filament">
