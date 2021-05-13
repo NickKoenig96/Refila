@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-var_dump($_SESSION['user']);
+//var_dump($_SESSION['user']);
 
 include_once(__DIR__ . "/classes/Users.php");
 include_once(__DIR__ . "/classes/Orders.php");
@@ -70,27 +70,32 @@ if (!empty($_POST['orderDoneSubmit'])) {
 }
 
 if (!empty($_POST['ordersAcceptSubmit'])) {
-    var_dump($_POST['ordersAccept']);
     $AcceptOrders = new Orders();
     $AcceptOrder = $AcceptOrders->AcceptOrder($_SESSION['user'], $_POST['ordersAccept']);
 
     header('Location: orders.php');
-}
+
+}else
 
 
 if (!empty($_POST['ordersReceivedSubmit'])) {
-    $orderReceived = new Orders();
-    $orderReceived = $orderReceived->ReceiveOrder($_SESSION['user'], $_POST['ordersReceived']);
-
-    $updateCoinsPrinter = new Users();
-    $updateCoinPrinter  = $updateCoinsPrinter->updateCoins($_POST['printermail'], $_POST['price']);
-
-    $updateCoinsHoreca = new Users();
-    $updateCoinHoreca  = $updateCoinsHoreca->updateCoinsH($_SESSION['user'], $_POST['price']);
-
-
-
-    header('Location: orders.php');
+    if($users["coins"]> $_POST['price']){
+        $orderReceived = new Orders();
+        $orderReceived = $orderReceived->ReceiveOrder($_SESSION['user'], $_POST['ordersReceived']);
+    
+        $updateCoinsPrinter = new Users();
+        $updateCoinPrinter  = $updateCoinsPrinter->updateCoins($_POST['printermail'], $_POST['price']);
+    
+       /* $updateCoinsHoreca = new Users();
+        $updateCoinHoreca  = $updateCoinsHoreca->updateCoinsH($_SESSION['user'], $_POST['price']);*/
+    
+    
+    
+        header('Location: orders.php');
+    }else{
+        $message = 'Not enough coins. Earn or buy coins to confirm this order';
+    }
+   
 }
 
 
@@ -104,14 +109,22 @@ if (!empty($_POST['submitRating'])) {
 }
 
 if (!empty($_POST['submitRatingH'])) {
-    var_dump($_POST['rating']);
-    var_dump($_POST['printermail']);
-    var_dump($_POST['orderCompletId']);
+   // var_dump($_POST['rating']);
+    //var_dump($_POST['printermail']);
+    //var_dump($_POST['orderCompletId']);
 
 
     $ratingsHoreca = new Orders();
     $ratingHoreca  = $ratingsHoreca->addPrinterRating($_POST['rating'],$_POST['printermail'],$_POST['orderCompletId']);
 
+}
+
+$activeOrderCount = new orders();
+$activeOrderCount =$activeOrderCount->getCountActive($_SESSION['user']);
+//var_dump($activeOrderCount["COUNT(*)"]);
+if($activeOrderCount["COUNT(*)"] > 5){
+    $message =" LET OP! gelieve enkel orders aan te nemen die je kan uitvoeren";
+}else{
 }
 
 
@@ -135,6 +148,12 @@ if (!empty($_POST['submitRatingH'])) {
         <?php include("./nav2.inc.php") ?>
     </div>
     <div class="line"></div>
+
+    <div class="error">
+        <p><?php if (isset($message)) : ?>
+                    <?php echo htmlspecialchars($message) ?>
+                <?php endif; ?>
+        </div>
 
     <div class="ordersContainer">
 
@@ -447,8 +466,11 @@ if (!empty($_POST['submitRatingH'])) {
 
 
 
+        <?php if ($account === 'printer') : ?>
 
         <h2>Orders awaiting confimation</h2>
+        <?php endif; ?>
+
         <div class="completedOrders">
             <?php if ($account === 'printer') : ?>
                 <?php foreach ($orderAW as $oAW) : ?>

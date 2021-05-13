@@ -13,6 +13,15 @@ body {
     margin: 0;
 }
 
+.inform{
+    font-weight: bold;
+    color: #37B6D3;
+    width:  20em;
+    margin-left: 2em;
+
+    
+}
+
 
 /*login + register*/
 
@@ -310,7 +319,7 @@ nav {
     border-radius: 8px;
     width: 70%;
     padding: 0.8em;
-    margin-top: 18em;
+    margin-top: 2em;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 18em;
@@ -1114,6 +1123,7 @@ width: 100%;
     .completedOrders {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
     }
 
     .newOrders {
@@ -1234,6 +1244,13 @@ width: 100%;
     }
     #contactForm {
         width: 15em;
+    }
+
+    .inform{
+
+        margin-left: 6em;
+    
+        
     }
 }
 

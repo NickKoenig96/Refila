@@ -87,6 +87,7 @@ class Orders{
         $result->bindValue(':id', $id);
         $result->execute();
         $AcceptOrder = $result->fetch();
+        
         return $AcceptOrder;
     }
 
@@ -431,7 +432,15 @@ class Orders{
                 $stm->bindValue(':horecamail',$horecamail );
                 $stm->bindValue(':month',$month );
                 $stm->execute();
-                var_dump($stm);
+    }
+
+    public function getCountActive($name){
+        $conn = Db::getConnection();
+        $result = $conn->prepare("select COUNT(*) from orders where type = 'active' and printermail = :email ");
+        $result->bindValue(':email', $name);
+        $result->execute();
+        $ordersRS = $result->fetch();
+        return  $ordersRS;
     }
 
 

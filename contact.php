@@ -3,6 +3,11 @@ session_start();
 include_once(__DIR__ . "/classes/Users.php");
 $users = new Users();
 $users = $users->getUserByEmail($_SESSION['user']);
+
+if(!empty($_POST["submit"])){
+    $message = 'We hebben je mail succevol aangekregen. We sturen u zo snel mogelijk een antwoord.';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +30,12 @@ $users = $users->getUserByEmail($_SESSION['user']);
         <?php include("./nav2.inc.php") ?>
     </div>
     <div class="line"></div>
+
+    <div class="error">
+        <p><?php if (isset($message)) : ?>
+                    <?php echo htmlspecialchars($message) ?>
+                <?php endif; ?>
+        </div>
 
     <div class="ordersContainer">
         <h2>Contact</h2>

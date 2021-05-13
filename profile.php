@@ -5,10 +5,10 @@ $users = new Users();
 $users = $users->getUserByEmail($_SESSION['user']);
 
 if(!empty($_POST['submitProfile'])){
-    var_dump($_POST);
 
     $userProfile =new Users();
     $userProfile->updateUser($_POST['name'],$_POST['surname'],$_POST['gebruikersnaam'],$_POST['email'],$_POST['password']);
+    $message = "je veranderingen zijn opgeslagen";
 }
 
 //(profile)Image upload in directory and name in db
@@ -92,6 +92,12 @@ if (!empty($_POST["submitAvatar"])) {
         <?php include("./nav2.inc.php") ?>
     </div>
     <div class="line"></div>
+
+    <div class="error">
+        <p><?php if (isset($message)) : ?>
+                    <?php echo htmlspecialchars($message) ?>
+                <?php endif; ?>
+        </div>
 
     <div class="ordersContainer">
         <h2>Settings</h2>

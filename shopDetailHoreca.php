@@ -16,17 +16,23 @@ $productP = $productP->getProductPById($_GET['id']);
 
 
 if(!empty($_POST['orderSubmit'])){
-    var_dump($_POST['type']);
-    var_dump($_POST['amount']);
-    var_dump($_POST['Verzenden']);
-    var_dump($_POST['horeca']);
-    var_dump($_POST['deadline']);
-    var_dump($_POST['price']);
-    var_dump($_POST['horecamail']);
-    var_dump($_POST['month']);
+$baseprice = $_POST['price'];
+$price = $baseprice *  $_POST['amount'];
 
-   $order = new Orders();
-    $order->insertProduct($_POST['type'], $_POST['horeca'],$_POST['description'], $_POST['amount'], $_POST['deadline'],$_POST['Verzenden'], $_POST['price'], $_POST['horecamail'], date(" F "));
+if($users['coins']> $price){
+    $order = new Orders();
+    $order->insertProduct($_POST['type'], $_POST['horeca'],$_POST['description'], $_POST['amount'], $_POST['deadline'],$_POST['Verzenden'], $price, $_POST['horecamail'], date(" F "));
+    
+    $updateCoinsHoreca = new Users();
+    $updateCoinHoreca  = $updateCoinsHoreca->updateCoinsH($_SESSION['user'], $price);
+    
+    $url1=$_SERVER['REQUEST_URI'];
+    header("Refresh: 0.01; URL=$url1");
+}else{
+    $message ="Je hebt niet genoeg coins voor deze bestelling. koop of verdien coins om dit product te kunnen kopen";
+}
+
+
 }
 
 
@@ -61,6 +67,12 @@ $month = date(" F ");
 
     <div class="line"></div>
 
+    <div class="error">
+        <p><?php if (isset($message)) : ?>
+                    <?php echo htmlspecialchars($message) ?>
+                <?php endif; ?>
+        </div>
+
     <div class="detailShop">
 
         <div class="detailShopProduct">
@@ -77,6 +89,7 @@ $month = date(" F ");
                         <img src="./images/filamentIcon.svg" alt="filamentIcon">
                         <p><?php echo htmlspecialchars($productP[0]['price']) ?>/kg</p>
                     </div>
+
                 </div>
 
                 <div class="detailShopProductInfoExtra">
@@ -111,7 +124,7 @@ $month = date(" F ");
                             <label for="Verzenden">Verzenden</label><br>
                             </div>
                             <input type="hidden" name="type" value="notA">
-                            <input type="hidden" name="horeca" value="<?php echo htmlspecialchars($users['name'])?>">
+                            <input type="hidden" name="horeca" value="<?php echo htmlspecialchars($users['username'])?>">
                             <input type="hidden" name="description" value="<?php echo htmlspecialchars($productP[0]['description'])?>">
                             <input type="hidden" name="deadline" value="<?php echo htmlspecialchars($tomorrow)?>">
                             <input type="hidden" name="price" value="<?php echo htmlspecialchars($productP[0]['price'])?>">
@@ -123,6 +136,8 @@ $month = date(" F ");
                      <input type="submit" class="ordersSubmit" value="Betalen" name="orderSubmit">
 
                     </form>
+                    <p  class='inform'>Let op ! prijs wordt pas van je coins afgetrokken nadat het order voltooid is en door u opgehaald en bevestigd.</p>
+
                 </div>
 
 
