@@ -3,6 +3,74 @@ session_start();
 include_once(__DIR__ . "/classes/Users.php");
 $users = new Users();
 $users = $users->getUserByEmail($_SESSION['user']);
+
+if(!empty($_POST['submitProfile'])){
+    var_dump($_POST);
+
+    $userProfile =new Users();
+    $userProfile->updateUser($_POST['name'],$_POST['surname'],$_POST['gebruikersnaam'],$_POST['email'],$_POST['password']);
+}
+
+//(profile)Image upload in directory and name in db
+$target_dir = "images/";
+
+if (!empty($_POST["submitAvatar"])) {
+var_dump('yesy');
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+}
+
+$error = '';
+
+// Check if image file is a actual image or fake image
+if (!empty($_POST["submitAvatar"])) {
+
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if ($check !== false) {
+        $uploadOk = 1;
+    } else {
+        $error = "File is not an image.";
+        $uploadOk = 0;
+    }
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        $uploadOk = 1;
+    }
+
+    // Check file size
+    if ($_FILES["fileToUpload"]["size"] > 500000) {
+        $error = "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats
+    if (
+        $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" && !empty($_FILES["file"]["name"])
+    ) {
+        $error = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            $avatar = basename($_FILES["fileToUpload"]["name"]);
+            var_dump($avatar);
+            $userAvatar = new Users();
+            $userAvatar->uploadAvatar($_SESSION['user'],$avatar);
+            header('Location: profile.php');
+
+        }
+    }
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +98,7 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
         <div class="ordersCard orderscard2">
 
-            <h3 class="h3Profile">Persoonlijke gegevens</h3>
+            <h3 class="h3Profile">Persoonlijke gegevens aanpassen (alle velden moeten ingevuld worden)</h3>
             <div class="orders">
                 <div class="OrdersP1">
                     <form id="loginForm" action="" method="POST">
@@ -52,7 +120,7 @@ $users = $users->getUserByEmail($_SESSION['user']);
                         <label id="loginLabel" for="">SOORT ACCOUNT : 3D printer</label>
 
 
-                        <input id="loginSubmit" type="submit" name="submit" value="Opslaan">
+                        <input id="loginSubmit" type="submit" name="submitProfile" value="Opslaan">
 
 
                     </form>
@@ -64,10 +132,10 @@ $users = $users->getUserByEmail($_SESSION['user']);
                 <div class="ordersP2">
                     <h3>Profielfoto uploaden</h3>
                     <form class="ulpoadForm" action="" method="post" enctype="multipart/form-data">
-                        <img src="./images/Profile.jpeg" alt="">
+                        <img src="./images/<?php echo htmlspecialchars($users['image'])?>" alt="">
                         <div>
                             <input type="file" name="fileToUpload" id="fileToUpload">
-                            <input type="submit" value="Upload Image" name="submit">
+                            <input type="submit" value="Upload Image" name="submitAvatar">
                         </div>
 
                     </form>

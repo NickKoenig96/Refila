@@ -170,5 +170,29 @@ class Users
         return  $users;
     }
 
+    public function updateUser($name,$surname,$username,$email,$password){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update users set name=:name,surname=:surname,username=:username,email=:email,password=:password where email = :email");
+        $statement->bindValue(':name',$name );
+        $statement->bindValue(':surname',$surname );
+        $statement->bindValue(':username',$username );
+        $statement->bindValue(':email',$email );
+        $statement->bindValue(':password',$password );
+        $statement->execute();
+        $statement->fetch();
+
+    }
+
+     //slaag de avatar image naam op in de db voor d
+     public function uploadAvatar($email,$avatar)
+     {
+ 
+         $conn = Db::getConnection();
+         $statement = $conn->prepare("update users set image=:avatar where email = :email ");
+         $statement->bindValue(':avatar',$avatar );
+         $statement->bindValue(':email',$email );
+         $statement->execute();
+     }
+ 
   
 }
