@@ -1119,6 +1119,7 @@ width: 100%;
     .activeOrders {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
     }
     .completedOrders {
         display: flex;
@@ -1129,6 +1130,7 @@ width: 100%;
     .newOrders {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
     }
     .ordersCard {
         margin: 1em;
