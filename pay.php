@@ -41,6 +41,9 @@ $users = $users->getUserByEmail($_SESSION['user']);
         <a class="btnPay" href="./shop.php">Verder winkelen</a>
 
     </div>
+
+    <script src="js.js"></script>
+
     
 </body>
 </html>

@@ -102,6 +102,9 @@ $productP = $productP->getProductPById($_GET['id']);
         <?php include("./footer.inc.php") ?>
     </div>
 
+    <script src="js.js"></script>
+
+
 </body>
 
 </html>

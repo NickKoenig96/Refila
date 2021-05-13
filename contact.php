@@ -146,6 +146,9 @@ if(!empty($_POST["submit"])){
         <?php include("./footer.inc.php") ?>
     </div>
 
+    <script src="js.js"></script>
+
+
 </body>
 
 </html>

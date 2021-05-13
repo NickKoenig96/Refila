@@ -61,6 +61,9 @@ $users = $users->getUserByEmail($_SESSION['user']);
 <?php include("./footer.inc.php")?>
 </div>
 
+<script src="js.js"></script>
+
+
 </body>
 
 </html>

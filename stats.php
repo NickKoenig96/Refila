@@ -404,7 +404,7 @@ $ratingHorecaC1 = $ratingsHorecaC1->averageRatingHorecaC1($_SESSION['user']);
             </div>
 
             <div class="winnersList">
-            <?php for($i = 3; $i < count($top7users); ++$i):?>
+            <?php for($i = 4; $i < count($top7users); ++$i):?>
                 <div class="winnersListItem">
                     <p><?php echo htmlspecialchars($i)?></p>
                     <p class="nameRatings"><?php echo htmlspecialchars($top7users[$i]['username'])?></p>
@@ -472,6 +472,9 @@ $ratingHorecaC1 = $ratingsHorecaC1->averageRatingHorecaC1($_SESSION['user']);
     <div class="footer">
         <?php include("./footer.inc.php") ?>
     </div>
+
+    <script src="js.js"></script>
+
 
 </body>
 

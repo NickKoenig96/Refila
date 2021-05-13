@@ -138,7 +138,7 @@ $users = $users->getUserByEmail($_SESSION['user']);
     </div>
 
 
-
+<script src="js.js"></script>
 </body>
 
 </html>

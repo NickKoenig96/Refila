@@ -206,7 +206,7 @@ nav {
 
 .navOpen{
     background-color:#37B6D3 ;
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
