@@ -7,9 +7,9 @@
         <div>
             <h3>PAGINA'S</h3>
             <div class="footerLinks">
-            <a href="">Orders</a>
-            <a href="">Stats</a>
-            <a href="">Contact</a>
+            <a href="orders.php">Orders</a>
+            <a href="stats.php">Stats</a>
+            <a href="contact.php">Contact</a>
             </div>
          
         </div>

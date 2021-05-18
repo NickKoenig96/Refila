@@ -12,12 +12,24 @@ include_once(__DIR__ . "/classes/Users.php");
 $PProductsP = new Products();
 $PProductsP = $PProductsP->getPopularProductsP();
 
+$PProductsH = new Products();
+$PProductsH = $PProductsH->getPopularProductsH();
+
 $RProductsP = new Products();
 $RProductsP = $RProductsP->getRecommendedProductsP();
+
+$RProductsH = new Products();
+$RProductsH = $RProductsH->getRecommendedProductsH();
 
 
 $users = new Users();
 $users = $users->getUserByEmail($_SESSION['user']);
+$account;
+if ($users['account'] === 'printer') {
+    $account = 'printer';
+} else {
+    $account = 'horeca';
+}
 
 ?>
 
@@ -74,6 +86,8 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
 
     <div class="indexSection">
+    <?php if($account === "printer"):?>
+
 
         <h1>Populaire producten</h1>
 
@@ -81,7 +95,7 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
             <?php foreach ($PProductsP as $PProductP) : ?>
                 <div>
-                    <a class="section product" href="">
+                    <a class="section product" href="shop.php">
                         <div> <img src="./images/<?php echo htmlspecialchars($PProductP['image']) ?>" alt="">
                         </div>
                     </a>
@@ -96,11 +110,42 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
         </div>
 
+        <?php endif;?>
+
+        <?php if($account === "horeca"):?>
+
+
+<h1>Populaire producten</h1>
+
+<div class="productsIndex">
+
+    <?php foreach ($PProductsH as $PProductH) : ?>
+        <div>
+            <a class="section product" href="shop.php">
+                <div> <img src="./images/<?php echo htmlspecialchars($PProductH['image']) ?>" alt="">
+                </div>
+            </a>
+            <p class="productIndexTitle"><?php echo htmlspecialchars($PProductH['title']) ?></p>
+            <div class="priceProductIndex">
+
+                <img src="./images/filamentIcon.svg" alt="">
+                <p><?php echo htmlspecialchars($PProductH['price']) ?>/kg</p>
+            </div>
+        </div>
+    <?php endforeach; ?>
+
+</div>
+
+<?php endif;?>
+
+
     </div>
 
 
 
     <div class="indexSection">
+    <?php if($account === "printer"):?>
+
 
         <h1>Aanbevolen voor jou</h1>
 
@@ -108,7 +153,7 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
             <?php foreach ($RProductsP as $RProductP) : ?>
                 <div>
-                    <a class="section product" href="">
+                    <a class="section product" href="shop.php">
                         <div> <img src="./images/<?php echo htmlspecialchars($RProductP['image']) ?>" alt="">
                         </div>
                     </a>
@@ -123,11 +168,37 @@ $users = $users->getUserByEmail($_SESSION['user']);
         </div>
 
     </div>
+    <?php endif;?>
 
+    <?php if($account === "horeca"):?>
+
+
+<h1>Aanbevolen voor jou</h1>
+
+<div class="productsIndex">
+
+    <?php foreach ($RProductsH as $RProductH) : ?>
+        <div>
+            <a class="section product" href="shop.php">
+                <div> <img src="./images/<?php echo htmlspecialchars($RProductH['image']) ?>" alt="">
+                </div>
+            </a>
+            <p class="productIndexTitle"><?php echo htmlspecialchars($RProductH['title']) ?></p>
+            <div class="priceProductIndex">
+
+                <img src="./images/filamentIcon.svg" alt="">
+                <p><?php echo htmlspecialchars($RProductH['price']) ?>/kg</p>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+</div>
+<?php endif;?>
 
 
     <div class="indexSection">
-        <a id="shopButton" href="">Shop</a>
+        <a id="shopButton" href="shop.php">Shop</a>
     </div>
 
 

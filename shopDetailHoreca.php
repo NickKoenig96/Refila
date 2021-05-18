@@ -140,7 +140,6 @@ $month = date(" F ");
                      <input type="submit" class="ordersSubmit" value="Betalen" name="orderSubmit">
 
                     </form>
-                    <p  class='inform'>Let op ! prijs wordt pas van je coins afgetrokken nadat het order voltooid is en door u opgehaald en bevestigd.</p>
 
                 </div>
 

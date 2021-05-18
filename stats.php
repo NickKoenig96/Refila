@@ -117,7 +117,6 @@ $ratingHorecaC3 = $ratingsHorecaC3->averageRatingHorecaC3($_SESSION['user']);
 
 $ratingsHorecaC2 = new Orders();
 $ratingHorecaC2 = $ratingsHorecaC2->averageRatingHorecaC2($_SESSION['user']);
-var_dump($ratingHorecaC2);
 
 $ratingsHorecaC1 = new Orders();
 $ratingHorecaC1 = $ratingsHorecaC1->averageRatingHorecaC1($_SESSION['user']);

@@ -83,7 +83,6 @@ if (!empty($_POST['ordersAcceptSubmit'])) {
 
 
 if (!empty($_POST['ordersReceivedSubmit'])) {
-    if($users["coins"]> $_POST['price']){
         $orderReceived = new Orders();
         $orderReceived = $orderReceived->ReceiveOrder($_SESSION['user'], $_POST['ordersReceived']);
     
@@ -96,9 +95,7 @@ if (!empty($_POST['ordersReceivedSubmit'])) {
     
     
         header('Location: orders.php');
-    }else{
-        $message = 'Not enough coins. Earn or buy coins to confirm this order';
-    }
+   
    
 }
 

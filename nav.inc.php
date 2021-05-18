@@ -1,5 +1,6 @@
 <nav>
-    <img class="logo" src="./images/logo.svg" alt="logo">
+<a href="index.php"><img class="logo" src="./images/logo.svg" alt="logo">
+</a>
     <div class="coins">
         <img src="./images/filamentIcon.svg" alt="your coins">
         <p> <?php echo htmlspecialchars($users['coins'])?></p>
