@@ -1,0 +1,269 @@
+* {
+    box-sizing: border-box;
+}
+
+.logoL {
+    width: 50%;
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.landinpageSection {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5em;
+}
+
+.landinpageSection h1 {
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.landinpageSection p {
+    font-size: .8em;
+}
+
+#button {
+    background-color: #37B6D3;
+    text-decoration: none;
+    padding: 1em;
+    width: 16em;
+    border-radius: 7px;
+}
+
+#button a {
+    text-decoration: none;
+    color: white;
+}
+
+.laptopL {
+    width: 20em;
+    display: none;
+}
+
+.--gallery {
+    width: 100%;
+    margin-bottom: 3em;
+}
+
+.bigImageL {
+    width: 100%;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.L--features {
+    width: 100%;
+}
+
+.feature {
+    width: 20em;
+    text-align: center;
+    border: 5px solid #F4F4F4;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature p {
+    font-size: 0.8em;
+}
+
+.featuresTitle {
+    text-align: center;
+}
+
+.bigImageL2 {
+    margin-top: -5em;
+    background-color: #37B6D3;
+}
+
+.partnerImages {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.test {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.test img {
+    margin-bottom: 2em;
+}
+
+.partnerImages p {
+    text-align: center;
+}
+
+.klanten {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.klanten img {
+    width: 9em;
+    padding: 1em;
+}
+
+.abbo ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.abbo li {
+    font-size: 0.8em;
+    padding: 1em;
+}
+
+button {
+    background-color: #37B6D3;
+    border: none;
+    color: white;
+    padding: .5em 2em .5em 2em;
+    border-radius: 5px;
+}
+
+h4{
+    font-size: 1.6em;
+    text-align: center;
+}
+
+.newsletterBody{
+display: flex;
+justify-content: center;  
+
+}
+
+.newsletterH1{
+    color: #37B6D3;
+}
+
+
+
+@media(min-width: 800px) {
+    .logoL {
+        width: 25%;
+        margin-left: 1em;
+    }
+    .landinpageSection {
+        display: flex;
+    }
+    .laptopL {
+        width: 25em;
+        display: block;
+    }
+    .L--2 {
+        margin-right: 3em;
+        width: 15em;
+        padding-top: 2em;
+    }
+    .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .feature {
+        width: 28%;
+        margin: 0.5em;
+    }
+    .test {
+        display: flex;
+        gap: 20%;
+    }
+    .test img {
+        width: 35%;
+    }
+    .klanten {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .abbonementen {
+        display: flex;
+        justify-content: center;
+    }
+
+    .L--abbo{
+        justify-content: center;
+    }
+ 
+}
+
+@media(min-width: 1250px) {
+    .logoL {
+        width: 20%;
+    }
+    .landinpageSection {
+        padding-top: 5em;
+    }
+    .landinpageSection h1 {
+        font-size: 2em;
+    }
+    .landinpageSection p {
+        font-size: 1em;
+    }
+    .laptopL {
+        width: 30em;
+    }
+    .L--2 {
+        margin-right: 3em;
+        width: 20em;
+        padding-top: 2em;
+    }
+    .test {
+        gap: 50%;
+    }
+    .test img {
+        width: 25%;
+    }
+    .klanten {
+        justify-content: center;
+    }
+    .klanten img {
+        margin: 0.5em;
+    }
+}
+
+@media(min-width: 1600px) {
+    .logoL {
+        width: 15%;
+    }
+    .landinpageSection h1 {
+        font-size: 2.5em;
+    }
+    .landinpageSection p {
+        font-size: 1.2em;
+    }
+    .laptopL {
+        width: 35em;
+    }
+    .L--2 {
+        margin-right: 3em;
+        width: 30em;
+        padding-top: 2em;
+    }
+    .test {
+        gap: 80%;
+    }
+    .test img {
+        width: 15%;
+    }
+    .klanten img {
+        margin: 2em;
+    }
+}
