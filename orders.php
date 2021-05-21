@@ -5,7 +5,6 @@ if (!isset($_SESSION['user'])) {
     header("location: login.php");
 };
 
-//var_dump($_SESSION['user']);
 
 include_once(__DIR__ . "/classes/Users.php");
 include_once(__DIR__ . "/classes/Orders.php");
@@ -16,7 +15,6 @@ $users = $users->getUserByEmail($_SESSION['user']);
 
 $allUsers = new Users();
 $allUsers = $allUsers->getAllUsers();
-//var_dump($allUsers);
 
 $UserHorecaTotalCoins = new Users();
 $UserHorecaTotalCoin = $UserHorecaTotalCoins->totalCoinsH($_SESSION['user']);
@@ -110,9 +108,7 @@ if (!empty($_POST['submitRating'])) {
 }
 
 if (!empty($_POST['submitRatingH'])) {
-   // var_dump($_POST['rating']);
-    //var_dump($_POST['printermail']);
-    //var_dump($_POST['orderCompletId']);
+
 
 
     $ratingsHoreca = new Orders();
@@ -122,7 +118,6 @@ if (!empty($_POST['submitRatingH'])) {
 
 $activeOrderCount = new orders();
 $activeOrderCount =$activeOrderCount->getCountActive($_SESSION['user']);
-//var_dump($activeOrderCount["COUNT(*)"]);
 if($activeOrderCount["COUNT(*)"] > 5){
     $message =" LET OP! gelieve enkel orders aan te nemen die je kan uitvoeren";
 }else{

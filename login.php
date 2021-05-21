@@ -3,7 +3,6 @@ include_once(__DIR__ . "/classes/Users.php");
 
 
 if (!empty($_POST)) {
-    var_dump($_POST);
     $email = $_POST['email'];
     $password = $_POST['password'];
 

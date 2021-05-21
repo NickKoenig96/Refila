@@ -5,7 +5,7 @@ include_once(__DIR__ . "/classes/Users.php");
 //if form is submitted
 if (!empty($_POST)) {
 
-    var_dump($_POST);
+ 
 try{
     $surname = $_POST['surname'];
     $name = $_POST['name'];

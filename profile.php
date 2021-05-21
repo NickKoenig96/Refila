@@ -21,7 +21,6 @@ if(!empty($_POST['submitProfile'])){
 $target_dir = "images/";
 
 if (!empty($_POST["submitAvatar"])) {
-var_dump('yesy');
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -67,7 +66,6 @@ if (!empty($_POST["submitAvatar"])) {
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             $avatar = basename($_FILES["fileToUpload"]["name"]);
-            var_dump($avatar);
             $userAvatar = new Users();
             $userAvatar->uploadAvatar($_SESSION['user'],$avatar);
             header('Location: profile.php');

@@ -19,12 +19,10 @@ $top3users = $top3users->getTop3Users();
 
 $top7users = new Users();
 $top7users = $top7users->getTop7Users();
-//var_dump($top7users);
 
 
 $allUsers = new Users();
 $allUsers = $allUsers->getAllUsers();
-//var_dump($allUsers);
 
 $account;
 if ($users['account'] === 'printer') {
@@ -54,7 +52,6 @@ $amountOrderMonth = $amountOrdersMonth->getAllCompleteOrdersPrintersMonth(date("
 
 $MaxMonths = new Orders();
 $MaxMonth = $MaxMonths->getMaxIncomePrintersMonth(date(" F "),$_SESSION['user']);
-//var_dump($MaxMonth[0]["Max(price)"]);
 
 // Horeca 
 
